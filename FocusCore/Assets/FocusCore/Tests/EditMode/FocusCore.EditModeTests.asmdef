@@ -1,0 +1,7 @@
+{
+  "name": "FocusCore.EditModeTests",
+  "rootNamespace": "FocusCore.Tests",
+  "references": ["FocusCore.Domain"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

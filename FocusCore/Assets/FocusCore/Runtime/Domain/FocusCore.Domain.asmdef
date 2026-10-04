@@ -1,0 +1,6 @@
+{
+  "name": "FocusCore.Domain",
+  "rootNamespace": "FocusCore",
+  "references": [],
+  "noEngineReferences": true
+}

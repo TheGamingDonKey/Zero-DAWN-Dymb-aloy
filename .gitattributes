@@ -1,0 +1,3 @@
+# Unity's generated YAML uses spaces after empty scalar values.
+*.asset whitespace=-blank-at-eol
+*.meta whitespace=-blank-at-eol
