@@ -78,14 +78,18 @@ If passthrough or the XR session cannot initialize, record the actual cause and 
 
 ## Development checkpoints
 
-1. Establish the host tooling and verify the chosen Unity editor opens with Android modules present and a usable license.
-2. Establish a data connection to the Quest, retrieve device and OS information, and verify USB debugging authorization. Developer mode and account prompts require Shane's participation.
-3. Build and deploy a minimal passthrough scene before adding application effects. Confirm launch and head tracking on the headset.
-4. Add one hand-operated control with controller fallback. Verify deliberate selection and tracking-loss recovery.
-5. Add the Focus state, scan visual, and generated audio. Verify one accepted request produces one complete effect.
+Shane authorized preparation while the headset is disconnected on October 4, 2026. The host and source work can advance independently of hardware acceptance:
+
+1. Establish the host tooling and verify the chosen Unity editor opens with Android modules present and a usable license. Downloads and source preparation can proceed if sign-in or an installer prompt needs Shane; compilation remains pending until the editor can run.
+2. Prepare a minimal passthrough baseline scene and build its APK. Retain this scene so device integration can begin with the smallest application.
+3. Prepare the hand-operated control, controller fallback, Focus state, procedural pulse, and generated audio. Run meaningful host tests and attempt a separate Focus APK. Without a headset these are source, host-test, and build results only.
+4. When Shane returns, establish a data connection, retrieve device and OS information, and verify USB debugging authorization. Developer mode and account prompts require Shane's participation.
+5. Install the minimal baseline first and confirm passthrough and head tracking while wearing the headset. Then validate the Focus control and recovery behavior, followed by the pulse and audio. Fix the first failing platform layer before adding later features.
 6. Repeat build, install, and launch after a small visible change to prove that iteration is repeatable.
 
-Host-tool setup can proceed while headset account configuration is being completed. Device deployment depends on a verified device connection. Product behavior is implemented only after this specification and the implementation plan are reviewed.
+Device deployment depends on a verified device connection. Product behavior is implemented only after this specification and the implementation plan are reviewed. The expected twelve-hour absence is not a completion deadline or a promise that account prompts can be passed unattended.
+
+Use one implementer and the critic Shane requested at meaningful checkpoints. For a repeated setup/build error, retain the log, diagnose the cause, and make at most two targeted corrective attempts. If the same failure persists or roughly twenty minutes of investigation produces no new evidence, stop that branch and continue independent useful work. Download/install progress does not count as stalled investigation. Optional simulator or agent integration cannot block the core project.
 
 ## Verification and completion criteria
 
@@ -105,7 +109,6 @@ Automated checks should cover meaningful application state behavior, especially 
 ## Current sources
 
 - [Meta Unity setup](https://developers.meta.com/vr/documentation/unity/unity-project-setup/)
-- [Meta AI-assisted Unity workflow](https://developers.meta.com/horizon/documentation/unity/unity-tutorial-ai-vr-setup/)
 - [Meta Interaction SDK](https://developers.meta.com/vr/documentation/unity/unity-isdk-interaction-sdk-overview/)
 - [Hand tracking limitations](https://developers.meta.com/vr/design/hands-limitations-mitigations/)
 - [Meta VR CLI installation](https://developers.meta.com/vr/essentials/metavr-install/)
