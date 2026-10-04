@@ -1,0 +1,16 @@
+.worktrees/
+.superpowers/
+.artifacts/
+FocusCore/[Ll]ibrary/
+FocusCore/[Tt]emp/
+FocusCore/[Oo]bj/
+FocusCore/[Ll]ogs/
+FocusCore/[Uu]ser[Ss]ettings/
+FocusCore/[Bb]uild/
+FocusCore/[Bb]uilds/
+FocusCore/.vs/
+FocusCore/*.csproj
+FocusCore/*.sln
+FocusCore/*.slnx
+FocusCore/*.user
+*.keystore
