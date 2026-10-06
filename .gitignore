@@ -4,6 +4,8 @@
 FocusCore/[Ll]ibrary/
 FocusCore/[Tt]emp/
 FocusCore/[Oo]bj/
+FocusCore/.utmp/
+FocusCore/.cxx/
 FocusCore/[Ll]ogs/
 FocusCore/[Uu]ser[Ss]ettings/
 FocusCore/[Bb]uild/
@@ -14,3 +16,5 @@ FocusCore/*.sln
 FocusCore/*.slnx
 FocusCore/*.user
 *.keystore
+FocusCore/Assets/Resources/DevAgentSettings.asset*
+FocusCore/Assets/Resources/PerformanceTestRun*.json*

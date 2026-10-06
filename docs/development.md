@@ -10,25 +10,33 @@ Installed Editor:
 
 `C:\Users\mrbos\Documents\UnityEditors\6000.3.25f1\Editor\Unity.exe`
 
-Unity Hub 3.22.2 is installed as a Windows package. Sign in to Unity Hub and activate an eligible license. If Hub does not list this Editor, use Locate/Add and select the executable above. Then add/open the `FocusCore` project. The Editor's first batch startup exited 198 with "No valid Unity Editor license found." Account activation requires Shane.
+Unity Hub 3.22.2 is installed as a Windows package. Activation now works: actual Editor import, compilation and tests succeeded on October 6. If Hub does not list this Editor, use Locate/Add and select the executable above. Add/open the `FocusCore` project. The earlier exit198 licence blocker is resolved.
 
 The install initially landed in Codex's virtualized LocalAppData. It was moved to Documents, its executable hash matched, and Unity's CLI verified the relocated Editor and Android modules. No Windows ACL or system security policy was changed.
 
 Installed Android components include OpenJDK 17.0.18+8, NDK r27c, CMake 3.22.1, platform/build tools 36.0.0, and command-line tools 16.0. Use these Unity-managed tools for builds. The system's separate Java installations are not the build toolchain.
 
-The candidate project manifest specifies Meta Core/Interaction/OVR integration 207.0.0, OpenXR 1.17.0, Input System 1.12.0, XR Hands 1.7.2, URP 17.0.1, Test Framework 1.4.6, and Unity NUnit package 2.0.5. URP settings came from this Editor's bundled blank URP template. This dependency set has not completed a Unity import; no package lockfile or compatibility claim is fabricated. Resolve any actual import issue before generating scenes or building.
+The imported manifest and Unity-generated lockfile pin Meta Core/Interaction/OVR integration 207.0.0, OpenXR 1.17.0, Input System 1.20.0, XR Hands 1.7.2, URP 17.3.0, Test Framework 1.6.0, and Unity NUnit package 2.0.5. URP settings came from this Editor's bundled blank URP template. Additional built-in modules required by SDK source are explicit in the manifest.
 
 From the implementation worktree, PowerShell 7 can run:
 
 ```powershell
 ./scripts/Check-Environment.ps1
 ./scripts/Test-Domain.ps1
+./scripts/Test.ps1 -Mode EditMode
+./scripts/Build.ps1 -Scene Baseline
 ```
 
 The domain runner compiles the real `Runtime/Domain` files and the same NUnit test sources used by Unity. It uses the staged Unity NUnit DLL on this host, or finds it in the project's package cache after import. On another host, supply `-NUnitPath` pointing to the official `com.unity.ext.nunit` package's `net40/unity-custom/nunit.framework.dll`. Compilation errors, zero tests, failures, ignored tests, and inconclusive tests return nonzero. Each run receives a unique XML/DLL directory under ignored `.artifacts/tests/`.
 
-These are host logic tests. They do not run Unity rendering, SDK hand input, Android/IL2CPP, passthrough, or headset performance. After activation/import, run the EditMode tests in Unity's Test Runner too.
+The domain runner tests host logic only. `Test.ps1` instead runs Unity's real Test Runner with Android selected and checks fresh XML and the Editor exit status. The 31 EditMode cases cover domain behaviour and saved platform configuration/rig generation; they do not prove passthrough or input on hardware.
+
+The launcher refuses another active Unity Editor, an occupied private ADB port, or less than 1.5 GiB available RAM. Android builds require 3 GiB available before starting. Each owned Editor runs below normal priority with limited workers, two Bee build threads, an owned Gradle cache under %USERPROFILE%/.fbc and a private inherited ADB endpoint at port54483. Build.ps1 exports the Android Gradle project, waits for Unity to exit, then packages separately with two Gradle/Bee workers, a 2048 MiB heap and no persistent daemon. This avoids Unity overriding the heap to 4096 MiB. A checkout ownership marker protects the short cache path, which also avoids the Windows Ninja path-length failure. Interrupted packaging can resume with -ResumeExport pointing to its owned export; an export containing an APK is refused. These bounds reduce contention; initial import/shader compilation still consumes CPU, RAM and disk. No script closes other applications or changes global environment variables. Native ADB behaviour must be verified during the actual build/device step.
+
+`Focus/Configure Android XR` requires Android selected. `Focus/Generate Passthrough Baseline` creates the saved scene and prefab using SDK quick actions and the official passthrough-underlay prefab. Configuration selects ARM64/IL2CPP, Vulkan, minimumAPI32, targetAPI34, OpenXR, Quest support, hand tracking and controller fallback. Raw camera access is disabled. No blanket SDK machine setup fixes run.
+
+Builds receive unique output paths under `.artifacts/apks/`; the convenience `FocusBaseline.apk` is replaced only after the invocation exits successfully and produces a nonempty APK. `BuildCore` deliberately fails until the Focus controls/effects scene exists. Fresh export directories can repeat native compilation; a fast incremental iteration workflow has not been proven. `-ResumeExport` packages its saved export snapshot, not newer C# or scene edits.
 
 Meta VR CLI is installed at `C:\Users\mrbos\.metavr\bin\metavr.exe`, version 1.8.0.17.10. Its older Hub detection does not recognize the new Windows package; this does not block device operations. Hub's bundled standalone Unity CLI was used to install the Editor, without another engine or Android Studio.
 
-Next implementation steps are the plan's minimal platform prefab/baseline scene and Android/OpenXR configuration, then the SDK Scan control, procedural graphics/audio, and logged APK builds. The build scripts and runtime presentation are not implemented yet. When the headset is connected, verify developer mode, a data-capable cable and USB debugging before installation; validate the baseline before Focus controls and effects.
+The baseline APK is built and signature/manifest checked. Next steps are SDK Scan control and procedural graphics/audio, alongside physical baseline verification. When the headset is connected, verify developer mode, a data-capable cable and USB debugging before installation; validate the baseline before Focus controls and effects. The generated SDK rig includes additional SDK interaction infrastructure; only ray/poke input is intended for the first Focus control.

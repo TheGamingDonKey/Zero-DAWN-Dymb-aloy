@@ -1,0 +1,7 @@
+{
+  "name": "FocusCore.EditorSetupTests",
+  "rootNamespace": "FocusCore.Tests",
+  "references": ["FocusCore.Editor", "Oculus.VR", "Oculus.VR.Editor", "Oculus.Interaction", "Unity.XR.Management", "Unity.XR.Management.Editor", "Unity.XR.OpenXR"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}
