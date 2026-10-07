@@ -3,7 +3,7 @@
 param([string]$UnityPath = 'C:\Users\mrbos\Documents\UnityEditors\6000.3.25f1\Editor\Unity.exe')
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-if (@(Get-Process -Name Unity -ErrorAction SilentlyContinue).Count) { throw 'An Editor is already open. No Editor was stopped; close it before this isolated launch.' }
+if (@(Get-CimInstance Win32_Process -Filter "Name = 'Unity.exe'" | Where-Object { -not $_.ExecutablePath -or $_.ExecutablePath -match '\\Editor\\Unity\.exe$' }).Count) { throw 'An Editor is already open. No Editor was stopped; close it before this isolated launch.' }
 if ((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory -lt 1.5MB) { throw 'Defer until at least1.5GiB RAM is free.' }
 if (@(Get-NetTCPConnection -State Listen -LocalPort 54484 -ErrorAction SilentlyContinue).Count) { throw 'Project MCP port54484 is occupied; no process was stopped.' }
 $focusLogDir = Join-Path $focusRoot '.artifacts\logs'

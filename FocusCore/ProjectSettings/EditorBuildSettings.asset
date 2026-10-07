@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/FocusCore/Scenes/PassthroughBaseline.unity
-    guid: 0668d682bd77d9a44bc625339e21f66e
+    path: Assets/FocusCore/Scenes/FocusCore.unity
+    guid: d6f9a4cf1c0c7284f8abfb4e61f33398
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f1f54956af5ce9c47bf447d92f62ef25, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: eca0f5aa50b14804da3fd5d6be6864f4, type: 2}

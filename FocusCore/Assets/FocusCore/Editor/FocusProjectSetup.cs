@@ -93,6 +93,7 @@ namespace FocusCore.Editor
             config.targetDeviceTypes = new List<OVRProjectConfig.DeviceType> { OVRProjectConfig.DeviceType.Quest3S };
             config.handTrackingSupport = OVRProjectConfig.HandTrackingSupport.ControllersAndHands;
             config.insightPassthroughSupport = OVRProjectConfig.FeatureSupport.Required;
+            config.systemLoadingScreenBackground = OVRProjectConfig.SystemLoadingScreenBackground.ContextualPassthrough;
             config.isPassthroughCameraAccessEnabled = false;
             OVRProjectConfig.CommitProjectConfig(config);
             var runtime = OVRRuntimeSettings.Instance;

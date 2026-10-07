@@ -1,0 +1,314 @@
+{
+  "recorded_date": "2026-10-07",
+  "editor": "6000.3.25f1",
+  "transport": "stdio / project-local54484",
+  "headset_verified": false,
+  "core_apk_built": false,
+  "reports": [
+    {
+      "recorded_file": "editor-2476.json",
+      "tool": "get_test_job",
+      "arguments": {
+        "job_id": "876537fd263247e18c72df88d5adfa05",
+        "wait_timeout": 30,
+        "include_failed_tests": true
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"success\":true,\"message\":\"Test job status retrieved.\",\"error\":null,\"data\":{\"job_id\":\"876537fd263247e18c72df88d5adfa05\",\"status\":\"succeeded\",\"mode\":\"EditMode\",\"started_unix_ms\":1791370336888,\"finished_unix_ms\":1791370345360,\"last_update_unix_ms\":1791370345360,\"progress\":{\"completed\":37,\"total\":37,\"current_test_full_name\":null,\"current_test_started_unix_ms\":1791370342172,\"last_finished_test_full_name\":\"FocusCore.Tests.PlatformSetupTests.SavedBaselineContainsTransparentCameraPassthroughAndHandControllerInteractors\",\"last_finished_unix_ms\":1791370345117,\"stuck_suspected\":false,\"editor_is_focused\":true,\"blocked_reason\":null,\"failures_so_far\":[],\"failures_capped\":false},\"error\":null,\"result\":{\"mode\":\"EditMode\",\"summary\":{\"total\":37,\"passed\":37,\"failed\":0,\"skipped\":0,\"durationSeconds\":6.9282583,\"resultState\":\"Passed\"},\"results\":[]}},\"hint\":null}",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": {
+            "success": true,
+            "message": "Test job status retrieved.",
+            "error": null,
+            "data": {
+              "job_id": "876537fd263247e18c72df88d5adfa05",
+              "status": "succeeded",
+              "mode": "EditMode",
+              "started_unix_ms": 1791370336888,
+              "finished_unix_ms": 1791370345360,
+              "last_update_unix_ms": 1791370345360,
+              "progress": {
+                "completed": 37,
+                "total": 37,
+                "current_test_full_name": null,
+                "current_test_started_unix_ms": 1791370342172,
+                "last_finished_test_full_name": "FocusCore.Tests.PlatformSetupTests.SavedBaselineContainsTransparentCameraPassthroughAndHandControllerInteractors",
+                "last_finished_unix_ms": 1791370345117,
+                "stuck_suspected": false,
+                "editor_is_focused": true,
+                "blocked_reason": null,
+                "failures_so_far": [],
+                "failures_capped": false
+              },
+              "error": null,
+              "result": {
+                "mode": "EditMode",
+                "summary": {
+                  "total": 37,
+                  "passed": 37,
+                  "failed": 0,
+                  "skipped": 0,
+                  "durationSeconds": 6.9282583,
+                  "resultState": "Passed"
+                },
+                "results": []
+              }
+            },
+            "hint": null
+          }
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "recorded_file": "editor-30488.json",
+      "tool": "manage_scene",
+      "arguments": {
+        "action": "get_active"
+      },
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"success\":true,\"message\":\"Retrieved active scene information.\",\"data\":{\"name\":\"FocusCore\",\"path\":\"Assets/FocusCore/Scenes/FocusCore.unity\",\"buildIndex\":0,\"isDirty\":false,\"isLoaded\":true,\"rootCount\":2}}",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "success": true,
+          "message": "Retrieved active scene information.",
+          "data": {
+            "name": "FocusCore",
+            "path": "Assets/FocusCore/Scenes/FocusCore.unity",
+            "buildIndex": 0,
+            "isDirty": false,
+            "isLoaded": true,
+            "rootCount": 2
+          }
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "recorded_file": "editor-30488.json",
+      "tool": "manage_scene",
+      "arguments": {
+        "action": "get_build_settings"
+      },
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"success\":true,\"message\":\"Retrieved scenes from Build Settings.\",\"data\":[{\"path\":\"Assets/FocusCore/Scenes/FocusCore.unity\",\"guid\":\"d6f9a4cf1c0c7284f8abfb4e61f33398\",\"enabled\":true,\"buildIndex\":0}]}",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "success": true,
+          "message": "Retrieved scenes from Build Settings.",
+          "data": [
+            {
+              "path": "Assets/FocusCore/Scenes/FocusCore.unity",
+              "guid": "d6f9a4cf1c0c7284f8abfb4e61f33398",
+              "enabled": true,
+              "buildIndex": 0
+            }
+          ]
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "recorded_file": "editor-32688.json",
+      "tool": "get_test_job",
+      "arguments": {
+        "job_id": "75190aad7f914513bbe89a8e9a1edbf8",
+        "wait_timeout": 30,
+        "include_failed_tests": true
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"success\":true,\"message\":\"Test job status retrieved.\",\"error\":null,\"data\":{\"job_id\":\"75190aad7f914513bbe89a8e9a1edbf8\",\"status\":\"succeeded\",\"mode\":\"PlayMode\",\"started_unix_ms\":1791370355945,\"finished_unix_ms\":1791370359251,\"last_update_unix_ms\":1791370359251,\"progress\":{\"completed\":4,\"total\":4,\"current_test_full_name\":null,\"current_test_started_unix_ms\":1791370359232,\"last_finished_test_full_name\":\"FocusCore.Tests.FocusPresentationTests.PokeRequiresFrontWithdrawalOrLeavingButtonBounds\",\"last_finished_unix_ms\":1791370359233,\"stuck_suspected\":false,\"editor_is_focused\":true,\"blocked_reason\":null,\"failures_so_far\":[],\"failures_capped\":false},\"error\":null,\"result\":{\"mode\":\"PlayMode\",\"summary\":{\"total\":4,\"passed\":4,\"failed\":0,\"skipped\":0,\"durationSeconds\":0.0673267,\"resultState\":\"Passed\"},\"results\":[]}},\"hint\":null}",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": {
+            "success": true,
+            "message": "Test job status retrieved.",
+            "error": null,
+            "data": {
+              "job_id": "75190aad7f914513bbe89a8e9a1edbf8",
+              "status": "succeeded",
+              "mode": "PlayMode",
+              "started_unix_ms": 1791370355945,
+              "finished_unix_ms": 1791370359251,
+              "last_update_unix_ms": 1791370359251,
+              "progress": {
+                "completed": 4,
+                "total": 4,
+                "current_test_full_name": null,
+                "current_test_started_unix_ms": 1791370359232,
+                "last_finished_test_full_name": "FocusCore.Tests.FocusPresentationTests.PokeRequiresFrontWithdrawalOrLeavingButtonBounds",
+                "last_finished_unix_ms": 1791370359233,
+                "stuck_suspected": false,
+                "editor_is_focused": true,
+                "blocked_reason": null,
+                "failures_so_far": [],
+                "failures_capped": false
+              },
+              "error": null,
+              "result": {
+                "mode": "PlayMode",
+                "summary": {
+                  "total": 4,
+                  "passed": 4,
+                  "failed": 0,
+                  "skipped": 0,
+                  "durationSeconds": 0.0673267,
+                  "resultState": "Passed"
+                },
+                "results": []
+              }
+            },
+            "hint": null
+          }
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "recorded_file": "editor-32688.json",
+      "tool": "manage_scene",
+      "arguments": {
+        "action": "get_active"
+      },
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"success\":true,\"message\":\"Retrieved active scene information.\",\"data\":{\"name\":\"FocusCore\",\"path\":\"Assets/FocusCore/Scenes/FocusCore.unity\",\"buildIndex\":-1,\"isDirty\":false,\"isLoaded\":true,\"rootCount\":2}}",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "success": true,
+          "message": "Retrieved active scene information.",
+          "data": {
+            "name": "FocusCore",
+            "path": "Assets/FocusCore/Scenes/FocusCore.unity",
+            "buildIndex": -1,
+            "isDirty": false,
+            "isLoaded": true,
+            "rootCount": 2
+          }
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "recorded_file": "editor-6992.json",
+      "tool": "get_test_job",
+      "arguments": {
+        "job_id": "3ce101f3f542433ea93ed058612ff1d7",
+        "wait_timeout": 30,
+        "include_failed_tests": true
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"success\":true,\"message\":\"Test job status retrieved.\",\"error\":null,\"data\":{\"job_id\":\"3ce101f3f542433ea93ed058612ff1d7\",\"status\":\"succeeded\",\"mode\":\"EditMode\",\"started_unix_ms\":1791370054217,\"finished_unix_ms\":1791370063529,\"last_update_unix_ms\":1791370063529,\"progress\":{\"completed\":37,\"total\":37,\"current_test_full_name\":null,\"current_test_started_unix_ms\":1791370060846,\"last_finished_test_full_name\":\"FocusCore.Tests.PlatformSetupTests.SavedBaselineContainsTransparentCameraPassthroughAndHandControllerInteractors\",\"last_finished_unix_ms\":1791370063275,\"stuck_suspected\":false,\"editor_is_focused\":true,\"blocked_reason\":null,\"failures_so_far\":[],\"failures_capped\":false},\"error\":null,\"result\":{\"mode\":\"EditMode\",\"summary\":{\"total\":37,\"passed\":37,\"failed\":0,\"skipped\":0,\"durationSeconds\":7.6844952,\"resultState\":\"Passed\"},\"results\":[]}},\"hint\":null}",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": {
+            "success": true,
+            "message": "Test job status retrieved.",
+            "error": null,
+            "data": {
+              "job_id": "3ce101f3f542433ea93ed058612ff1d7",
+              "status": "succeeded",
+              "mode": "EditMode",
+              "started_unix_ms": 1791370054217,
+              "finished_unix_ms": 1791370063529,
+              "last_update_unix_ms": 1791370063529,
+              "progress": {
+                "completed": 37,
+                "total": 37,
+                "current_test_full_name": null,
+                "current_test_started_unix_ms": 1791370060846,
+                "last_finished_test_full_name": "FocusCore.Tests.PlatformSetupTests.SavedBaselineContainsTransparentCameraPassthroughAndHandControllerInteractors",
+                "last_finished_unix_ms": 1791370063275,
+                "stuck_suspected": false,
+                "editor_is_focused": true,
+                "blocked_reason": null,
+                "failures_so_far": [],
+                "failures_capped": false
+              },
+              "error": null,
+              "result": {
+                "mode": "EditMode",
+                "summary": {
+                  "total": 37,
+                  "passed": 37,
+                  "failed": 0,
+                  "skipped": 0,
+                  "durationSeconds": 7.6844952,
+                  "resultState": "Passed"
+                },
+                "results": []
+              }
+            },
+            "hint": null
+          }
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    }
+  ],
+  "critic": {
+    "score": 5.8,
+    "review_stage": "before commit/push",
+    "notes": "37/37 EditMode;4/4 PlayMode. Original review found baseline build-list left by tests; post-test generation restored Core only. No headset or Core APK."
+  }
+}

@@ -3,6 +3,7 @@
 *.meta whitespace=-blank-at-eol
 *.prefab whitespace=-blank-at-eol
 *.unity whitespace=-blank-at-eol
+*.mat whitespace=-blank-at-eol
 
 *.pdf binary
 *.fbx binary

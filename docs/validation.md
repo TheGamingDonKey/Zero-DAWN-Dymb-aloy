@@ -2,7 +2,21 @@
 
 Updated October7,2026. This records authored work and actual checks separately; headset acceptance is incomplete.
 
-## Current increment and continuation
+## Current Editor milestone
+
+Unity Hub's existing Personal licence is active. Hub lacked the installed6.3 Editor registration and the FocusCore project; both were added, and Hub opened the real project successfully. Actual C# compilation, Meta207 package import, original FBX import and Coplay10.0.0 import succeeded. This proves the Hub route; direct CLI licensing has not been reverified.
+
+The saved `Assets/FocusCore/Scenes/FocusCore.unity` contains eight SDK input adapters, the Scan card, original reticle, chirp and procedural pulse component. Its initial panel position is in front of the camera, with readable Scene View framing. Meta's required contextual-passthrough system loading-screen setting is applied. Ten optional SDK recommendations remain for later device/performance work.
+
+Actual Unity tests: **37/37 EditMode and4/4 PlayMode, zero failures/skips**. Presentation tests exercise fixed pulse origin, one chirp, duplicate rejection, expiry, tracking loss/recovery, panel replacement and scaled poke withdrawal. They drive availability explicitly; physical headset tracking and SDK events remain unverified. Raw result summaries are retained in `docs/reference/evidence/unity-editor-validation.json`.
+
+The real `FocusCore@d367bfbb` Editor bridge on54484 completed scene, console, menu and test round trips. A project-local SessionState flag resumes only an explicitly started bridge through domain reloads; the second PlayMode run and subsequent scene query succeeded without manual restart. Global client transport preferences were not changed.
+
+Initial worker Import Error4 was traced to a stale modification time for `Assets/XR/Settings/OpenXR Package Settings.asset`. After normal refresh/configuration, scene generation produced no new import/compiler error. The console's later `Saving results to ...TestResults.xml` entry is test-runner output. Incidental baseline prefab-instance-ID changes from test generation are excluded from this handoff.
+
+**Remaining:** fresh Core Android export/APK, signature/manifest verification, then installation and physical acceptance on Quest3S. No actual passthrough image, hand interaction, comfort or frame-time result is claimed. The following section preserves the earlier source-only milestone for provenance; its licence blocker and ungenerated-scene statements are superseded by the checks above.
+
+## Earlier source-only milestone
 
 The current licence attempt exited198 before import (`.artifacts/logs/mcp-import-20261007-041645-35134d74.log`): access token unavailable and no valid Editor entitlement. Normal Unity Hub recovery was attempted once, and Shane was asked to check Settings → Licenses and activate/sign in to Personal if prompted. There has been no repeated compile/build attempt against the unchanged licence failure.
 

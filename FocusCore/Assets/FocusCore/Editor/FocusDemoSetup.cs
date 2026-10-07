@@ -41,6 +41,8 @@ namespace FocusCore.Editor
             var panel = (RectTransform)canvasObject.transform;
             panel.sizeDelta = new Vector2(640,350);
             panel.localScale = Vector3.one * 0.0008f;
+            // Keep the saved scene readable before XR supplies the user's head pose.
+            panel.localPosition = new Vector3(0,-0.12f,0.8f);
             focus.panel = panel;
             var background = canvasObject.AddComponent<Image>();
             background.color = new Color(0.047f,0.076f,0.14f,0.94f);
@@ -123,6 +125,8 @@ namespace FocusCore.Editor
             if (!EditorSceneManager.SaveScene(scene,CoreScene)) throw new IOException("Could not save Core scene.");
             EditorBuildSettings.scenes = new[] {new EditorBuildSettingsScene(CoreScene,true)};
             AssetDatabase.SaveAssets();
+            if (SceneView.lastActiveSceneView != null)
+                SceneView.lastActiveSceneView.LookAt(panel.position,Quaternion.identity,0.4f);
             Debug.Log("Focus Core scene generated: " + configured + " SDK input sources. Headset checks remain pending.");
         }
 
