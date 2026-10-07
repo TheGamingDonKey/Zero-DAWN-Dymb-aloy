@@ -31,11 +31,18 @@ namespace FocusCore
 
         public bool TryBeginScan(int id)
         {
-            if (!trackedSources.TryGetValue(id, out var tracked) || !tracked || !gate.TrySelect(id)) return false;
+            if (!TryConsumeSelection(id)) return false;
             // Consume a busy source's edge, so it cannot queue a scan while held.
             if (!state.TryStartScan()) return false;
             AcceptedScans++;
             return true;
+        }
+
+        // Inspection and dismissal share the same physical-neutral gate as Scan.
+        public bool TryConsumeSelection(int id)
+        {
+            if (!trackedSources.TryGetValue(id,out var tracked) || !tracked || !gate.TrySelect(id)) return false;
+            return Mode == FocusMode.Ready;
         }
 
         public void Tick(double seconds) { state.Tick(seconds); }

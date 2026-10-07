@@ -14,6 +14,8 @@ Open `Assets/FocusCore/Scenes/FocusCore.unity`. **Focus/Generate First Focus Dem
 
 Without a headset, choose **Focus/Run Desktop Setup Proof (Simulated Input)**. It uses the actual controller, shader, lattice and audio with explicitly simulated availability/input. Six finite scans and six chirps must finish; duplicates are rejected. Game view labels simulation and writes `.artifacts/research/desktop-proof.json`. Stop Play mode to return to FocusCore. The diagnostic is excluded from the Android build; it proves neither passthrough nor physical hand tracking.
 
+For the target increment choose **Focus/Run Target Interaction Demo (Simulated Input)**. It uses a copy of the actual Core scene with its XR rig disabled and a labelled desktop camera. A 12-second sequence reveals three original primitive targets, inspects the relay and cache, dismisses information, rejects held input and clears targets on tracking loss. Images and result JSON are saved under `.artifacts/research/targets-*`. Stop Play to restore Core. Only Core belongs in the Android build; both diagnostics are Editor-only. On Quest, keep looking at a virtual marker while selecting INSPECT using hand ray/pinch, poke or controller ray. Target positions remain world-fixed until tracking recovery places a fresh field.
+
 ## Build and test
 
 From the checkout, PowerShell 7:

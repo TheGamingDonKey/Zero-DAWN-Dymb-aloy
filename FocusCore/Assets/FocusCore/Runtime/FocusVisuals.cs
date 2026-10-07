@@ -35,8 +35,7 @@ namespace FocusCore
         {
             progress = Mathf.Clamp01(progress);
             // Fast outward wave, then a soft tail. Build geometry once, never per frame.
-            float expansion = 1 - Mathf.Pow(1-progress, 1.35f);
-            transform.localScale = Vector3.one * Mathf.Lerp(0.06f, 3.8f, expansion);
+            transform.localScale = Vector3.one * RadiusAtProgress(progress);
             float alpha = 0.28f * Mathf.SmoothStep(0,1,Mathf.InverseLerp(0,.065f,progress))
                 * (1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(0.55f,1,progress)));
             properties.SetColor("_BaseColor", new Color(0.615f, 0.388f, 1, alpha));
@@ -45,6 +44,7 @@ namespace FocusCore
             surface.enabled = progress < 1;
         }
         public void Stop() { if (surface != null) surface.enabled = false; }
+        public static float RadiusAtProgress(float progress) => Mathf.Lerp(.06f,3.8f,1-Mathf.Pow(1-Mathf.Clamp01(progress),1.35f));
         void OnDisable() { Stop(); }
         void OnDestroy() { if (mesh != null) Destroy(mesh); }
 

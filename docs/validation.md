@@ -2,6 +2,16 @@
 
 Updated October7,2026. This records authored work and actual checks separately; headset acceptance is incomplete.
 
+## Authored target inspection increment
+
+Implemented: three original geometric virtual targets, scan-wave-distance reveal, a nine-degree head-gaze cone with nearest alignment selection, colour/scale highlight and open corner brackets, authored information cards, INSPECT/CLOSE controls through the existing SDK canvas, and world-fixed placement until tracking recovery. Scan/inspection/dismissal share the physical-neutral gate. Poke withdrawal now uses the whole panel, avoiding rearming a held finger merely by moving between neighbouring buttons. This increment contains no real-world sensing or object recognition.
+
+Actual Unity checks: 37/37 EditMode and 10/10 PlayMode passed with no failures/skips. The new reveal/inspect contract first failed with the intended NotImplementedException; an earlier zero-discovery attempt was rejected and corrected by importing new files through an all-assets refresh. The critic found one concrete stale-hover recovery defect; Hide now resets all marker tint/scale, covered by an additional regression. See [test evidence](reference/evidence/target-tests.json).
+
+The actual generated Core-scene diagnostic completed three reveals, two correct inspections, dismissal, held-selection rejection and tracking reset, explicitly driving simulated input. GUI Console counters showed zero errors and warnings during the run. See [demo evidence](reference/evidence/target-desktop-demo.json), [revealed objects](reference/evidence/targets-revealed.png), [relay record](reference/evidence/target-relay-information.png) and [cache record](reference/evidence/target-cache-information.png). The helper and diagnostic scene are excluded from the Core APK. A subsequent label-only change makes the header show the revealed count immediately.
+
+Source is Editor-tested; a new target-enabled Android package is the next handoff step. The previous refined scan APK below remains preserved until that build completes. Physical tracking, reach, gaze/pinch comfort, stereo, passthrough contrast and frame time are unverified. No additional SDK research or unchanged test run is required for this increment.
+
 ## Audiovisual refinement, October 7
 
 The current runtime uses a single inward-facing procedural shell with 528 facets / 1,584 vertices, anti-aliased barycentric edges, sparse glints, faint facet tint and a progress-driven latitude sweep. Expansion is eased; the world-fixed origin, 1.25-second lifetime, duplicate suppression and tracking-loss cancellation remain unchanged. Original mono PCM audio now lasts 0.94 seconds and combines airy filtered noise, rising resonance, glass-like partials, low body and a quiet delayed tail. These are our authored choices, not Guerrilla's production settings.

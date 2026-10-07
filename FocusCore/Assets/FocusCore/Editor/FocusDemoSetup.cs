@@ -39,7 +39,7 @@ namespace FocusCore.Editor
             canvas.renderMode = RenderMode.WorldSpace;
             canvas.worldCamera = rig.centerEyeAnchor.GetComponent<Camera>();
             var panel = (RectTransform)canvasObject.transform;
-            panel.sizeDelta = new Vector2(640,350);
+            panel.sizeDelta = new Vector2(640,560);
             panel.localScale = Vector3.one * 0.0008f;
             // Keep the saved scene readable before XR supplies the user's head pose.
             panel.localPosition = new Vector3(0,-0.12f,0.8f);
@@ -48,16 +48,33 @@ namespace FocusCore.Editor
             background.color = new Color(0.047f,0.076f,0.14f,0.94f);
             background.raycastTarget = false;
             var font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            MakeText(panel, font, "FOCUS / FIRST FIELD TEST", new Vector2(-270,112), new Vector2(540,55),32);
-            MakeText(panel, font, "Visual scan pulse / real passthrough\nNo real object identification in this build", new Vector2(-270,60),new Vector2(540,50),20);
+            MakeText(panel, font, "FOCUS / VIRTUAL FIELD STUDY", new Vector2(-270,202), new Vector2(540,55),30);
+            MakeText(panel, font, "Scan, look at a target, then inspect its record.\nAuthored demo objects / no real-world recognition", new Vector2(-270,148),new Vector2(540,50),20);
             var scan = new GameObject("Scan",typeof(RectTransform),typeof(Image),typeof(Button),typeof(FocusScanButton));
             var rect = (RectTransform)scan.transform;
-            rect.SetParent(panel,false); rect.sizeDelta = new Vector2(190,76); rect.anchoredPosition = new Vector2(-175,-63);
+            rect.SetParent(panel,false); rect.sizeDelta = new Vector2(156,64); rect.anchoredPosition = new Vector2(-190,83);
             scan.GetComponent<Image>().color = new Color(0.615f,0.388f,1,1);
             var button = scan.GetComponent<Button>(); button.targetGraphic = scan.GetComponent<Image>();
             scan.GetComponent<FocusScanButton>().focus = focus;
-            MakeText(rect,font,"SCAN",new Vector2(-95,-38),new Vector2(190,76),30,TextAnchor.MiddleCenter);
-            focus.status = MakeText(panel,font,"WAITING FOR XR",new Vector2(-47,-94),new Vector2(320,78),20);
+            MakeText(rect,font,"SCAN",new Vector2(-78,-32),new Vector2(156,64),25,TextAnchor.MiddleCenter);
+            MakeAction(panel,font,focus,"INSPECT",new Vector2(0,83),false);
+            MakeAction(panel,font,focus,"CLOSE",new Vector2(190,83),true);
+            focus.status = MakeText(panel,font,"WAITING FOR XR",new Vector2(-270,-24),new Vector2(540,68),20);
+            var divider = new GameObject("InformationDivider",typeof(RectTransform),typeof(Image));
+            var dividerRect = (RectTransform)divider.transform; dividerRect.SetParent(panel,false);
+            dividerRect.sizeDelta = new Vector2(540,2); dividerRect.anchoredPosition = new Vector2(0,-52);
+            divider.GetComponent<Image>().color = new Color(.615f,.388f,1,.7f); divider.GetComponent<Image>().raycastTarget = false;
+            focus.targets = root.AddComponent<FocusTargets>(); focus.targets.focus = focus;
+            focus.targets.head = focus.head; focus.targets.panel = panel;
+            const string targetMaterialPath = "Assets/FocusCore/Art/FocusTarget.mat";
+            var targetMaterial = AssetDatabase.LoadAssetAtPath<Material>(targetMaterialPath);
+            if (targetMaterial == null)
+            {
+                var targetShader = Shader.Find("Universal Render Pipeline/Unlit");
+                if (targetShader == null) throw new InvalidOperationException("URP target shader missing.");
+                targetMaterial = new Material(targetShader); AssetDatabase.CreateAsset(targetMaterial,targetMaterialPath);
+            }
+            focus.targets.targetMaterial = targetMaterial;
             QuickActionsAPI.AddRayCanvasInteraction(canvasObject);
             QuickActionsAPI.AddPokeCanvasInteraction(canvasObject);
             foreach (var pointable in canvasObject.GetComponentsInChildren<PointableCanvas>(true))
@@ -78,7 +95,7 @@ namespace FocusCore.Editor
             var reticle = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/FocusCore/Art/FocusReticle.fbx");
             if (reticle == null) throw new InvalidOperationException("Original reticle FBX did not import.");
             var model = (GameObject)PrefabUtility.InstantiatePrefab(reticle,panel);
-            model.transform.localPosition = new Vector3(252,110,-20);
+            model.transform.localPosition = new Vector3(252,221,-20);
             model.transform.localRotation = Quaternion.identity;
             model.transform.localScale = Vector3.one * 60;
             var modelRenderers = model.GetComponentsInChildren<Renderer>(true);
@@ -118,7 +135,9 @@ namespace FocusCore.Editor
                 if (tracked == null) throw new InvalidOperationException("No unambiguous device for " + interactor.name);
                 var input = interactor.gameObject.AddComponent<MetaScanInput>();
                 input.focus = focus; input.interactorComponent = interactor; input.trackedDevice = tracked;
-                input.scanRect = rect; input.poke = interactor is PokeInteractor;
+                // All actions share one panel. Poke must withdraw from its plane or bounds,
+                // not be rearmed just because a held finger moved to a neighbouring button.
+                input.scanRect = panel; input.poke = interactor is PokeInteractor;
                 configured++;
             }
             if (configured < 4) throw new InvalidOperationException("Hand/controller input sources were not generated.");
@@ -140,6 +159,17 @@ namespace FocusCore.Editor
                 if (candidates.Length > 1) throw new InvalidOperationException("Ambiguous device binding on " + node.name);
             }
             return null;
+        }
+
+        static void MakeAction(RectTransform panel, Font font, FocusController focus, string title, Vector2 position, bool dismiss)
+        {
+            var action = new GameObject(title,typeof(RectTransform),typeof(Image),typeof(Button),typeof(FocusTargetButton));
+            var rect = (RectTransform)action.transform; rect.SetParent(panel,false);
+            rect.sizeDelta = new Vector2(156,64); rect.anchoredPosition = position;
+            var image = action.GetComponent<Image>(); image.color = new Color(.20f,.16f,.34f,1);
+            action.GetComponent<Button>().targetGraphic = image;
+            var input = action.GetComponent<FocusTargetButton>(); input.focus = focus; input.dismiss = dismiss;
+            MakeText(rect,font,title,new Vector2(-78,-32),new Vector2(156,64),25,TextAnchor.MiddleCenter);
         }
 
         static Text MakeText(RectTransform parent, Font font, string content, Vector2 position, Vector2 size,int points,TextAnchor alignment=TextAnchor.UpperLeft)

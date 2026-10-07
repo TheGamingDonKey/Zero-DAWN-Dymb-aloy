@@ -9,6 +9,7 @@ namespace FocusCore
         public Transform head;
         public Transform panel;
         public FocusVisuals visuals;
+        public FocusTargets targets;
         public Text status;
         public AudioSource audioSource;
         public AudioClip chirp;
@@ -48,7 +49,7 @@ namespace FocusCore
         public void SetAvailability(bool ready, bool tracked, bool suspended)
         {
             Input.SetAvailability(ready, tracked, suspended);
-            if (Input.Mode == FocusMode.Unavailable || Input.Mode == FocusMode.Suspended) { StopEffect(); placed = false; }
+            if (Input.Mode == FocusMode.Unavailable || Input.Mode == FocusMode.Suspended) { StopEffect(); if (targets != null) targets.Hide(); placed = false; }
             if (!placed && Input.Mode == FocusMode.Ready && panel != null && head != null)
             {
                 Vector3 forward = Vector3.ProjectOnPlane(head.forward, Vector3.up).normalized;
@@ -56,6 +57,7 @@ namespace FocusCore
                 panel.SetPositionAndRotation(head.position + forward * 0.8f - Vector3.up * 0.12f,
                     Quaternion.LookRotation(forward, Vector3.up));
                 placed = true;
+                if (targets != null) targets.Place(head.position,forward);
             }
             UpdateStatus();
         }
@@ -65,6 +67,7 @@ namespace FocusCore
             if (head == null || !Input.TryBeginScan(pointerId)) return false;
             LastOrigin = head.position;
             if (visuals != null) visuals.Begin(LastOrigin);
+            if (targets != null) targets.BeginScan(LastOrigin);
             if (audioSource != null && chirp != null)
             {
                 audioSource.PlayOneShot(chirp, 0.22f);
@@ -76,7 +79,13 @@ namespace FocusCore
 
         public void Advance(float seconds)
         {
+            bool wasScanning = Input.Mode == FocusMode.Scanning;
             Input.Tick(seconds);
+            if (targets != null)
+            {
+                if (wasScanning) targets.Advance(Input.Mode == FocusMode.Scanning ? (float)Input.Progress : 1);
+                if (Input.Mode == FocusMode.Ready || Input.Mode == FocusMode.Scanning) targets.UpdateGaze();
+            }
             if (visuals != null)
             {
                 if (Input.Mode == FocusMode.Scanning) visuals.ShowProgress((float)Input.Progress);
@@ -85,11 +94,25 @@ namespace FocusCore
             UpdateStatus();
         }
 
+        public bool TryInspect(int pointerId)
+        {
+            if (targets == null || head == null || !Input.TryConsumeSelection(pointerId)) return false;
+            targets.UpdateGaze();
+            bool opened = targets.InspectHovered(); UpdateStatus(); return opened;
+        }
+        public bool TryDismiss(int pointerId)
+        {
+            if (targets == null || !Input.TryConsumeSelection(pointerId)) return false;
+            targets.Dismiss(); UpdateStatus(); return true;
+        }
+
         void UpdateStatus()
         {
             if (status == null) return;
             status.text = Input.Mode == FocusMode.Scanning ? "SCAN " + Mathf.RoundToInt((float)Input.Progress * 100) + "%"
-                : Input.Mode == FocusMode.Ready ? "READY / pinch the Scan button\nController trigger also works"
+                : Input.Mode == FocusMode.Ready ? (targets != null && targets.HoveredIndex >= 0
+                    ? "LOOKING AT " + targets.HoveredName + "\nChoose INSPECT to open its record"
+                    : "READY / SCAN to reveal virtual targets\nLook at a marker, then choose INSPECT")
                 : Input.Mode == FocusMode.Suspended ? "PAUSED / restore headset tracking"
                 : passthroughFailed ? "PASSTHROUGH FAILED / restart app" : "WAITING FOR XR / PASSTHROUGH";
         }
@@ -102,6 +125,7 @@ namespace FocusCore
             if (subscribedDisplay != null) subscribedDisplay.RecenteredPose -= OnRecenter;
             subscribedDisplay = null;
             Input.SetAvailability(false, false, true); placed = false; StopEffect();
+            if (targets != null) targets.Hide();
         }
     }
 }

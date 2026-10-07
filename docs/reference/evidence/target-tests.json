@@ -1,0 +1,123 @@
+{
+  "red": {
+    "result": {
+      "success": true,
+      "message": "Test job status retrieved.",
+      "error": null,
+      "data": {
+        "job_id": "92edeb6f26754feaaef6a07066dee56c",
+        "status": "failed",
+        "mode": "PlayMode",
+        "started_unix_ms": 1791383634435,
+        "finished_unix_ms": 1791383636937,
+        "last_update_unix_ms": 1791383636937,
+        "progress": {
+          "completed": 1,
+          "total": 1,
+          "current_test_full_name": null,
+          "current_test_started_unix_ms": 1791383636838,
+          "last_finished_test_full_name": "FocusCore.Tests.FocusTargetTests.ScanWaveRevealsTargetsThenGazeOpensCorrectInformation",
+          "last_finished_unix_ms": 1791383636874,
+          "stuck_suspected": false,
+          "editor_is_focused": true,
+          "blocked_reason": null,
+          "failures_so_far": [
+            {
+              "full_name": "FocusCore.Tests.FocusTargetTests.ScanWaveRevealsTargetsThenGazeOpensCorrectInformation",
+              "message": "System.NotImplementedException : Authored scan targets are not implemented yet."
+            }
+          ],
+          "failures_capped": false
+        },
+        "error": null,
+        "result": null
+      },
+      "hint": null
+    }
+  },
+  "editMode": {
+    "result": {
+      "success": true,
+      "message": "Test job status retrieved.",
+      "error": null,
+      "data": {
+        "job_id": "1651a7b64bcc4f53b26c0d8ce1c05391",
+        "status": "succeeded",
+        "mode": "EditMode",
+        "started_unix_ms": 1791383952498,
+        "finished_unix_ms": 1791383960620,
+        "last_update_unix_ms": 1791383960620,
+        "progress": {
+          "completed": 37,
+          "total": 37,
+          "current_test_full_name": null,
+          "current_test_started_unix_ms": 1791383958241,
+          "last_finished_test_full_name": "FocusCore.Tests.PlatformSetupTests.SavedBaselineContainsTransparentCameraPassthroughAndHandControllerInteractors",
+          "last_finished_unix_ms": 1791383960327,
+          "stuck_suspected": false,
+          "editor_is_focused": true,
+          "blocked_reason": null,
+          "failures_so_far": [],
+          "failures_capped": false
+        },
+        "error": null,
+        "result": {
+          "mode": "EditMode",
+          "summary": {
+            "total": 37,
+            "passed": 37,
+            "failed": 0,
+            "skipped": 0,
+            "durationSeconds": 6.5941892,
+            "resultState": "Passed"
+          },
+          "results": []
+        }
+      },
+      "hint": null
+    }
+  },
+  "playMode": {
+    "result": {
+      "success": true,
+      "message": "Test job status retrieved.",
+      "error": null,
+      "data": {
+        "job_id": "fd17a69e4f554e8cbb738c92133f9f8d",
+        "status": "succeeded",
+        "mode": "PlayMode",
+        "started_unix_ms": 1791384104779,
+        "finished_unix_ms": 1791384108676,
+        "last_update_unix_ms": 1791384108676,
+        "progress": {
+          "completed": 10,
+          "total": 10,
+          "current_test_full_name": null,
+          "current_test_started_unix_ms": 1791384108604,
+          "last_finished_test_full_name": "FocusCore.Tests.FocusTargetTests.UnselectedHoverDoesNotSurviveTrackingRecovery",
+          "last_finished_unix_ms": 1791384108617,
+          "stuck_suspected": false,
+          "editor_is_focused": true,
+          "blocked_reason": null,
+          "failures_so_far": [],
+          "failures_capped": false
+        },
+        "error": null,
+        "result": {
+          "mode": "PlayMode",
+          "summary": {
+            "total": 10,
+            "passed": 10,
+            "failed": 0,
+            "skipped": 0,
+            "durationSeconds": 0.2216166,
+            "resultState": "Passed"
+          },
+          "results": []
+        }
+      },
+      "hint": null
+    }
+  },
+  "physicalInputVerified": false
+}
