@@ -24,6 +24,7 @@ From the checkout, PowerShell 7:
 ./scripts/Test.ps1 -Mode EditMode
 ./scripts/Test.ps1 -Mode PlayMode
 ./scripts/Build.ps1 -Scene Core
+./scripts/Verify-Apk.ps1 -ApkPath .artifacts/apks/FocusCore.apk
 ```
 
 Close the interactive Editor before CLI tests/builds. Fresh October 7 CLI results: **37/37 EditMode and 4/4 PlayMode**, zero failures/skips and exit 0. Tests simulate availability. Domain-only/cached compilation checks are narrower than actual Unity execution.
@@ -34,7 +35,11 @@ The launcher refuses concurrent Editors, occupied private ADB port or insufficie
 
 Outputs use unique APK/export paths. The convenience APK changes only after successful packaging. `-ResumeExport` packages its saved snapshot, never newer source, and refuses an already-packaged export. See [validation](validation.md) for actual artifact outcome. Installation, real input/recovery, comfort and frame timing require Quest 3S, developer access, a data-capable USB cable and authorized USB debugging.
 
+`Verify-Apk.ps1` checks the provided file's v2 signature, package/API settings, ARM64 native library, required passthrough, hand permission and Quest3S metadata. It reports that file's size and SHA256 and always leaves headset verification false. Checks against an older APK do not validate newer source. The helper was checked against the previously verified signed Core APK and rejects an unsigned synthetic archive.
+
 ## Automation and assets
+
+The Editor launcher retains `-job-worker-count 2` but omits `-ImportWorkerCount`: Coplay 10.0.0's worker detection matches the substring `-importWorker` in the main Editor's command line, causing that option to suppress the command registry. Removing it fixes this launch-only incompatibility; it does not alter the runtime APK. Do not repeat unsupported MCP requests against that failed launch.
 
 Regenerate the original soft acknowledgement with `python scripts/reference/build_audio.py`; validate the exported WAV with `python scripts/reference/check_audio.py`. The latter checks duration/headroom/DC/boundary taper, not a perceptual match to Horizon. `Focus/Run Desktop Setup Proof (Simulated Input)` renders the actual shader/audio and retains three frames under `.artifacts/research/presentation-*`; it explicitly simulates availability and input. See `docs/reference/audio-scan-study.json` for provenance.
 

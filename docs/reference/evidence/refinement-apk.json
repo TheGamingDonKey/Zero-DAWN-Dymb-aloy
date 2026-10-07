@@ -1,0 +1,20 @@
+{
+  "APK": "C:\\Users\\mrbos\\Downloads\\Git Hub Local_remote\\Zero-DAWN-Dymb-aloy\\.worktrees\\focus-core\\.artifacts\\apks\\Core-20261007-094501-0a33cd7d\\FocusCore.apk",
+  "Bytes": 69135704,
+  "SHA256": "ACDF74BF15DCF0A3C6D46F43843615FE8C4222B42A14F8A425E3AFA153ECF228",
+  "SignatureV2Verified": true,
+  "Package": "com.thegamingdonkey.focuscore",
+  "ABI": "arm64-v8a",
+  "Il2cppBytes": 81537448,
+  "MinApi": 32,
+  "TargetApi": 34,
+  "QuestDevice": "quest3s",
+  "PassthroughRequired": true,
+  "HandPermission": true,
+  "CameraPermission": false,
+  "HeadsetVerified": false,
+  "SourceAtExport": "afc2588b4bd736e5bcaae23c59412d59a4da60d8",
+  "BuildExitCode": 0,
+  "UnityLog": ".artifacts/logs/build-Core-20261007-094504-60711d8c.log",
+  "GradleLog": ".artifacts/logs/gradle-Core-20261007-094501-0a33cd7d.stdout.log"
+}

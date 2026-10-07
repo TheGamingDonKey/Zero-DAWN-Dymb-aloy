@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-07",
+  "editorPid": 34156,
+  "scene": {
+    "success": true,
+    "message": "Retrieved active scene information.",
+    "data": {
+      "name": "FocusCore",
+      "path": "Assets/FocusCore/Scenes/FocusCore.unity",
+      "buildIndex": 0,
+      "isDirty": false,
+      "isLoaded": true,
+      "rootCount": 2
+    }
+  },
+  "errors": {
+    "success": true,
+    "message": "Retrieved 0 log entries.",
+    "data": []
+  },
+  "guiObserved": true,
+  "guiConsoleErrors": 0,
+  "guiConsoleWarnings": 0,
+  "earlierStartupWarningFreeClaim": false,
+  "launchCorrection": "Removed -ImportWorkerCount because Coplay 10.0.0 detects -importWorker substring and skips command discovery in the main Editor. Restarted only owned Editor once; subsequent scene and error-console roundtrip succeeded after bridge readiness.",
+  "runtimeRebuiltAfterLauncherChange": false,
+  "headsetVerified": false
+}

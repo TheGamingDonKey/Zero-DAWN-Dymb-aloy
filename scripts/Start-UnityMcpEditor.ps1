@@ -18,7 +18,10 @@ $focusStart.Environment['BEE_BUILD_THREADS'] = '2'
 $focusStart.Environment['DOTNET_PROCESSOR_COUNT'] = '2'
 $focusStart.Environment['ADB_SERVER_SOCKET'] = 'tcp:127.0.0.1:54483'
 $focusStart.Environment['ANDROID_ADB_SERVER_PORT'] = '54483'
-foreach ($focusArg in @('-projectPath',(Join-Path $focusRoot 'FocusCore'),'-buildTarget','Android','-job-worker-count','2','-ImportWorkerCount','1','-logFile',(Join-Path $focusLogDir ('mcp-editor-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '.log')),'-executeMethod','FocusCore.Editor.FocusUnityMcp.Start')) { $focusStart.ArgumentList.Add($focusArg) }
+# Coplay 10.0.0 identifies workers by the substring "-importWorker". Its
+# registry therefore mistakes -ImportWorkerCount on the MAIN Editor for a
+# worker and skips every command. Keep the two-job limit without that flag.
+foreach ($focusArg in @('-projectPath',(Join-Path $focusRoot 'FocusCore'),'-buildTarget','Android','-job-worker-count','2','-logFile',(Join-Path $focusLogDir ('mcp-editor-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '.log')),'-executeMethod','FocusCore.Editor.FocusUnityMcp.Start')) { $focusStart.ArgumentList.Add($focusArg) }
 $focusProcess = [Diagnostics.Process]::Start($focusStart)
 try { $focusProcess.PriorityClass = [Diagnostics.ProcessPriorityClass]::BelowNormal } catch { Write-Warning 'Could not lower owned Editor priority.' }
 Write-Output "Project Editor PID: $($focusProcess.Id). This launch is not proof of licence/import/bridge readiness."

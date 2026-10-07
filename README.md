@@ -3,7 +3,7 @@ XR development project and program, where we foolishly try to replicate the prog
 
 The first increment targets a standalone Quest 3S mixed-reality app with hand-operated Scan input, controller fallback, a procedural purple pulse, and generated audio.
 
-The October 7 audiovisual refinement adds finer anti-aliased violet facets, a travelling sweep and an original 0.94-second soft layered acknowledgement. Actual Unity renders and fresh tests are in [validation](docs/validation.md); research observations and their limits are recorded in [the audio/scan study](docs/reference/audio-scan-study.json). Exact game fidelity and headset performance are not established.
+The October 7 audiovisual refinement adds finer anti-aliased violet facets, a travelling sweep and an original 0.94-second soft layered acknowledgement. The new signed Core APK is packaged at `.artifacts/apks/Core-20261007-094501-0a33cd7d/FocusCore.apk` (69,135,704 bytes); the convenience `.artifacts/apks/FocusCore.apk` is updated. Actual Unity renders, fresh tests and package evidence are in [validation](docs/validation.md); research observations and their limits are recorded in [the audio/scan study](docs/reference/audio-scan-study.json). Exact game fidelity and headset performance are not established.
 
 Current state (October7): the mixed-reality scene is generated and open in Unity6000.3.25f1, with the original FBX reticle, Scan card and eight SDK hand/controller input sources. Actual Unity Test Runner results are37/37 EditMode and4/4 PlayMode, zero failures/skips. Physical XR remains unverified.
 
