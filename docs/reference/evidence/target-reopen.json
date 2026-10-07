@@ -28,5 +28,13 @@
   "guiWarningCount": 11,
   "warningNote": "GUI distinguishes zero errors from eleven startup warnings. Coplay's error filter returned URP precision warnings; these are not C# compilation errors and were not cleared to claim warning-free startup.",
   "guiObserved": true,
-  "headsetVerified": false
+  "headsetVerified": false,
+  "metaSetup": {
+    "guiObserved": true,
+    "requiredItems": 0,
+    "outstandingRecommendations": 12,
+    "displayedRecommendedItems": 13,
+    "openXrWarningCount": 14,
+    "note": "After opening Meta XR Project setup tool for the loaded Core scene, no Required Items section was present and the overview reported only twelve outstanding Recommended fixes. The earlier startup log reporting three Required fixes is no longer current. No Apply All or Fix All was used and no project setting was changed."
+  }
 }
