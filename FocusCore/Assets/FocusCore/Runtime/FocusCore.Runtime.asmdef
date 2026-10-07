@@ -1,0 +1,5 @@
+{
+  "name": "FocusCore.Runtime",
+  "rootNamespace": "FocusCore",
+  "references": ["FocusCore.Domain", "Oculus.Interaction", "Oculus.VR", "UnityEngine.UI", "Unity.XR.Management"]
+}

@@ -10,7 +10,7 @@ Installed Editor:
 
 `C:\Users\mrbos\Documents\UnityEditors\6000.3.25f1\Editor\Unity.exe`
 
-Unity Hub 3.22.2 is installed as a Windows package. Activation now works: actual Editor import, compilation and tests succeeded on October 6. If Hub does not list this Editor, use Locate/Add and select the executable above. Add/open the `FocusCore` project. The earlier exit198 licence blocker is resolved.
+Unity Hub3.22.2 is installed as a Windows package. Editor import, compilation and tests succeeded on October6, but the October7 import exited198 before import because no valid entitlement was available. Check Hub Settings → Licenses and restore normal Personal activation/sign-in. If Hub does not list this Editor, use Locate/Add and select the executable above. Add/open the `FocusCore` project. Do not repeat builds until licensing is restored.
 
 The install initially landed in Codex's virtualized LocalAppData. It was moved to Documents, its executable hash matched, and Unity's CLI verified the relocated Editor and Android modules. No Windows ACL or system security policy was changed.
 
@@ -23,6 +23,7 @@ From the implementation worktree, PowerShell 7 can run:
 ```powershell
 ./scripts/Check-Environment.ps1
 ./scripts/Test-Domain.ps1
+./scripts/Check-Source.ps1
 ./scripts/Test.ps1 -Mode EditMode
 ./scripts/Build.ps1 -Scene Baseline
 ```
@@ -35,8 +36,14 @@ The launcher refuses another active Unity Editor, an occupied private ADB port, 
 
 `Focus/Configure Android XR` requires Android selected. `Focus/Generate Passthrough Baseline` creates the saved scene and prefab using SDK quick actions and the official passthrough-underlay prefab. Configuration selects ARM64/IL2CPP, Vulkan, minimumAPI32, targetAPI34, OpenXR, Quest support, hand tracking and controller fallback. Raw camera access is disabled. No blanket SDK machine setup fixes run.
 
-Builds receive unique output paths under `.artifacts/apks/`; the convenience `FocusBaseline.apk` is replaced only after the invocation exits successfully and produces a nonempty APK. `BuildCore` deliberately fails until the Focus controls/effects scene exists. Fresh export directories can repeat native compilation; a fast incremental iteration workflow has not been proven. `-ResumeExport` packages its saved export snapshot, not newer C# or scene edits.
+Builds receive unique output paths under `.artifacts/apks/`; a convenience APK is replaced only after the invocation exits successfully and produces a nonempty APK. `BuildCore` now generates the first-demo scene if missing, using `FocusDemoSetup`. That generation has not yet executed because licensing blocks the Editor. Fresh export directories can repeat native compilation; a fast incremental iteration workflow has not been proven. `-ResumeExport` packages its saved export snapshot, not newer C# or scene edits.
 
 Meta VR CLI is installed at `C:\Users\mrbos\.metavr\bin\metavr.exe`, version 1.8.0.17.10. Its older Hub detection does not recognize the new Windows package; this does not block device operations. Hub's bundled standalone Unity CLI was used to install the Editor, without another engine or Android Studio.
 
-The baseline APK is built and signature/manifest checked. Next steps are SDK Scan control and procedural graphics/audio, alongside physical baseline verification. When the headset is connected, verify developer mode, a data-capable cable and USB debugging before installation; validate the baseline before Focus controls and effects. The generated SDK rig includes additional SDK interaction infrastructure; only ray/poke input is intended for the first Focus control.
+The baseline APK is built and signature/manifest checked. The new Scan control, procedural graphics/audio, source adapter and scene generator are authored and pass cached API compilation; runtime checks and a new Core APK remain pending. When the headset is connected, verify developer mode, a data-capable cable and USB debugging before installation. The generated SDK rig includes additional SDK interaction infrastructure; only ray/poke input is intended for the first Focus control.
+
+`Check-Source.ps1` uses the Editor's bundled Roslyn, .NET Standard reference/shim assemblies and previously imported SDK DLLs. It records source hashes and compiler exits. It does not launch Unity or validate shader compilation, FBX import, serialized scenes or headset operation. `Tests/PlayMode` contains four pending presentation/recovery checks; static compilation does not execute them.
+
+Blender5.2.2 LTS is installed from the Store, with Blender MCP1.8/protocol13 verified. `art/source/FocusVisualStudy.blend` is the original asset source; FBX exports are in Unity Assets. No `.blend` file is placed in Assets, so Unity does not need to launch the Store Blender executable. Materials and animation were exercised inside real Blender and exports were reimported.
+
+Coplay Unity MCP10.0.0 is pinned in the manifest but is not yet imported into the project lockfile. The installed Python distribution is `mcpforunityserver==10.0.0`; its protocol banner reports the underlying FastMCP framework version3.4.8. The actual handshake and46-tool catalogue succeeded, with zero connected Editor instances. `Setup-UnityMcp.ps1` registers only FocusUnity; other clients are not auto-configured. The local CLI's new entry may require a fresh Codex session to load. `Start-UnityMcpEditor.ps1` launches this checkout with its isolated status directory and bridge port54484; do this after licensing recovery. The project Editor guard suppresses the package's automatic sweep of unrelated client configs.

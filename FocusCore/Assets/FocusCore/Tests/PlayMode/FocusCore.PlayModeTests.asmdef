@@ -1,0 +1,6 @@
+{
+  "name": "FocusCore.PlayModeTests",
+  "rootNamespace": "FocusCore.Tests",
+  "references": ["FocusCore.Domain", "FocusCore.Runtime"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

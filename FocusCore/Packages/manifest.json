@@ -3,7 +3,9 @@
     {
       "name": "Meta XR",
       "url": "https://npm.developer.oculus.com",
-      "scopes": ["com.meta.xr"]
+      "scopes": [
+        "com.meta.xr"
+      ]
     }
   ],
   "dependencies": {
@@ -33,6 +35,7 @@
     "com.unity.modules.uielements": "1.0.0",
     "com.unity.modules.unitywebrequest": "1.0.0",
     "com.unity.modules.unitywebrequestaudio": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#v10.0.0"
   }
 }

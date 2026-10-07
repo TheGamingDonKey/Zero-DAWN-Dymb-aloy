@@ -16,5 +16,7 @@ FocusCore/*.sln
 FocusCore/*.slnx
 FocusCore/*.user
 *.keystore
+*.blend1
+*.blend2
 FocusCore/Assets/Resources/DevAgentSettings.asset*
 FocusCore/Assets/Resources/PerformanceTestRun*.json*

@@ -1,6 +1,6 @@
 {
   "name": "FocusCore.Editor",
   "rootNamespace": "FocusCore.Editor",
-  "references": ["Oculus.VR", "Oculus.VR.Editor", "Oculus.Interaction.OVR.Editor", "Unity.XR.Management", "Unity.XR.Management.Editor", "Unity.XR.OpenXR", "Unity.XR.OpenXR.Editor", "Unity.XR.OpenXR.Features.MetaQuestSupport"],
+  "references": ["FocusCore.Runtime", "Oculus.VR", "Oculus.VR.Editor", "Oculus.Interaction", "Oculus.Interaction.Editor", "Oculus.Interaction.OVR.Editor", "UnityEngine.UI", "Unity.XR.Management", "Unity.XR.Management.Editor", "Unity.XR.OpenXR", "Unity.XR.OpenXR.Editor", "Unity.XR.OpenXR.Features.MetaQuestSupport"],
   "includePlatforms": ["Editor"]
 }

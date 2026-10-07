@@ -1,0 +1,94 @@
+{
+  "Check": "Static cached Unity API compilation; NOT Editor/runtime/shader/Android verification",
+  "UnityData": "C:\\Users\\mrbos\\Documents\\UnityEditors\\6000.3.25f1\\Editor\\Data",
+  "Assemblies": [
+    {
+      "Assembly": "Domain",
+      "SourceCount": 3,
+      "ExitCode": 0,
+      "OutputSHA256": "0A25A5169A6C4E8CD329AF7F16BBA9989C13B2069E0A3EFF86F6EB3B13A71ABD",
+      "Sources": [
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Runtime\\Domain\\FocusInputRouter.cs",
+          "SHA256": "714DEF61BA6425A975FEF6228DF1CCBE137E83AC6DDD498D1EEF58B0619D9A87"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Runtime\\Domain\\FocusState.cs",
+          "SHA256": "82ADC45680D49069C37751184126F4EA4667AE32C5953CD85424D47F914BE1A0"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Runtime\\Domain\\SelectionGate.cs",
+          "SHA256": "4443AB66C7420AA80B71FBA72C2C5286CE7F74EFBD17885CA55E4BDE31B56BCC"
+        }
+      ]
+    },
+    {
+      "Assembly": "Runtime",
+      "SourceCount": 5,
+      "ExitCode": 0,
+      "OutputSHA256": "11D59FDC0BC12BE8ACEE386ECA42856CD05FF2028D1DAD734C367371FD79A51F",
+      "Sources": [
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Runtime\\FocusCanvasCancellation.cs",
+          "SHA256": "BCA41F651ED54F27D7CFE858AEA61ED92348204E4310D956BE0BF09DF11784E3"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Runtime\\FocusController.cs",
+          "SHA256": "1CF6829C24CA9436CB2081B395EC7B31DA17A3637A16AA2ED03B3370ADDFEEA8"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Runtime\\FocusScanButton.cs",
+          "SHA256": "A9B6F65D74953F0F6D73C3F11B5E852AAC7AB92C538B9FC5615F61B1A669CE12"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Runtime\\FocusVisuals.cs",
+          "SHA256": "CC4E82044A041B0D71EBF9F11E09E4FA8B17EFC859D0EAF28502C1734D06261A"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Runtime\\MetaScanInput.cs",
+          "SHA256": "F0B9268134D8889F2C37465E885D1621D01D8AC7469690CAE31EAC8698E475B3"
+        }
+      ]
+    },
+    {
+      "Assembly": "Editor",
+      "SourceCount": 5,
+      "ExitCode": 0,
+      "OutputSHA256": "A3D05E1EEB9E1885D8AE94F1F5BE859F59118CDEF74016AC29C478047D61CDD1",
+      "Sources": [
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Editor\\FocusBuild.cs",
+          "SHA256": "AACD075CAAB802F517DD1E9F9E58EDE8593EC2E56D47B2C145F3FD2D32F245FE"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Editor\\FocusBuildSettings.cs",
+          "SHA256": "2D3F51B43772499845B28D722E5040CAFB75B7A65BB52B91CB01A28EB70FAAB1"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Editor\\FocusDemoSetup.cs",
+          "SHA256": "4A9EA696ED1BEA50A4B059DAE57199824F83147B29F8C95D032E5A01BD42DABC"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Editor\\FocusProjectSetup.cs",
+          "SHA256": "C1C95E11E3F83DA3BF3D358454F243575745C30ABF8F35A43B46F147B358D338"
+        },
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Editor\\FocusUnityMcp.cs",
+          "SHA256": "708D9149B81E5CCF9C32C2DBEDA6C8D29699374ADBDA51EC176BA4B2EB5A79F5"
+        }
+      ]
+    },
+    {
+      "Assembly": "PlayModeTests",
+      "SourceCount": 1,
+      "ExitCode": 0,
+      "OutputSHA256": "1137296E93E150189542BBF8F5221C91559FDA479A1EE29B25EBC46266B9F824",
+      "Sources": [
+        {
+          "Path": "FocusCore\\Assets\\FocusCore\\Tests\\PlayMode\\FocusPresentationTests.cs",
+          "SHA256": "3A0E55778540995AE399F1FBB76247DDE2995D851711DC0CFE5BFD32B8281A30"
+        }
+      ]
+    }
+  ]
+}

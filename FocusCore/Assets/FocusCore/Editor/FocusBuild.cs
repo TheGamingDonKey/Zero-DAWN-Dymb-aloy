@@ -13,12 +13,20 @@ namespace FocusCore.Editor
     {
         public static void BuildBaseline()
         {
+            BuildScene(FocusProjectSetup.BaselineScene);
+        }
+
+        private static void BuildScene(string scene)
+        {
             var output = ReadOutput();
             var export = ReadExportPath();
             FocusProjectSetup.ConfigureAndValidate();
-            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(FocusProjectSetup.BaselineScene) == null)
-                FocusProjectSetup.GenerateBaseline();
-            EditorSceneManager.OpenScene(FocusProjectSetup.BaselineScene);
+            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(scene) == null)
+            {
+                if (scene == FocusProjectSetup.BaselineScene) FocusProjectSetup.GenerateBaseline();
+                else FocusDemoSetup.Generate();
+            }
+            EditorSceneManager.OpenScene(scene);
             Directory.CreateDirectory(Path.GetDirectoryName(export ?? output));
             var previousExport = EditorUserBuildSettings.exportAsGoogleAndroidProject;
             BuildReport report;
@@ -26,7 +34,7 @@ namespace FocusCore.Editor
             {
                 EditorUserBuildSettings.exportAsGoogleAndroidProject = export != null;
                 report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes = new[] { FocusProjectSetup.BaselineScene },
+                    scenes = new[] { scene },
                     locationPathName = export ?? output,
                     target = BuildTarget.Android,
                     options = BuildOptions.None
@@ -43,12 +51,12 @@ namespace FocusCore.Editor
             }
             if (!File.Exists(output) || new FileInfo(output).Length == 0)
                 throw new IOException("Successful build report produced no nonempty APK.");
-            Debug.Log("Focus baseline APK succeeded: " + output + "; bytes=" + new FileInfo(output).Length + "; headset validation pending.");
+            Debug.Log("Focus APK succeeded: " + output + "; bytes=" + new FileInfo(output).Length + "; headset validation pending.");
         }
 
         public static void BuildCore()
         {
-            throw new InvalidOperationException("Focus controls/effects scene is not implemented. Build Baseline first.");
+            BuildScene(FocusDemoSetup.CoreScene);
         }
 
         private static string ReadOutput()

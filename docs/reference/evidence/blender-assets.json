@@ -1,0 +1,56 @@
+{
+  "blender": "5.2.2 LTS",
+  "original_scene": "FocusVisualStudy",
+  "source_meshes": 8,
+  "source_polygons": 274,
+  "animation_evaluation": [
+    {
+      "frame": 1,
+      "degrees_y": 0.0
+    },
+    {
+      "frame": 60,
+      "degrees_y": 4.99999985454646
+    },
+    {
+      "frame": 120,
+      "degrees_y": 0.0
+    }
+  ],
+  "fbx_round_trip": [
+    {
+      "file": "FocusDevice.fbx",
+      "meshes": 7,
+      "bounding_dimensions_metres": [
+        0.04278620891273022,
+        0.009500006213784218,
+        0.04968776926398277
+      ],
+      "polygons": 91,
+      "materials": [
+        "Focus Blue.001",
+        "Focus Pearl.001",
+        "Focus Shell.001"
+      ]
+    },
+    {
+      "file": "FocusReticle.fbx",
+      "meshes": 1,
+      "bounding_dimensions_metres": [
+        0.6946538388729095,
+        0.0010001160030839173,
+        0.7115445733070374
+      ],
+      "polygons": 255,
+      "materials": [
+        "Focus Blue.002",
+        "Focus Cyan.001",
+        "Focus Panel.001",
+        "Focus Pearl.002",
+        "Focus Tag.001",
+        "Focus Violet.001"
+      ]
+    }
+  ],
+  "startup_scene_preserved": true
+}

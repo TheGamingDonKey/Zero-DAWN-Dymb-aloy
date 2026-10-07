@@ -7,9 +7,6 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-if ($Scene -eq 'Core' -and -not (Test-Path -LiteralPath (Join-Path $focusRoot 'FocusCore\Assets\FocusCore\Scenes\FocusCore.unity'))) {
-    throw 'Focus controls/effects scene is not implemented. Build Baseline first; no Editor was launched.'
-}
 $focusFreeKiB = (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory
 if ($focusFreeKiB -lt 3MB) { throw 'Less than 3 GiB RAM is available. Defer this Android build; no other app was closed.' }
 $focusRunId = (Get-Date -Format 'yyyyMMdd-HHmmss') + '-' + [Guid]::NewGuid().ToString('N').Substring(0,8)
