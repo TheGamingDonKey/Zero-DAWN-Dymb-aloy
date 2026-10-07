@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-07",
+  "reviewer": "focus_critic",
+  "scope": "Desktop-validated authored-target increment",
+  "score_out_of_10": 8.0,
+  "source_blockers_remaining": 0,
+  "defect_found_and_fixed": "Unselected hovered markers retained tint and scale after tracking recovery; Hide now repaints them and a regression covers the sequence.",
+  "evidence": ["37 of 37 EditMode tests passed", "10 of 10 PlayMode tests passed", "Actual Core-scene desktop demo revealed three targets", "Relay and Cache information screenshots", "Dismissal, held selection rejection and tracking reset"],
+  "limits": ["Interaction input was simulated", "Physical hand/controller operation unverified", "Passthrough readability and stereo comfort unverified", "Quest performance unmeasured"],
+  "stopping_rule": "One APK build and actual package check, then source handoff. No additional cosmetic review, research round or unchanged test run."
+}

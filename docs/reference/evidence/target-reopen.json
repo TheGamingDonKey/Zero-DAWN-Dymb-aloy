@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-07",
+  "editorPid": 28616,
+  "scene": {
+    "success": true,
+    "message": "Retrieved active scene information.",
+    "data": {
+      "name": "FocusCore",
+      "path": "Assets/FocusCore/Scenes/FocusCore.unity",
+      "buildIndex": 0,
+      "isDirty": false,
+      "isLoaded": true,
+      "rootCount": 2
+    }
+  },
+  "consoleToolResponse": {
+    "success": true,
+    "message": "Retrieved 5 log entries.",
+    "data": [
+      "Shader warning in 'TraceVirtualOffset': conversion from larger type 'uint' to smaller type 'min16float', possible loss of data [-Wconversion] at Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/FocusCore/Library/PackageCache/com.unity.render-pipelines.core@3f80e92e91c2/ShaderLibrary/Sampling/Fibonacci.hlsl(16) (on d3d11)",
+      "Shader warning in 'TraceVirtualOffset': conversion from larger type 'uint' to smaller type 'min16float', possible loss of data [-Wconversion] at Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/FocusCore/Library/PackageCache/com.unity.render-pipelines.core@3f80e92e91c2/ShaderLibrary/Sampling/Fibonacci.hlsl(27) (on d3d11)",
+      "Shader warning in 'TraceVirtualOffset': conversion from larger type 'uint' to smaller type 'min16float', possible loss of data [-Wconversion] at Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/FocusCore/Library/PackageCache/com.unity.render-pipelines.core@3f80e92e91c2/ShaderLibrary/Sampling/Fibonacci.hlsl(270) (on d3d11)",
+      "Shader warning in 'TraceVirtualOffset': conversion from larger type 'uint' to smaller type 'min16float', possible loss of data [-Wconversion] at Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/FocusCore/Library/PackageCache/com.unity.render-pipelines.core@3f80e92e91c2/ShaderLibrary/Sampling/Fibonacci.hlsl(277) (on d3d11)",
+      "Shader warning in 'TraceVirtualOffset': conversion from larger type 'float' to smaller type 'min16float', possible loss of data [-Wconversion] at Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/FocusCore/Library/PackageCache/com.unity.render-pipelines.core@3f80e92e91c2/ShaderLibrary/Sampling/Hammersley.hlsl(25) (on d3d11)"
+    ]
+  },
+  "guiErrorCount": 0,
+  "guiWarningCount": 11,
+  "warningNote": "GUI distinguishes zero errors from eleven startup warnings. Coplay's error filter returned URP precision warnings; these are not C# compilation errors and were not cleared to claim warning-free startup.",
+  "guiObserved": true,
+  "headsetVerified": false
+}
