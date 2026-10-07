@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-07",
+  "editmode": {
+    "result": {
+      "success": true,
+      "message": "Test job status retrieved.",
+      "error": null,
+      "data": {
+        "job_id": "aa3cc817cb4f425d9dbc3decb0aa99e0",
+        "status": "succeeded",
+        "mode": "EditMode",
+        "started_unix_ms": 1791380164771,
+        "finished_unix_ms": 1791380174516,
+        "last_update_unix_ms": 1791380174516,
+        "progress": {
+          "completed": 37,
+          "total": 37,
+          "current_test_full_name": null,
+          "current_test_started_unix_ms": 1791380171936,
+          "last_finished_test_full_name": "FocusCore.Tests.PlatformSetupTests.SavedBaselineContainsTransparentCameraPassthroughAndHandControllerInteractors",
+          "last_finished_unix_ms": 1791380174242,
+          "stuck_suspected": false,
+          "editor_is_focused": true,
+          "blocked_reason": null,
+          "failures_so_far": [],
+          "failures_capped": false
+        },
+        "error": null,
+        "result": null
+      },
+      "hint": null
+    }
+  },
+  "playmode": {
+    "result": {
+      "success": true,
+      "message": "Test job status retrieved.",
+      "error": null,
+      "data": {
+        "job_id": "145b6237eaf14356b26bc9e9359629a7",
+        "status": "succeeded",
+        "mode": "PlayMode",
+        "started_unix_ms": 1791380196071,
+        "finished_unix_ms": 1791380198792,
+        "last_update_unix_ms": 1791380198792,
+        "progress": {
+          "completed": 4,
+          "total": 4,
+          "current_test_full_name": null,
+          "current_test_started_unix_ms": 1791380198736,
+          "last_finished_test_full_name": "FocusCore.Tests.FocusPresentationTests.PokeRequiresFrontWithdrawalOrLeavingButtonBounds",
+          "last_finished_unix_ms": 1791380198737,
+          "stuck_suspected": false,
+          "editor_is_focused": true,
+          "blocked_reason": null,
+          "failures_so_far": [],
+          "failures_capped": false
+        },
+        "error": null,
+        "result": {
+          "mode": "PlayMode",
+          "summary": {
+            "total": 4,
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "durationSeconds": 0.1262717,
+            "resultState": "Passed"
+          },
+          "results": []
+        }
+      },
+      "hint": null
+    }
+  },
+  "headset_verified": false
+}

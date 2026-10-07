@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-07",
+  "scope": "Bounded refinement of the existing finite pulse; sustained Focus view remains later work",
+  "sources": [
+    {
+      "url": "https://blog.playstation.com/archive/2017/08/31/how-guerrilla-games-created-horizon-zero-dawns-remarkable-3d-audio-and-sound/",
+      "kind": "Primary developer interview",
+      "finding": "General audio style and electronic/organic machine layers. No Focus-device synthesis recipe in this article."
+    },
+    {
+      "url": "https://www.thesoundarchitect.co.uk/horizon-zero-dawn-interview-guerilla-games-audio-team/",
+      "kind": "Primary developer interview",
+      "finding": "The precision-bow slow-time focus discussion is Concentration, not a recipe for the wearable Focus."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wQATS4HOxdo&t=981s",
+      "kind": "Official PlayStation gameplay reveal",
+      "inspection": "Browser playback and sampled frames at 16:21-16:25; climbing marks visible at 16:24. This segment does not establish full scan timing or a clean activation audio track."
+    },
+    {
+      "url": "https://soundcloud.com/luke-venable-449723426/horizon-forbidden-west-focus-sound",
+      "kind": "Community recording; discovery/listening reference, not developer evidence",
+      "inspection": "Opened public player; duration displayed approximately one second. Playback started, but no audio was captured for model listening or spectral comparison. Direct download requested sign-in; stopped there."
+    },
+    {
+      "url": "https://territorystudio.com/project/horizon-zero-dawn/",
+      "kind": "Previously inspected primary concept portfolio",
+      "finding": "Triangulated violet spatial-field motif; concept work is not proof of identical shipped animation."
+    },
+    {
+      "url": "https://www.theghostmonkey.com/hfw-focus",
+      "kind": "Previously inspected primary UI designer portfolio",
+      "finding": "Radial reticle, scan progression and information panels; different from a quick environmental pulse."
+    }
+  ],
+  "authored_audio": {
+    "original": true,
+    "reference_audio_used_as_input": false,
+    "duration_seconds": 0.94,
+    "sample_rate": 48000,
+    "layers": ["band-limited airy noise", "rising resonant onset", "sparse glass-like partials", "quiet low body", "diffuse delayed tail"],
+    "recipe_provenance": "Our editable synthesis choices, not extracted or documented Guerrilla settings",
+    "perceptual_match_verified": false
+  },
+  "authored_visual": {
+    "facets": 528,
+    "vertices": 1584,
+    "passes": 1,
+    "features": ["anti-aliased barycentric edges", "sparse vertex glints", "faint translucent facets", "progress-driven travelling latitude band", "eased expansion and soft opacity envelope"],
+    "duration_seconds": 1.25,
+    "maximum_radius_metres": 3.8,
+    "origin": "Captured once in world space",
+    "game_constants_extracted": false,
+    "exact_visual_match_verified": false,
+    "headset_performance_verified": false
+  }
+}

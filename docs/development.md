@@ -36,6 +36,8 @@ Outputs use unique APK/export paths. The convenience APK changes only after succ
 
 ## Automation and assets
 
+Regenerate the original soft acknowledgement with `python scripts/reference/build_audio.py`; validate the exported WAV with `python scripts/reference/check_audio.py`. The latter checks duration/headroom/DC/boundary taper, not a perceptual match to Horizon. `Focus/Run Desktop Setup Proof (Simulated Input)` renders the actual shader/audio and retains three frames under `.artifacts/research/presentation-*`; it explicitly simulates availability and input. See `docs/reference/audio-scan-study.json` for provenance.
+
 Meta Core/Interaction/OVR 207.0.0, OpenXR 1.17.0, XR Hands 1.7.2, Input System 1.20.0, URP 17.3.0 and Coplay Unity MCP 10.0.0 are pinned in the imported manifest/lockfile. No raw camera permission or object recognition is implemented.
 
 Choose **Focus/Start Project MCP Bridge** after opening through Hub. Project-only discovery, port 54484 and Python search path are scoped to this Editor process; an explicitly started bridge resumes across domain reloads. Bundled Python is under `%USERPROFILE%/.cache/codex-runtimes/codex-primary-runtime/dependencies/python`; uv/uvx under `%USERPROFILE%/.local/bin`. `scripts/reference/check_unity_mcp.py` verifies a real scene round trip against this exact project's Assets path. Do not configure every MCP client. A new Codex session may be needed for directly exposed FocusUnity tools; the Python MCP client is usable now.

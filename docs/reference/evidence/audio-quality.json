@@ -1,0 +1,12 @@
+{
+  "duration_seconds": 0.94,
+  "sample_rate": 48000,
+  "channels": 1,
+  "peak": 0.439971923828125,
+  "rms": 0.06280662158910612,
+  "dc": 1.8917922432541e-06,
+  "tail_rms": 0.0,
+  "maximum_sample_step": 0.145355224609375,
+  "passed": true,
+  "perceptual_match_verified": false
+}

@@ -34,9 +34,13 @@ namespace FocusCore
         public void ShowProgress(float progress)
         {
             progress = Mathf.Clamp01(progress);
-            transform.localScale = Vector3.one * Mathf.Lerp(0.06f, 3.8f, progress);
-            float alpha = 0.14f * (1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(0.55f,1,progress)));
+            // Fast outward wave, then a soft tail. Build geometry once, never per frame.
+            float expansion = 1 - Mathf.Pow(1-progress, 1.35f);
+            transform.localScale = Vector3.one * Mathf.Lerp(0.06f, 3.8f, expansion);
+            float alpha = 0.28f * Mathf.SmoothStep(0,1,Mathf.InverseLerp(0,.065f,progress))
+                * (1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(0.55f,1,progress)));
             properties.SetColor("_BaseColor", new Color(0.615f, 0.388f, 1, alpha));
+            properties.SetFloat("_Progress", progress);
             surface.SetPropertyBlock(properties);
             surface.enabled = progress < 1;
         }
@@ -48,29 +52,33 @@ namespace FocusCore
         {
             var vertices = new List<Vector3>();
             var triangles = new List<int>();
-            const int rows = 8, columns = 16;
+            var coordinates = new List<Vector4>();
+            const int rows = 12, columns = 24;
             Vector3 Point(int row, int col)
             {
                 float latitude = Mathf.PI * row / rows;
                 float longitude = 2 * Mathf.PI * col / columns;
                 return new Vector3(Mathf.Sin(latitude) * Mathf.Cos(longitude), Mathf.Cos(latitude), Mathf.Sin(latitude) * Mathf.Sin(longitude));
             }
-            void Edge(Vector3 a, Vector3 b)
+            void Facet(Vector3 a, Vector3 b, Vector3 c, float seed)
             {
-                if ((a-b).sqrMagnitude < 0.000001f) return;
-                Vector3 side = Vector3.Cross((a+b).normalized, (b-a).normalized).normalized * 0.0018f;
+                if (Vector3.Cross(b-a,c-a).sqrMagnitude < .0000001f) return;
                 int n = vertices.Count;
-                vertices.Add(a-side); vertices.Add(a+side); vertices.Add(b-side); vertices.Add(b+side);
-                triangles.AddRange(new[] {n,n+1,n+2,n+2,n+1,n+3});
+                vertices.Add(a); vertices.Add(b); vertices.Add(c);
+                coordinates.Add(new Vector4(1,0,0,seed));
+                coordinates.Add(new Vector4(0,1,0,seed));
+                coordinates.Add(new Vector4(0,0,1,seed));
+                triangles.Add(n); triangles.Add(n+1); triangles.Add(n+2);
             }
             for (int r=0; r<rows; r++) for (int col=0; col<columns; col++)
             {
-                Edge(Point(r,col), Point(r+1,col));
-                Edge(Point(r,col), Point(r,col+1));
-                Edge(Point(r,col), Point(r+1,col+1));
+                float seed = Mathf.Repeat((r*columns+col)*.618034f,1);
+                Facet(Point(r,col),Point(r+1,col),Point(r+1,col+1),seed);
+                Facet(Point(r,col),Point(r+1,col+1),Point(r,col+1),seed);
             }
             var result = new Mesh { name = "OriginalFocusLattice" };
-            result.SetVertices(vertices); result.SetTriangles(triangles,0); result.RecalculateBounds();
+            result.SetVertices(vertices); result.SetUVs(0,coordinates);
+            result.SetTriangles(triangles,0); result.RecalculateBounds();
             return result;
         }
     }

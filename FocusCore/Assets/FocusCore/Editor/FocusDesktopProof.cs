@@ -12,10 +12,12 @@ namespace FocusCore.Editor
     public static class FocusDesktopProof
     {
         const string Requested = "FocusCore.DesktopProof.Requested";
-        static double started, lastScan;
+        static double started, lastScan, lastTick;
         static int completed;
         static FocusController focus;
         static Text label;
+        static int captured;
+        static string captureFolder;
         static FocusDesktopProof() { EditorApplication.playModeStateChanged += StateChanged; }
 
         [MenuItem("Focus/Run Desktop Setup Proof (Simulated Input)")]
@@ -66,6 +68,11 @@ namespace FocusCore.Editor
                 focus = UnityEngine.Object.FindFirstObjectByType<FocusController>();
                 label = GameObject.Find("ProofStatus").GetComponent<Text>();
                 started = EditorApplication.timeSinceStartup; lastScan = -100; completed = 0;
+                lastTick = started;
+                captured = 0;
+                captureFolder = Path.GetFullPath(Path.Combine(Application.dataPath,
+                    "../../.artifacts/research/presentation-" + DateTime.UtcNow.ToString("yyyyMMdd-HHmmss")));
+                Directory.CreateDirectory(captureFolder);
                 EditorApplication.update += Tick;
                 var gameView = typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView");
                 EditorWindow.GetWindow(gameView).Focus();
@@ -85,9 +92,15 @@ namespace FocusCore.Editor
         static void Tick()
         {
             if (!EditorApplication.isPlaying || focus == null) return;
-            double elapsed = EditorApplication.timeSinceStartup - started;
+            double now = EditorApplication.timeSinceStartup;
+            double elapsed = now - started;
+            float seconds = (float)(now-lastTick);
+            lastTick = now;
             focus.SetAvailability(true,true,false);
-            if (completed < 6 && elapsed-lastScan >= 3.0)
+            // Editor callbacks do not correspond one-to-one with rendered frames.
+            // Advance elapsed wall time before accepting a new pulse, not a stale frame delta.
+            focus.Advance(seconds);
+            if (elapsed >= .5 && completed < 6 && elapsed-lastScan >= 3.0)
             {
                 focus.Input.ObserveSource(9001,true,true);
                 if (!focus.TryScan(9001)) throw new InvalidOperationException("Synthetic neutral scan was rejected.");
@@ -95,9 +108,14 @@ namespace FocusCore.Editor
                 if (focus.TryScan(9002)) throw new InvalidOperationException("Duplicate scan was accepted.");
                 completed++; lastScan = elapsed;
             }
-            focus.Advance(Time.unscaledDeltaTime);
             label.text = "DESKTOP SETUP PROOF / SIMULATED INPUT\nActual Focus lattice, shader, audio and controller\nScans: " + completed + "/6 | Chirps: " + focus.PlayedChirps + " | " + focus.Input.Mode
                 + "\nNo headset / passthrough / hand-tracking proof";
+            // Retain actual Game-view frames, rather than an illustration of the proposed effect.
+            if (completed == 1 && captured < 3 && focus.Input.Progress >= .2 + captured*.25)
+            {
+                ScreenCapture.CaptureScreenshot(Path.Combine(captureFolder,"pulse-" + captured + ".png"));
+                captured++;
+            }
             if (elapsed >= 20)
             {
                 EditorApplication.update -= Tick;
@@ -106,7 +124,8 @@ namespace FocusCore.Editor
                 label.text += "\nPASS: six finite pulses; duplicates rejected; six chirps.";
                 string evidence = Path.GetFullPath(Path.Combine(Application.dataPath,"../../.artifacts/research/desktop-proof.json"));
                 Directory.CreateDirectory(Path.GetDirectoryName(evidence));
-                File.WriteAllText(evidence,"{\"passed\":true,\"scans\":6,\"chirps\":6,\"pulse_stopped\":true,\"input_simulated\":true,\"headset_verified\":false}");
+                File.WriteAllText(evidence,"{\"passed\":true,\"scans\":6,\"chirps\":6,\"pulse_stopped\":true,\"input_simulated\":true,\"headset_verified\":false,\"capture_folder\":\""
+                    + captureFolder.Replace("\\","/") + "\",\"captures_requested\":" + captured + "}");
                 Debug.Log("Desktop Focus proof PASS: six finite scans/chirps; duplicate requests rejected. Input simulated.");
             }
         }

@@ -2,6 +2,16 @@
 
 Updated October7,2026. This records authored work and actual checks separately; headset acceptance is incomplete.
 
+## Audiovisual refinement, October 7
+
+The current runtime uses a single inward-facing procedural shell with 528 facets / 1,584 vertices, anti-aliased barycentric edges, sparse glints, faint facet tint and a progress-driven latitude sweep. Expansion is eased; the world-fixed origin, 1.25-second lifetime, duplicate suppression and tracking-loss cancellation remain unchanged. Original mono PCM audio now lasts 0.94 seconds and combines airy filtered noise, rising resonance, glass-like partials, low body and a quiet delayed tail. These are our authored choices, not Guerrilla's production settings.
+
+Fresh Unity MCP jobs: 37 EditMode tests completed with succeeded status and no failures; 4/4 PlayMode passed with no failures/skips. The real imported audio/material/shader passed the desktop diagnostic: six accepted scans, six acknowledgements, duplicate rejection and final stopped state. Three actual Game-view frames were retained. See [test evidence](reference/evidence/refinement-tests.json), [audio measurements](reference/evidence/audio-quality.json), [desktop run](reference/evidence/refined-desktop-proof.json), [middle pulse](reference/evidence/refined-pulse-middle.png) and [inside-shell view](reference/evidence/refined-pulse-inside.png). The diagnostic driver now uses elapsed wall time because Editor callbacks are not equivalent to rendered frames; its earlier first-pulse capture could be skipped by a stale frame delta. This helper remains excluded from the Core APK.
+
+The [research addendum](reference/audio-scan-study.json) separates inspected developer interviews, sampled official footage and a community sound pointer from authored synthesis. No Focus-device-specific production recipe was found. Playback/UI inspection is not a captured audio comparison; exact sound or visual equivalence is unverified. Triangle count does not establish transparent fill cost, stereo comfort or Quest frame time. Headset work is deferred at Shane's request.
+
+The verified APK described below predates this refinement. A fresh Android package is being built; until its result is recorded, the new audiovisual increment is Editor-tested source only.
+
 ## Current Editor milestone
 
 Unity Hub's existing Personal licence is active. Hub lacked the installed6.3 Editor registration and the FocusCore project; both were added, and Hub opened the real project successfully. Actual C# compilation, Meta207 package import, original FBX import and Coplay10.0.0 import succeeded. A fresh CLI launch also exited 0 on October 7; licensing is now verified through both routes.
