@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-07",
+  "cliLaunchLog": ".artifacts/logs/setup-launch-proof-20261007-071243-2ad368ab.log",
+  "cliLaunchExit": 0,
+  "editorVersion": "6000.3.25f1",
+  "headsetVerified": false,
+  "desktopProof": {
+    "passed": true,
+    "scans": 6,
+    "chirps": 6,
+    "pulse_stopped": true,
+    "input_simulated": true,
+    "headset_verified": false
+  },
+  "tests": [
+    {
+      "mode": "EditMode",
+      "result": "Passed",
+      "total": 37,
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0,
+      "xml": ".artifacts/tests/unity-EditMode-20261007-071356-d01e7c8f/results.xml"
+    },
+    {
+      "mode": "PlayMode",
+      "result": "Passed",
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "xml": ".artifacts/tests/unity-PlayMode-20261007-071500-55231bb2/results.xml"
+    }
+  ],
+  "android": {
+    "buildExit": 0,
+    "gradleDuration": "28m 39s",
+    "apk": ".artifacts/apks/Core-20261007-071616-16b92f57/FocusCore.apk",
+    "bytes": 69125912,
+    "sha256": "7AB3966062F1C6378E5B35668D22834D68AB180D730FB52A066A1FE88D166F90",
+    "signatureV2Verified": true,
+    "abi": "arm64-v8a",
+    "il2cppBytes": 81537000,
+    "package": "com.thegamingdonkey.focuscore",
+    "minApi": 32,
+    "targetApi": 34,
+    "questDevice": "quest3s",
+    "passthroughRequired": true,
+    "handPermission": true,
+    "cameraPermission": false,
+    "headsetInstalled": false,
+    "sourceAtExport": "7c8bf01ca34687d20004d7ffdd3db6c5be2ff583",
+    "note": "Uncommitted setup-only Editor helpers excluded from APK; runtime source and Core scene unchanged."
+  },
+  "gui": {
+    "reopenedThroughHub": true,
+    "project": "FocusCore",
+    "coreSceneOpened": true,
+    "coreBuildIndex": 0,
+    "mcpPython": "3.12.14",
+    "uv": "0.12.10",
+    "mcpRequirementsReady": true,
+    "metaRequiredItems": 0,
+    "metaRecommendedItems": 12,
+    "openxrValidationErrors": 0,
+    "openxrValidationWarnings": 14,
+    "startupConsoleErrors": 0,
+    "startupConsoleWarnings": 11,
+    "startupWarningNote": "URP TraceVirtualOffset precision warnings plus Meta notices from empty initial scene. Loading Core satisfies required scene checks; PlayMode automatically clears prior Console entries.",
+    "desktopProofConsoleErrors": 0,
+    "desktopProofConsoleWarnings": 0,
+    "desktopProofGameScale": "1x",
+    "coreRestoredAfterProof": true,
+    "pulseVisiblyRendered": true
+  },
+  "critic": {
+    "softwareSetupEditorPackaging": 8.5,
+    "overallFocusQuest": 6.2,
+    "concreteSourceBlockerFound": false,
+    "headsetAcceptancePending": true,
+    "scope": "Bounded independent review; score is not runtime evidence."
+  }
+}

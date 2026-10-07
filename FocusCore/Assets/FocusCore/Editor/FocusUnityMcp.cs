@@ -19,6 +19,14 @@ namespace FocusCore.Editor
             var status = Path.GetFullPath(Path.Combine(Application.dataPath,"../../.artifacts/mcp/status"));
             Directory.CreateDirectory(status);
             Environment.SetEnvironmentVariable("UNITY_MCP_STATUS_DIR",status,EnvironmentVariableTarget.Process);
+            // Hub does not inherit Codex's bundled Python PATH. Make the existing
+            // runtime visible to this Editor only, without changing Windows PATH.
+            var pythonDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                ".cache/codex-runtimes/codex-primary-runtime/dependencies/python");
+            var editorPath = Environment.GetEnvironmentVariable("PATH") ?? "";
+            if (File.Exists(Path.Combine(pythonDirectory,"python.exe")) &&
+                !Array.Exists(editorPath.Split(Path.PathSeparator),p=>string.Equals(p,pythonDirectory,StringComparison.OrdinalIgnoreCase)))
+                Environment.SetEnvironmentVariable("PATH",pythonDirectory + Path.PathSeparator + editorPath,EnvironmentVariableTarget.Process);
             // Unity reloads the scripting domain when entering/exiting PlayMode.
             // Resume only a bridge explicitly requested for this Editor session.
             if (!Application.isBatchMode && SessionState.GetBool(RequestedKey,false))
