@@ -5,13 +5,22 @@ param(
     [string]$UnityPath = 'C:\Users\mrbos\Documents\UnityEditors\6000.3.25f1\Editor\Unity.exe',
     [string[]]$EditorArguments = @('-quit', '-nographics'),
     [ValidatePattern('^[A-Za-z0-9][A-Za-z0-9._-]*$')][string]$LogName = 'editor',
-    [ValidateRange(1,2)][int]$Workers = 2
+    [ValidateRange(1,2)][int]$Workers = 2,
+    [ValidateRange(1,86400)][int]$TimeoutSeconds = 3600,
+    [object]$BuildLease
 )
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $focusProject = Join-Path $focusRoot 'MRWorkshop'
+. (Join-Path $PSScriptRoot 'Helpers.ps1')
+$focusOwnGate = $null
+$focusProcess = $null
+$focusStarted = $false
+try {
+if ($BuildLease) { Assert-WorkshopBuildLease -Root $focusRoot -Lease $BuildLease }
+else { $focusOwnGate = Enter-WorkshopGate -Root $focusRoot -Purpose CLI }
 if (-not (Test-Path -LiteralPath $UnityPath)) { throw "Editor not found: $UnityPath" }
-if (-not (Test-Path -LiteralPath (Join-Path $focusProject 'ProjectSettings\ProjectVersion.txt'))) { throw 'Focus project not found.' }
+if (-not (Test-Path -LiteralPath (Join-Path $focusProject 'ProjectSettings\ProjectVersion.txt'))) { throw 'Workshop project not found.' }
 # Never close another Editor or compete with an interactive Editor for this project.
 $focusEditors = @(Get-CimInstance Win32_Process -Filter "Name = 'Unity.exe'" | Where-Object { -not $_.ExecutablePath -or $_.ExecutablePath -match '\\Editor\\Unity\.exe$' })
 if ($focusEditors.Count -gt 0) { throw 'An Editor is already running. Finish/close it before starting another CLI Editor; no process was stopped.' }
@@ -39,22 +48,18 @@ foreach ($focusArg in @('-batchmode', '-projectPath', $focusProject, '-logFile',
 }
 $focusProcess = [Diagnostics.Process]::new()
 $focusProcess.StartInfo = $focusStart
-try {
     if (-not $focusProcess.Start()) { throw 'Could not start Editor.' }
+    $focusStarted = $true
     try { $focusProcess.PriorityClass = [Diagnostics.ProcessPriorityClass]::BelowNormal } catch { Write-Warning 'Could not lower this Editor process priority.' }
     Write-Output "Editor PID: $($focusProcess.Id); log: $focusLogPath"
-    $focusLowMemorySamples = 0
-    while (-not $focusProcess.WaitForExit(10000)) {
-        $focusAvailableKiB = (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory
-        if ($focusAvailableKiB -lt 1MB) { $focusLowMemorySamples++ } else { $focusLowMemorySamples = 0 }
-        if ($focusLowMemorySamples -ge 2) {
-            Write-Warning 'Available RAM stayed below1GiB; stopping only this owned Editor and its child processes. No build/test success is claimed.'
-            $focusProcess.Kill($true)
-            $focusProcess.WaitForExit()
-            break
-        }
-    }
+    Wait-WorkshopProcess -Process $focusProcess -TimeoutSeconds $TimeoutSeconds
     $focusExit = $focusProcess.ExitCode
     [PSCustomObject]@{ExitCode=$focusExit; Log=$focusLogPath} | ConvertTo-Json -Compress
-} finally { $focusProcess.Dispose() }
+} finally {
+    try { Stop-WorkshopOwnedProcess -Process $focusProcess -Started $focusStarted }
+    finally {
+        if ($focusProcess) { $focusProcess.Dispose() }
+        if ($focusOwnGate) { Exit-WorkshopGate $focusOwnGate }
+    }
+}
 exit $focusExit

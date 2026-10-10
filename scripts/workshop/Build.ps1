@@ -4,18 +4,17 @@ param(
     [string]$UnityPath = 'C:\Users\mrbos\Documents\UnityEditors\6000.3.25f1\Editor\Unity.exe',
     [ValidateSet('Workshop')][string]$Scene = 'Workshop',
     [string]$ResumeExport,
-    [ValidateRange(1,2)][int]$Workers = 2
+    [ValidateRange(1,2)][int]$Workers = 2,
+    [ValidateRange(1,86400)][int]$ExportTimeoutSeconds = 3600,
+    [ValidateRange(1,86400)][int]$PackageTimeoutSeconds = 7200
 )
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
+. (Join-Path $PSScriptRoot 'Helpers.ps1')
+$focusBuildLease = Enter-WorkshopGate -Root $focusRoot -Purpose Build
+try {
 $focusActiveBuildPath = Join-Path $focusRoot '.artifacts\workshop\active-build.json'
-if (Test-Path -LiteralPath $focusActiveBuildPath) {
-    $focusRecordedBuild = Get-Content -LiteralPath $focusActiveBuildPath -Raw | ConvertFrom-Json
-    $focusRunningBuild = Get-Process -Id $focusRecordedBuild.Pid -ErrorAction SilentlyContinue
-    if ($focusRunningBuild -and $focusRunningBuild.StartTime.ToUniversalTime().Ticks -eq $focusRecordedBuild.StartTicks -and [string]::Equals($focusRunningBuild.Path,$focusRecordedBuild.Executable,[StringComparison]::OrdinalIgnoreCase)) {
-        throw 'A Workshop Android packager is already running. No second build was started.'
-    }
-}
+if (@(Get-CimInstance Win32_Process -Filter "Name = 'blender.exe'").Count) { throw 'Close Blender before Android export/packaging. No Blender process was stopped.' }
 if (@(Get-CimInstance Win32_Process -Filter "Name = 'Unity.exe'" | Where-Object { -not $_.ExecutablePath -or $_.ExecutablePath -match '\\Editor\\Unity\.exe$' }).Count) { throw 'Close the Editor before Android packaging, including resumed exports. No Editor was stopped.' }
 $focusFreeKiB = (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory
 if ($focusFreeKiB -lt 3MB) { throw 'Less than 3 GiB RAM is available. Defer this Android build; no other app was closed.' }
@@ -37,7 +36,7 @@ if ($ResumeExport) {
     if ((Test-Path -LiteralPath $focusPreviousApks) -and @(Get-ChildItem -LiteralPath $focusPreviousApks -Filter '*.apk').Count -gt 0) { throw 'Resume export already contains an APK; refusing stale output.' }
 } else {
 $focusArgs = @('-quit','-nographics','-buildTarget','Android','-executeMethod',('MRWorkshop.Editor.WorkshopBuild.Build' + $Scene),'-workshopOutput',$focusOutput,'-workshopExportPath',$focusExport)
-& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -UnityPath $UnityPath -EditorArguments $focusArgs -LogName ('build-' + $Scene) -Workers $Workers
+& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -UnityPath $UnityPath -EditorArguments $focusArgs -LogName ('build-' + $Scene) -Workers $Workers -TimeoutSeconds $ExportTimeoutSeconds -BuildLease $focusBuildLease
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 }
 if (-not (Test-Path -LiteralPath (Join-Path $focusExport 'launcher\build.gradle'))) { throw 'Unity exported no launcher Gradle project.' }
@@ -80,43 +79,41 @@ foreach ($focusArg in @('-Xmx256m','-classpath',$focusGradleJars[0].FullName,'or
 }
 $focusStdoutPath = Join-Path $focusRoot ('.artifacts\logs\gradle-' + $Scene + '-' + $focusRunId + '.stdout.log')
 $focusStderrPath = Join-Path $focusRoot ('.artifacts\logs\gradle-' + $Scene + '-' + $focusRunId + '.stderr.log')
-$focusStdoutFile = [IO.FileStream]::new($focusStdoutPath,[IO.FileMode]::Create,[IO.FileAccess]::Write,[IO.FileShare]::ReadWrite)
-$focusStderrFile = [IO.FileStream]::new($focusStderrPath,[IO.FileMode]::Create,[IO.FileAccess]::Write,[IO.FileShare]::ReadWrite)
+New-Item -ItemType Directory -Path (Split-Path -Parent $focusStdoutPath) -Force | Out-Null
+$focusStdoutFile = $null
+$focusStderrFile = $null
 $focusGradle = [Diagnostics.Process]::new()
 $focusGradle.StartInfo = $focusStart
 $focusGradleStarted = $false
 try {
+    $focusStdoutFile = [IO.FileStream]::new($focusStdoutPath,[IO.FileMode]::Create,[IO.FileAccess]::Write,[IO.FileShare]::ReadWrite)
+    $focusStderrFile = [IO.FileStream]::new($focusStderrPath,[IO.FileMode]::Create,[IO.FileAccess]::Write,[IO.FileShare]::ReadWrite)
     if (-not $focusGradle.Start()) { throw 'Could not start Gradle.' }
     $focusGradleStarted = $true
     $focusActiveBuildPath = Join-Path $focusRoot '.artifacts\workshop\active-build.json'
     New-Item -ItemType Directory -Path (Split-Path -Parent $focusActiveBuildPath) -Force | Out-Null
-    [pscustomobject]@{Pid=$focusGradle.Id; StartTicks=$focusGradle.StartTime.ToUniversalTime().Ticks; Executable=$focusJava; Export=$focusExport} | ConvertTo-Json | Set-Content -LiteralPath $focusActiveBuildPath -Encoding utf8
+    Write-WorkshopJson -Path $focusActiveBuildPath -Value @{Pid=$focusGradle.Id; StartTicks=$focusGradle.StartTime.ToUniversalTime().Ticks; Executable=$focusJava; Export=$focusExport; LeaseId=$focusBuildLease.Id}
     try { $focusGradle.PriorityClass = [Diagnostics.ProcessPriorityClass]::BelowNormal } catch { Write-Warning 'Could not lower this Gradle process priority.' }
     $focusOutCopy = $focusGradle.StandardOutput.BaseStream.CopyToAsync($focusStdoutFile)
     $focusErrCopy = $focusGradle.StandardError.BaseStream.CopyToAsync($focusStderrFile)
     Write-Output "Gradle PID: $($focusGradle.Id); stdout: $focusStdoutPath; stderr: $focusStderrPath"
-    $focusLowMemorySamples = 0
-    while (-not $focusGradle.WaitForExit(10000)) {
-        if ((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory -lt 1MB) { $focusLowMemorySamples++ } else { $focusLowMemorySamples = 0 }
-        if ($focusLowMemorySamples -ge 2) {
-            Write-Warning 'Available RAM stayed below1GiB; stopping only this owned Gradle process tree. No APK success claimed.'
-            $focusGradle.Kill($true)
-            $focusGradle.WaitForExit()
-            break
-        }
-    }
+    Wait-WorkshopProcess -Process $focusGradle -TimeoutSeconds $PackageTimeoutSeconds
     $focusOutCopy.GetAwaiter().GetResult() | Out-Null
     $focusErrCopy.GetAwaiter().GetResult() | Out-Null
     $focusGradleExit = $focusGradle.ExitCode
 } finally {
-    if ($focusGradleStarted -and -not $focusGradle.HasExited) { $focusGradle.Kill($true); $focusGradle.WaitForExit() }
-    if ($focusActiveBuildPath -and (Test-Path -LiteralPath $focusActiveBuildPath)) {
-        $focusRecordedBuild = Get-Content -LiteralPath $focusActiveBuildPath -Raw | ConvertFrom-Json
-        if ($focusRecordedBuild.Pid -eq $focusGradle.Id) { Remove-Item -LiteralPath $focusActiveBuildPath }
+    try { Stop-WorkshopOwnedProcess -Process $focusGradle -Started $focusGradleStarted }
+    finally {
+        try {
+            if ($focusActiveBuildPath -and (Test-Path -LiteralPath $focusActiveBuildPath)) {
+                $focusRecordedBuild = Get-Content -LiteralPath $focusActiveBuildPath -Raw | ConvertFrom-Json
+                if ($focusGradleStarted -and $focusGradle.HasExited -and $focusRecordedBuild.Pid -eq $focusGradle.Id -and $focusRecordedBuild.LeaseId -eq $focusBuildLease.Id) { Remove-Item -LiteralPath $focusActiveBuildPath }
+            }
+        } catch { Write-Warning "Packager marker cleanup failed; retained for ownership inspection: $_" }
+        if ($focusStdoutFile) { $focusStdoutFile.Dispose() }
+        if ($focusStderrFile) { $focusStderrFile.Dispose() }
+        $focusGradle.Dispose()
     }
-    $focusStdoutFile.Dispose()
-    $focusStderrFile.Dispose()
-    $focusGradle.Dispose()
 }
 if ($focusGradleExit -ne 0) { throw "Gradle failed: exit=$focusGradleExit; see $focusStderrPath" }
 $focusBuiltApks = @(Get-ChildItem -LiteralPath (Join-Path $focusExport 'launcher\build\outputs\apk\release') -Filter '*.apk')
@@ -126,6 +123,7 @@ if (-not (Test-Path -LiteralPath $focusOutput) -or (Get-Item -LiteralPath $focus
 $focusHash = (Get-FileHash -LiteralPath $focusOutput -Algorithm SHA256).Hash
 # Publish the convenience path only after checking this invocation's unique output.
 $focusLatest = Join-Path $focusRoot ('.artifacts\apks\MR' + $Scene + '.apk')
-Copy-Item -LiteralPath $focusOutput -Destination $focusLatest -Force
+Publish-WorkshopFile -Source $focusOutput -Destination $focusLatest -ExpectedSha256 $focusHash -ExpectedBytes (Get-Item -LiteralPath $focusOutput).Length
 [PSCustomObject]@{APK=$focusOutput; Latest=$focusLatest; Bytes=(Get-Item -LiteralPath $focusOutput).Length; SHA256=$focusHash; HeadsetTested=$false} | ConvertTo-Json -Compress
 exit 0
+} finally { Exit-WorkshopGate $focusBuildLease }

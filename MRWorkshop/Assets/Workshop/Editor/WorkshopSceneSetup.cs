@@ -61,6 +61,7 @@ namespace MRWorkshop.Editor
             for(int i=0;i<actions.Length;i++)Button(panelRect,controller,actions[i],new Vector2(-252+i*126,17));
             controller.status=Text(panelRect,"WAITING FOR HEADSET TRACKING",new Vector2(-315,-111),new Vector2(630,91),19);
             QuickActionsAPI.AddRayCanvasInteraction(panel.gameObject); QuickActionsAPI.AddPokeCanvasInteraction(panel.gameObject);
+            WorkshopInputSource.BindRig(controller,platform.transform);
             var light=new GameObject("Workshop Key Light",typeof(Light)).GetComponent<Light>(); light.type=LightType.Directional; light.intensity=1.4f; light.shadows=LightShadows.None; light.transform.rotation=Quaternion.Euler(50,-30,0);
             RenderSettings.ambientMode=AmbientMode.Flat; RenderSettings.ambientLight=new Color(.42f,.48f,.55f);
             if(!EditorSceneManager.SaveScene(scene,ScenePath))throw new IOException("Workshop scene save failed.");

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-10T21:43:59.3226823Z",
+  "status": "synthetic_helper_checks_passed",
+  "environment": {
+    "source_root": "C:\\Users\\mrbos\\Downloads\\Git Hub Local_remote\\Zero-DAWN-Dymb-aloy\\.worktrees\\focus-core",
+    "branch": "codex/focus-core",
+    "head_commit_at_recording": "7949bc7ca54638e8e7c64a3c9145fd087fe12544",
+    "os": "Microsoft Windows 10.0.26300",
+    "powershell_version": "7.6.5",
+    "powershell_executable": "C:\\Users\\mrbos\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "python_version": "3.12.14",
+    "python_executable": "C:\\Users\\mrbos\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe"
+  },
+  "files_reviewed_and_changed": [
+    "scripts/workshop/Helpers.ps1",
+    "scripts/workshop/Build.ps1",
+    "scripts/workshop/Run-Unity.ps1",
+    "scripts/workshop/Test.ps1",
+    "scripts/workshop/Open.ps1",
+    "scripts/workshop/Open-Blender.ps1",
+    "scripts/workshop/check_unity_mcp.py",
+    "scripts/workshop/Test-Helpers.ps1",
+    "scripts/workshop/test_check_unity_mcp.py"
+  ],
+  "verification": [
+    {
+      "kind": "synthetic_powershell_helpers",
+      "command": "& 'C:\\Users\\mrbos\\Downloads\\Git Hub Local_remote\\Zero-DAWN-Dymb-aloy\\.worktrees\\focus-core\\scripts\\workshop\\Test-Helpers.ps1'",
+      "exit_code": 0,
+      "assertions_passed": 41,
+      "observed_output": "PASS: 41 synthetic helper assertions. No Unity/Blender/Gradle/ADB actions.",
+      "coverage": [
+        "cross-process gate exclusion and reuse",
+        "copied launchers reject a held gate",
+        "verified nested Build-to-Run-Unity authorization and fabricated authorization rejection",
+        "live, stale and malformed packager ownership records",
+        "build refuses a simulated running Blender",
+        "validated atomic artifact publication preserves the previous artifact on hash failure",
+        "owned synthetic process timeout, monitoring exception and sustained low-memory cleanup",
+        "cleanup does not terminate a process without its ownership flag",
+        "unresolved Store activation blocks build, CLI and duplicate Blender admission",
+        "mismatched startup identity cannot resolve the pending request",
+        "matching completed startup outcome resolves its own pending request",
+        "copied Blender launcher timeout retains its mocked Store activation request",
+        "exact late process observation resolves the request while build still refuses running Blender",
+        "known Blender authoring permits Editor admission"
+      ],
+      "isolation": "Temporary fixture roots, mocked Store activation and disposable PowerShell processes only.",
+      "raw_output_file": null
+    },
+    {
+      "kind": "mocked_mcp_checker",
+      "command": "& 'C:\\Users\\mrbos\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' 'C:\\Users\\mrbos\\Downloads\\Git Hub Local_remote\\Zero-DAWN-Dymb-aloy\\.worktrees\\focus-core\\scripts\\workshop\\test_check_unity_mcp.py'",
+      "exit_code": 0,
+      "tests_passed": 10,
+      "observed_summary": "Ran 10 tests in 0.855s; OK",
+      "coverage": [
+        "menu refusal replaces a prior passing latest report",
+        "bounded diagnostic timeout preserves request evidence",
+        "malformed instance registry saves fresh failure",
+        "server initialization failure saves fresh failure",
+        "missing MCP dependency saves fresh failure",
+        "failed console query is not reported as verified",
+        "nonempty console error rows fail and remain in the report",
+        "completed unsuccessful diagnostic retains its actual result",
+        "successful diagnostic has a unique snapshot and fresh latest report",
+        "connection-only success requires no diagnostic"
+      ],
+      "isolation": "In-memory MCP transport and temporary evidence roots; no network or live bridge requests.",
+      "raw_output_file": null
+    },
+    {
+      "kind": "syntax",
+      "powershell_method": "System.Management.Automation.Language.Parser.ParseFile for scripts/workshop/*.ps1",
+      "python_method": "ast.parse for scripts/workshop/*.py and the generated startup Python template extracted from Open-Blender.ps1",
+      "exit_code": 0,
+      "observed_output": [
+        "PowerShell workshop scripts: zero parser errors",
+        "Python and embedded Blender startup syntax: zero parser errors"
+      ],
+      "raw_output_file": null
+    },
+    {
+      "kind": "diff_whitespace",
+      "command": "git -C 'C:\\Users\\mrbos\\Downloads\\Git Hub Local_remote\\Zero-DAWN-Dymb-aloy\\.worktrees\\focus-core' -c core.safecrlf=false diff --check -- scripts/workshop",
+      "exit_code": 0,
+      "observed_output": "",
+      "raw_output_file": null
+    }
+  ],
+  "evidence_provenance": "Execution results above were observed in this specialist chat's tool outputs. Raw logs were not separately saved. This file records those results without rerunning the checks.",
+  "bounded_scope": {
+    "unity_blender_gradle_or_adb_launched_by_specialist": false,
+    "unity_blender_gradle_or_adb_stopped_by_specialist": false,
+    "live_bridge_requests_by_specialist": false,
+    "unity_suites_run_by_specialist": false,
+    "apk_build_or_current_apk_validation_claim": false,
+    "physical_headset_validation_claim": false,
+    "global_os_or_user_preferences_changed": false,
+    "vendor_package_cache_changed": false,
+    "test_timeout_seconds": 1800,
+    "export_timeout_seconds": 3600,
+    "package_timeout_seconds": 7200,
+    "timeouts_configurable": true
+  },
+  "limitations": [
+    "Synthetic results do not establish a real application launch, native build, live MCP round trip, current APK validity or physical headset behavior.",
+    "The admission gate coordinates these Workshop scripts; manual launches and non-cooperating tools remain outside it.",
+    "An unresolved Store activation has no expiry and remains blocked until matching process or startup-report evidence establishes its outcome.",
+    "Worker settings bound the selected job/native packaging pools; they do not establish a cap on every Unity import process or background worker.",
+    "One failed-test Temp directory remains because recursive deletion was rejected as blocked by policy: C:\\Users\\mrbos\\AppData\\Local\\Temp\\workshop-helpers-ce1d15be93ae45f595fcc54910bb9b2f. Its handles are closed and its gate is separate from the project gate."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "started_at": "2026-10-10T21:46:26.409373+00:00",
+  "passed": true,
+  "instance": {
+    "id": "MRWorkshop@8fff9431",
+    "name": "MRWorkshop",
+    "path": "C:/Users/mrbos/Downloads/Git Hub Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/MRWorkshop/Assets",
+    "hash": "8fff9431",
+    "port": 54486,
+    "status": "running",
+    "last_heartbeat": "2026-10-10T21:46:30.484303+00:00",
+    "unity_version": "6000.3.25f1",
+    "project_scoped_tools": false
+  },
+  "selection": {
+    "success": true,
+    "message": "Active instance set to MRWorkshop@8fff9431",
+    "data": {
+      "instance": "MRWorkshop@8fff9431",
+      "session_key": "global"
+    }
+  },
+  "generation": {
+    "success": true,
+    "message": "Attempted to execute menu item: 'Workshop/Generate Mixed Reality Workshop'. Check Unity logs for confirmation or errors.",
+    "error": null,
+    "data": null,
+    "hint": null
+  },
+  "active_scene": {
+    "success": true,
+    "message": "Retrieved active scene information.",
+    "data": {
+      "name": "Workshop",
+      "path": "Assets/Workshop/Scenes/Workshop.unity",
+      "buildIndex": 0,
+      "isDirty": false,
+      "isLoaded": true,
+      "rootCount": 3
+    }
+  },
+  "console": {
+    "success": true,
+    "message": "Retrieved 0 log entries.",
+    "data": []
+  },
+  "saved_scene": "MRWorkshop\\Assets\\Workshop\\Scenes\\Workshop.unity",
+  "serialized_source_bindings": 14,
+  "nonnull_serialized_owner_interactor_device": true,
+  "completed_at": "2026-10-10T21:46:34.806559+00:00"
+}

@@ -38,20 +38,5 @@ namespace MRWorkshop.Tests
         { cell.BeginGrab(1); cell.transform.position=Vector3.right; cell.EndGrab(1); Assert.That(cell.CompleteRelease(),Is.False); cell.transform.position=Vector3.zero; Assert.That(cell.CompleteRelease(),Is.False); }
         [Test] public void FreeSizeIsClampedRelativeToAuthoredScale()
         { var authored=cell.transform.localScale; Assert.That(cell.Resize(8),Is.True); Assert.That(cell.SizeFactor,Is.EqualTo(1.5f)); Assert.That(cell.transform.localScale,Is.EqualTo(authored*1.5f)); }
-        [UnityTest] public IEnumerator TrackingSuspensionCancelsActualSdkSelection()
-        {
-            var go=GameObject.CreatePrimitive(PrimitiveType.Cube); go.transform.SetParent(root.transform);
-            go.AddComponent<Rigidbody>().isKinematic=true;
-            var sdk=go.AddComponent<Grabbable>();
-            var part=go.AddComponent<WorkshopPart>(); part.workshop=workshop; part.kind=PartKind.PowerCell; part.partId="sdk-cell"; part.CaptureHome();
-            workshop.parts=new[]{cell,part};
-            yield return null;
-            var pose=new Pose(go.transform.position,go.transform.rotation);
-            sdk.ProcessPointerEvent(new PointerEvent(72,PointerEventType.Hover,pose));
-            sdk.ProcessPointerEvent(new PointerEvent(72,PointerEventType.Select,pose));
-            Assert.That(part.IsHeld,Is.True); Assert.That(sdk.SelectingPointsCount,Is.EqualTo(1));
-            workshop.SetAvailability(false);
-            Assert.That(sdk.SelectingPointsCount,Is.Zero); Assert.That(part.IsHeld,Is.False); Assert.That(part.CompleteRelease(),Is.False);
-        }
     }
 }

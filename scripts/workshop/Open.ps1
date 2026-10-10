@@ -6,14 +6,9 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
-$focusActiveBuildPath = Join-Path $focusRoot '.artifacts\workshop\active-build.json'
-if (Test-Path -LiteralPath $focusActiveBuildPath) {
-    $focusRecordedBuild = Get-Content -LiteralPath $focusActiveBuildPath -Raw | ConvertFrom-Json
-    $focusRunningBuild = Get-Process -Id $focusRecordedBuild.Pid -ErrorAction SilentlyContinue
-    if ($focusRunningBuild -and $focusRunningBuild.StartTime.ToUniversalTime().Ticks -eq $focusRecordedBuild.StartTicks -and [string]::Equals($focusRunningBuild.Path,$focusRecordedBuild.Executable,[StringComparison]::OrdinalIgnoreCase)) {
-        throw 'This Workshop Android packager is running. Finish packaging before opening its Editor; no process was stopped.'
-    }
-}
+. (Join-Path $PSScriptRoot 'Helpers.ps1')
+$focusGate = Enter-WorkshopGate -Root $focusRoot -Purpose Editor
+try {
 if (@(Get-CimInstance Win32_Process -Filter "Name = 'Unity.exe'" | Where-Object { -not $_.ExecutablePath -or $_.ExecutablePath -match '\\Editor\\Unity\.exe$' }).Count) { throw 'An Editor is already open. No Editor was stopped; close it before this isolated launch.' }
 if ((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory -lt 1.5MB) { throw 'Defer until at least1.5GiB RAM is free.' }
 if (@(Get-NetTCPConnection -State Listen -LocalPort 54486 -ErrorAction SilentlyContinue).Count) { throw 'Workshop MCP port54486 is occupied; no process was stopped.' }
@@ -36,3 +31,4 @@ foreach ($focusArg in @('-projectPath',(Join-Path $focusRoot 'MRWorkshop'),'-bui
 $focusProcess = [Diagnostics.Process]::Start($focusStart)
 try { $focusProcess.PriorityClass = [Diagnostics.ProcessPriorityClass]::BelowNormal } catch { Write-Warning 'Could not lower owned Editor priority.' }
 Write-Output "Project Editor PID: $($focusProcess.Id). This launch is not proof of licence/import/bridge readiness."
+} finally { Exit-WorkshopGate $focusGate }

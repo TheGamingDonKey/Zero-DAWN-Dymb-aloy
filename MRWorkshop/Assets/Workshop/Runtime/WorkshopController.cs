@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Management;
+using System.Collections.Generic;
 namespace MRWorkshop
 {
     public sealed class WorkshopController : MonoBehaviour
@@ -15,7 +16,10 @@ namespace MRWorkshop
         public string Message { get; private set; }="Place the cell in the power socket";
         public WorkbenchState State { get; } = new WorkbenchState();
         public bool Available { get; private set; } = true;
+        public int AvailabilityRevision { get; private set; }
+        readonly Dictionary<int,WorkshopInputSource> sources=new Dictionary<int,WorkshopInputSource>();
         bool placed,paused;
+        OVRDisplay subscribedDisplay;
         void Start()
         {
             if(parts!=null)foreach(var part in parts)if(part!=null)part.CaptureHome();
@@ -26,19 +30,33 @@ namespace MRWorkshop
             if(!desktopMode)
             {
                 var manager=XRGeneralSettings.Instance!=null?XRGeneralSettings.Instance.Manager:null;
+                if(subscribedDisplay==null && OVRManager.isHmdPresent && OVRManager.display!=null)
+                {
+                    subscribedDisplay=OVRManager.display; subscribedDisplay.RecenteredPose+=OnRecenter;
+                }
                 bool ready=!paused && manager!=null && manager.isInitializationComplete && OVRManager.isHmdPresent && OVRManager.hasVrFocus && OVRManager.IsInsightPassthroughInitialized() && !OVRManager.HasInsightPassthroughInitFailed() && OVRPlugin.GetNodePositionTracked(OVRPlugin.Node.Head) && OVRPlugin.GetNodeOrientationTracked(OVRPlugin.Node.Head);
                 SetAvailability(ready);
-                if(ready && !placed && head!=null && workbench!=null)
-                {
-                    var forward=Vector3.ProjectOnPlane(head.forward,Vector3.up).normalized;
-                    if(forward.sqrMagnitude<.1f)forward=Vector3.forward;
-                    workbench.SetPositionAndRotation(new Vector3(head.position.x,Mathf.Clamp(head.position.y-.55f,.65f,1.3f),head.position.z)+forward*1.1f,Quaternion.LookRotation(forward));
-                    foreach(var part in parts)part.CaptureHome(); placed=true;
-                }
+                if(ready)PlaceWorkbench();
             }
             if(rotor!=null && Available && State.Running)rotor.Rotate(Vector3.up,90*Time.unscaledDeltaTime,Space.Self);
             if(status!=null)status.text=StatusText();
         }
+        void PlaceWorkbench()
+        {
+            if(!Available || placed || head==null || workbench==null)return;
+            var forward=Vector3.ProjectOnPlane(head.forward,Vector3.up).normalized;
+            if(forward.sqrMagnitude<.1f)forward=Vector3.forward;
+            workbench.SetPositionAndRotation(new Vector3(head.position.x,Mathf.Clamp(head.position.y-.55f,.65f,1.3f),head.position.z)+forward*1.1f,Quaternion.LookRotation(forward));
+            if(parts!=null)foreach(var part in parts)if(part!=null)part.CaptureHome(); placed=true;
+        }
+        internal void RegisterSource(WorkshopInputSource source) { sources[source.Identifier]=source; }
+        internal void UnregisterSource(WorkshopInputSource source,int id)
+        { if(sources.TryGetValue(id,out var registered) && registered==source)sources.Remove(id); }
+        public bool TryGetSource(int id,out WorkshopInputSource source)
+        { return sources.TryGetValue(id,out source) && source!=null; }
+        public bool IsSourceAvailable(int id) { return Available && TryGetSource(id,out var source) && source.IsUsable; }
+        internal void CancelSource(int id)
+        { if(parts!=null)foreach(var part in parts)if(part!=null)part.CancelSdkSource(id); }
         public string StatusText()
         {
             return (!Available?"WAITING FOR HEADSET TRACKING":State.Running?"MECHANISM RUNNING":State.DockedId!=null?"CELL CONNECTED / POWER OFF":"SOCKET EMPTY")+
@@ -60,6 +78,7 @@ namespace MRWorkshop
             Available=available;
             if(!available)
             {
+                AvailabilityRevision++;
                 State.Reset(); Selected=null; placed=false;
                 if(parts!=null)foreach(var part in parts)if(part!=null) { part.SetInteractionAvailability(false); part.CancelPending(); }
                 Message="Tracking interrupted / pending connections cancelled";
@@ -87,6 +106,11 @@ namespace MRWorkshop
             }
         }
         void OnApplicationPause(bool pause) { paused=pause; if(pause)SetAvailability(false); }
-        void OnDisable() { SetAvailability(false); }
+        void OnRecenter() { SetAvailability(false); }
+        void OnDisable()
+        {
+            if(subscribedDisplay!=null)subscribedDisplay.RecenteredPose-=OnRecenter;
+            subscribedDisplay=null; SetAvailability(false);
+        }
     }
 }

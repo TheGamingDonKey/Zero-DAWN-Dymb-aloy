@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="14" result="Failed(Child)" total="14" passed="10" failed="4" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.3081845">
+  <test-suite type="TestSuite" id="1023" name="MR Workshop" fullname="MR Workshop" runstate="Runnable" testcasecount="14" result="Failed" site="Child" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.308185" total="14" passed="10" failed="4" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1017" name="MRWorkshop.PlayModeTests.dll" fullname="C:/Users/mrbos/Downloads/Git Hub Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/MRWorkshop/Library/ScriptAssemblies/MRWorkshop.PlayModeTests.dll" runstate="Runnable" testcasecount="14" result="Failed" site="Child" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.287955" total="14" passed="10" failed="4" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="45936" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1018" name="MRWorkshop" fullname="MRWorkshop" runstate="Runnable" testcasecount="14" result="Failed" site="Child" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.286579" total="14" passed="10" failed="4" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1019" name="Tests" fullname="MRWorkshop.Tests" runstate="Runnable" testcasecount="14" result="Failed" site="Child" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.285873" total="14" passed="10" failed="4" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1001" name="WorkshopInteractionTests" fullname="MRWorkshop.Tests.WorkshopInteractionTests" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.124836" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="CancellationDoesNotDock" fullname="MRWorkshop.Tests.WorkshopInteractionTests.CancellationDoesNotDock" methodname="CancellationDoesNotDock" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" seed="234366604" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.037914" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="FreeSizeIsClampedRelativeToAuthoredScale" fullname="MRWorkshop.Tests.WorkshopInteractionTests.FreeSizeIsClampedRelativeToAuthoredScale" methodname="FreeSizeIsClampedRelativeToAuthoredScale" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" seed="580253163" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.012344" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="HeldOrDockedPartsRejectTransformControls" fullname="MRWorkshop.Tests.WorkshopInteractionTests.HeldOrDockedPartsRejectTransformControls" methodname="HeldOrDockedPartsRejectTransformControls" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" seed="197911932" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.001994" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="LastPointerReleaseDocksExactlyOnce" fullname="MRWorkshop.Tests.WorkshopInteractionTests.LastPointerReleaseDocksExactlyOnce" methodname="LastPointerReleaseDocksExactlyOnce" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" seed="118951096" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.000887" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="LossOfAvailabilityCancelsPendingDockAndPower" fullname="MRWorkshop.Tests.WorkshopInteractionTests.LossOfAvailabilityCancelsPendingDockAndPower" methodname="LossOfAvailabilityCancelsPendingDockAndPower" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" seed="1722206047" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.000787" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="RejectedReleaseDoesNotKeepTryingLater" fullname="MRWorkshop.Tests.WorkshopInteractionTests.RejectedReleaseDoesNotKeepTryingLater" methodname="RejectedReleaseDoesNotKeepTryingLater" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" seed="1153219695" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.001026" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="ResetRefusesHeldObjectThenRestoresHome" fullname="MRWorkshop.Tests.WorkshopInteractionTests.ResetRefusesHeldObjectThenRestoresHome" methodname="ResetRefusesHeldObjectThenRestoresHome" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" seed="24705782" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.014940" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="TrackingSuspensionCancelsActualSdkSelection" fullname="MRWorkshop.Tests.WorkshopInteractionTests.TrackingSuspensionCancelsActualSdkSelection" methodname="TrackingSuspensionCancelsActualSdkSelection" classname="MRWorkshop.Tests.WorkshopInteractionTests" runstate="Runnable" seed="497321739" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.030500" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1010" name="WorkshopSourceLifecycleTests" fullname="MRWorkshop.Tests.WorkshopSourceLifecycleTests" classname="MRWorkshop.Tests.WorkshopSourceLifecycleTests" runstate="Runnable" testcasecount="6" result="Failed" site="Child" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.158640" total="6" passed="2" failed="4" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1012" name="EnabledSourceExplicitDisableDoesNotDock" fullname="MRWorkshop.Tests.WorkshopSourceLifecycleTests.EnabledSourceExplicitDisableDoesNotDock" methodname="EnabledSourceExplicitDisableDoesNotDock" classname="MRWorkshop.Tests.WorkshopSourceLifecycleTests" runstate="Runnable" seed="2074196717" result="Failed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.109235" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Expected: null
+  But was:  "sdk-cell"
+]]></message>
+                <stack-trace><![CDATA[at MRWorkshop.Tests.WorkshopSourceLifecycleTests+<EnabledSourceExplicitDisableDoesNotDock>d__10.MoveNext () [0x000a2] in C:\Users\mrbos\Downloads\Git Hub Local_remote\Zero-DAWN-Dymb-aloy\.worktrees\focus-core\MRWorkshop\Assets\Workshop\Tests\PlayMode\WorkshopSourceLifecycleTests.cs:69
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@bd7f943e9647\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1013" name="GenuineSdkUnselectStillDocksOnce" fullname="MRWorkshop.Tests.WorkshopSourceLifecycleTests.GenuineSdkUnselectStillDocksOnce" methodname="GenuineSdkUnselectStillDocksOnce" classname="MRWorkshop.Tests.WorkshopSourceLifecycleTests" runstate="Runnable" seed="108534010" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.007310" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="GenuineUiClickFromTrackedSourceTogglesPower" fullname="MRWorkshop.Tests.WorkshopSourceLifecycleTests.GenuineUiClickFromTrackedSourceTogglesPower" methodname="GenuineUiClickFromTrackedSourceTogglesPower" classname="MRWorkshop.Tests.WorkshopSourceLifecycleTests" runstate="Runnable" seed="475547377" result="Passed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.013959" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1014" name="QueuedUiClickFromDisabledSourceIsRejected" fullname="MRWorkshop.Tests.WorkshopSourceLifecycleTests.QueuedUiClickFromDisabledSourceIsRejected" methodname="QueuedUiClickFromDisabledSourceIsRejected" classname="MRWorkshop.Tests.WorkshopSourceLifecycleTests" runstate="Runnable" seed="289931153" result="Failed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.006961" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Expected: False
+  But was:  True
+]]></message>
+                <stack-trace><![CDATA[at MRWorkshop.Tests.WorkshopSourceLifecycleTests+<QueuedUiClickFromDisabledSourceIsRejected>d__13.MoveNext () [0x0008b] in C:\Users\mrbos\Downloads\Git Hub Local_remote\Zero-DAWN-Dymb-aloy\.worktrees\focus-core\MRWorkshop\Assets\Workshop\Tests\PlayMode\WorkshopSourceLifecycleTests.cs:96
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@bd7f943e9647\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1016" name="RecenterCancelsReleaseAndReplacesWorkbench" fullname="MRWorkshop.Tests.WorkshopSourceLifecycleTests.RecenterCancelsReleaseAndReplacesWorkbench" methodname="RecenterCancelsReleaseAndReplacesWorkbench" classname="MRWorkshop.Tests.WorkshopSourceLifecycleTests" runstate="Runnable" seed="1469688051" result="Failed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.008075" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Recenter must suspend and cancel before placing in the new tracking space.
+  Expected: False
+  But was:  True
+]]></message>
+                <stack-trace><![CDATA[at MRWorkshop.Tests.WorkshopSourceLifecycleTests+<RecenterCancelsReleaseAndReplacesWorkbench>d__15.MoveNext () [0x00109] in C:\Users\mrbos\Downloads\Git Hub Local_remote\Zero-DAWN-Dymb-aloy\.worktrees\focus-core\MRWorkshop\Assets\Workshop\Tests\PlayMode\WorkshopSourceLifecycleTests.cs:115
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@bd7f943e9647\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1011" name="SourceDisconnectUnselectDoesNotDock" fullname="MRWorkshop.Tests.WorkshopSourceLifecycleTests.SourceDisconnectUnselectDoesNotDock" methodname="SourceDisconnectUnselectDoesNotDock" classname="MRWorkshop.Tests.WorkshopSourceLifecycleTests" runstate="Runnable" seed="176670613" result="Failed" start-time="2026-10-10 21:35:04Z" end-time="2026-10-10 21:35:04Z" duration="0.009460" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  SDK disable is cancellation, not physical release.
+  Expected: null
+  But was:  "sdk-cell"
+]]></message>
+                <stack-trace><![CDATA[at MRWorkshop.Tests.WorkshopSourceLifecycleTests+<SourceDisconnectUnselectDoesNotDock>d__9.MoveNext () [0x000de] in C:\Users\mrbos\Downloads\Git Hub Local_remote\Zero-DAWN-Dymb-aloy\.worktrees\focus-core\MRWorkshop\Assets\Workshop\Tests\PlayMode\WorkshopSourceLifecycleTests.cs:60
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@bd7f943e9647\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/mrbos/AppData/LocalLow/TheGamingDonKey/MR Workshop\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

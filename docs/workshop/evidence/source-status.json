@@ -2,166 +2,262 @@
   "Date": "2026-10-10",
   "Project": "MRWorkshop",
   "UnityVersion": "6000.3.25f1",
+  "Phase": "Corrected source, actual saved scene and injected desktop input verified; corrected APK pending",
   "SourceImplemented": true,
-  "DomainTests": {
-    "Environment": "Host C# / NUnit, not Unity",
-    "Green": {
-      "Failed": 0,
-      "Total": 16,
-      "Skipped": 0,
-      "Passed": 16
-    },
-    "Red": {
-      "Reason": "NotImplementedException",
-      "Total": 16,
-      "Failed": 16
-    }
-  },
-  "HostCompilation": {
-    "ReferenceSource": "Installed Unity and MRWorkshop imported SDK assemblies",
-    "Assemblies": [
-      "MRWorkshop.Domain",
-      "MRWorkshop.Runtime",
-      "MRWorkshop.Editor",
-      "MRWorkshop.TestSource"
-    ],
-    "Output": ".artifacts/workshop/compile-20261010-103638-9b4f0a68",
-    "UnityExecution": false,
-    "Passed": true
-  },
-  "UnityLaunch": {
-    "Error": null,
-    "DesktopLocked": true,
-    "RepeatedLaunch": false,
-    "OwnedFailedEditorStopped": true,
-    "HubOpened": true,
-    "OwnedPid": 50856,
-    "LicenseReady": true,
-    "Recovery": "Hub licensing log added Personal entitlement; actual Editor runs resolved entitlement and completed tests",
-    "LoadedScene": "Assets/Workshop/Scenes/Workshop.unity",
-    "EditorConnectedPid": 14864,
-    "ReopenedAfterApk": true
-  },
-  "UnitySceneGenerated": true,
-  "UnityTestsRun": true,
-  "DesktopDemoRun": true,
-  "ApkBuilt": true,
-  "HeadsetVerified": false,
-  "GeneratorMessageSent": false,
-  "Next": "Physical Quest acceptance: install inspected APK, confirm passthrough/hand and controller input, readability, tracking recovery and frame time. Human desktop input remains unverified.",
-  "UnityTestsAuthored": 24,
-  "McpEndpoint": {
-    "Port": 54486,
-    "StatusDirectory": ".artifacts/workshop/mcp/status",
-    "RoundtripVerified": true,
-    "Evidence": "unity-mcp-connected.json",
-    "ReopenedEvidence": "unity-mcp-reopened.json"
-  },
-  "Critic": {
-    "SourceReviewCompleted": true,
-    "ProductScore": null,
-    "IssuesFound": [
-      "Disabled test fixture left availability suspended",
-      "Copied CLI wrapper targeted FocusCore"
-    ],
-    "SourceFixes": [
-      "Restore/assert simulated fixture availability",
-      "Target MRWorkshop explicitly",
-      "Separate endpoint/status and unique Workshop APK output"
-    ],
-    "RemainingConcreteSourceBlocker": false,
-    "UnityExecutionVerified": true
-  },
+  "RemainingConcreteReviewedSourceBlocker": false,
+  "SourceCheckpoint": "Corrected snapshot in the commit containing this evidence; exact package checkpoint to be recorded after build",
   "UnityTests": {
+    "PlayMode": {
+      "Skipped": 0,
+      "Evidence": "source-lifecycle-green.xml",
+      "Failed": 0,
+      "Passed": 19
+    },
     "EditMode": {
+      "HistoricalBaseline": true,
       "Evidence": "unity-editmode.xml",
       "Failed": 0,
-      "Skipped": 0,
       "Passed": 16
-    },
-    "PlayMode": {
-      "Evidence": "unity-playmode.xml",
-      "Failed": 0,
-      "Skipped": 0,
-      "Passed": 8
     }
   },
-  "CompatibilityFixes": [
-    "Missing bounded custom Gradle template restored",
-    "Nine unsupported or null-script volume components removed",
-    "Seven missing obsolete renderer debug resources cleared",
-    "Host helpers use Workshop dependencies",
-    "CLI worker count configurable; bridge-confusing importWorkerCount flag removed",
-    "GameActivity manifest generated through Meta API, required one-activity postcondition, tracked custom-manifest flag, packaged launch activity check",
-    "Native IL2CPP/Bee jobs and shared CMake compile/link pool follow Workers, Gradle workers/env also bound"
-  ],
-  "ImportResourceRecovery": {
-    "FirstAttempt": "Stopped owned Editor after sustained free RAM below 1 GiB; no result produced",
-    "Retry": "Resumed cached imports with one worker; Unity tests passed",
-    "UnrelatedApplicationsStopped": false
+  "Regression": {
+    "DeviceDataSimulated": true,
+    "RedFailed": 4,
+    "HardwareEventSubscriptionVerified": false,
+    "RedEvidence": "source-lifecycle-red.xml",
+    "RuntimeReview": "runtime-review.json",
+    "NormalReleasePreserved": true,
+    "UiOldPressRejected": true,
+    "RecenterHandlerRecoveryPassed": true,
+    "SourceLossCancelled": true,
+    "RedPassed": 10
   },
-  "AndroidBuildRecovery": {
-    "FirstAttempt": "Stopped by sustained low-RAM guard before any APK",
-    "ChromeStoppedUnderExplicitLowMemoryPermission": true,
-    "ChromeWorkingSetBytes": 4428689408,
-    "OtherApplicationsStopped": false,
-    "Retry": "Retained export packaged successfully with one job and Editor closed; Gradle exit0, APK69101824bytes, signature/manifest/ARM64 verification passed.",
-    "OverlapRecovery": "Editor/native overlap hit RAM guard; only owned build stopped. Both launchers now prevent overlap. Owned Editor stopped after saved MR scene restored;7.81GiB free before retry."
+  "Scene": {
+    "Saved": true,
+    "GeneratedSources": 14,
+    "NonnullReferences": true,
+    "Evidence": "source-generation.json",
+    "ConsoleErrors": 0
   },
-  "NativeBuildLimits": {
-    "Workers": 1,
-    "ActualIl2cppArgumentsVerified": true,
-    "ActualNinjaSharedPoolDepth": 1,
-    "PackagingFinished": true
-  },
-  "DeviceHelper": {
-    "CheckExecuted": true,
-    "Result": "No connected headset",
-    "PrivateAdbPort": 54483,
-    "InstallationExecuted": false,
-    "LaunchExecuted": false
-  },
-  "BlenderCurrent": {
-    "InstalledVersion": "5.2.2.0",
-    "LiveBridgeConnected": true,
-    "Reason": "Actual protocol13/addon1.8 matches; scene query and saved Focus .blend library read succeeded through MCP",
-    "DirectStoreExeLaunch": "Access denied; no ACL or security changes attempted",
-    "LaunchPath": "Installed Store blender-launcher.exe alias with a session-only script; no persistent preferences or ACL changes",
-    "Evidence": "blender-compatibility.json",
-    "SessionCleanup": "Reopened with durable session-only launcher after packaging; owned empty session left available for authoring.",
-    "LauncherExecuted": true,
-    "LauncherEvidence": "blender-launcher.json"
-  },
-  "DesktopDiagnostics": {
-    "InjectedMouseKeyboardPassed": true,
-    "RulesPassed": true,
-    "ConsoleErrorsAfterEach": 0,
+  "Desktop": {
+    "Evidence": "desktop-input-corrected.json",
+    "Render": "desktop-input-corrected.png",
     "HumanInputVerified": false,
-    "InputEvidence": "desktop-input.json",
-    "RulesEvidence": "desktop-rules.json",
-    "ActualRender": "desktop-input.png",
-    "StartupTimerFixed": "Initial GUI asset warmup was separated from bounded interaction time"
-  },
-  "BridgeDependencyFix": "Check-Bridge.ps1 uses pinned isolated uvx dependencies; disconnected Editor now produces failure, demonstrated with Editor closed. Diagnostic result wait observes one request within150sec startup/runtime bound.",
-  "OverlapGuards": {
-    "EditorDuringPackagerRejected": true,
-    "SecondBuildDuringPackagerRejected": true,
-    "UnrelatedProcessesStopped": false,
-    "BlenderDuringPackagerRejected": true
-  },
-  "BridgeDisconnectedCheck": {
-    "ExpectedFailureVerified": true,
-    "Evidence": "unity-mcp-disconnected.json",
-    "AutomaticRetry": false
-  },
-  "ApkEvidence": "apk.json",
-  "ApkPath": ".artifacts/apks/Workshop-20261010-105438-9c97bf4a/MRWorkshop.apk",
-  "ApkSHA256": "D2FC31220C507224CCAC40130F4D7D214608E17580F364AC3C152E72AA1DE2A1",
-  "BridgeHelperUpdatedDiagnosticExecuted": {
-    "Evidence": "unity-mcp-reopened.json",
-    "Passed": true,
     "ConsoleErrors": 0,
-    "PartialResultReadHandled": true
+    "InjectedMouseKeyboardPassed": true
   },
-  "RuntimeSourceCheckpoint": "40f43db pushed; subsequent helper/evidence follow-up is in the same codex/focus-core branch"
+  "Toolchain": {
+    "MockedMcpTests": 10,
+    "SyntheticPowerShellAssertions": 41,
+    "Evidence": "toolchain-review.json",
+    "CooperativeAdmissionGateImplemented": true,
+    "TargetedCriticReviewPassed": true,
+    "ManualAppLaunchesBypassGate": true,
+    "EveryRealConcurrencyPathVerified": false
+  },
+  "CurrentOwnedApps": {
+    "PriorLiveBridgeEvidenceIsCaptureOnly": true,
+    "BlenderRunning": false,
+    "UnityEditorRunning": false,
+    "ClosedForPackaging": true
+  },
+  "CorrectedApk": {
+    "Verified": false,
+    "Built": false
+  },
+  "PriorApk": {
+    "Inspected": true,
+    "Path": ".artifacts/apks/Workshop-20261010-105438-9c97bf4a/MRWorkshop.apk",
+    "ContainsCorrectedSource": false,
+    "SHA256": "D2FC31220C507224CCAC40130F4D7D214608E17580F364AC3C152E72AA1DE2A1"
+  },
+  "HeadsetVerified": false,
+  "HumanInputVerified": false,
+  "Next": "Build and inspect one corrected APK, push checkpoint and reopen authoring; then physical Quest acceptance",
+  "HistoricalBaseline": {
+    "Date": "2026-10-10",
+    "Project": "MRWorkshop",
+    "UnityVersion": "6000.3.25f1",
+    "SourceImplemented": true,
+    "DomainTests": {
+      "Environment": "Host C# / NUnit, not Unity",
+      "Green": {
+        "Failed": 0,
+        "Total": 16,
+        "Skipped": 0,
+        "Passed": 16
+      },
+      "Red": {
+        "Reason": "NotImplementedException",
+        "Total": 16,
+        "Failed": 16
+      }
+    },
+    "HostCompilation": {
+      "ReferenceSource": "Installed Unity and MRWorkshop imported SDK assemblies",
+      "Assemblies": [
+        "MRWorkshop.Domain",
+        "MRWorkshop.Runtime",
+        "MRWorkshop.Editor",
+        "MRWorkshop.TestSource"
+      ],
+      "Output": ".artifacts/workshop/compile-20261010-103638-9b4f0a68",
+      "UnityExecution": false,
+      "Passed": true
+    },
+    "UnityLaunch": {
+      "Error": null,
+      "DesktopLocked": true,
+      "RepeatedLaunch": false,
+      "OwnedFailedEditorStopped": true,
+      "HubOpened": true,
+      "OwnedPid": 50856,
+      "LicenseReady": true,
+      "Recovery": "Hub licensing log added Personal entitlement; actual Editor runs resolved entitlement and completed tests",
+      "LoadedScene": "Assets/Workshop/Scenes/Workshop.unity",
+      "EditorConnectedPid": 14864,
+      "ReopenedAfterApk": true
+    },
+    "UnitySceneGenerated": true,
+    "UnityTestsRun": true,
+    "DesktopDemoRun": true,
+    "ApkBuilt": true,
+    "HeadsetVerified": false,
+    "GeneratorMessageSent": false,
+    "Next": "Fix reviewed runtime/helper blockers, complete focused regression and desktop checks, then build and inspect one corrected APK before physical Quest acceptance. Existing APK/tests remain historical baseline evidence; human desktop input remains unverified.",
+    "UnityTestsAuthored": 24,
+    "McpEndpoint": {
+      "Port": 54486,
+      "StatusDirectory": ".artifacts/workshop/mcp/status",
+      "RoundtripVerified": true,
+      "Evidence": "unity-mcp-connected.json",
+      "ReopenedEvidence": "unity-mcp-reopened.json"
+    },
+    "Critic": {
+      "SourceReviewCompleted": true,
+      "ProductScore": null,
+      "IssuesFound": [
+        "Disabled test fixture left availability suspended",
+        "Copied CLI wrapper targeted FocusCore"
+      ],
+      "SourceFixes": [
+        "Restore/assert simulated fixture availability",
+        "Target MRWorkshop explicitly",
+        "Separate endpoint/status and unique Workshop APK output"
+      ],
+      "RemainingConcreteSourceBlocker": true,
+      "UnityExecutionVerified": true,
+      "CurrentReview": "Fresh runtime/Meta and toolchain specialists identified additional blockers after the verified baseline. No fixes or regression success for them are claimed yet."
+    },
+    "UnityTests": {
+      "EditMode": {
+        "Evidence": "unity-editmode.xml",
+        "Failed": 0,
+        "Skipped": 0,
+        "Passed": 16
+      },
+      "PlayMode": {
+        "Evidence": "unity-playmode.xml",
+        "Failed": 0,
+        "Skipped": 0,
+        "Passed": 8
+      }
+    },
+    "CompatibilityFixes": [
+      "Missing bounded custom Gradle template restored",
+      "Nine unsupported or null-script volume components removed",
+      "Seven missing obsolete renderer debug resources cleared",
+      "Host helpers use Workshop dependencies",
+      "CLI worker count configurable; bridge-confusing importWorkerCount flag removed",
+      "GameActivity manifest generated through Meta API, required one-activity postcondition, tracked custom-manifest flag, packaged launch activity check",
+      "Native IL2CPP/Bee jobs and shared CMake compile/link pool follow Workers, Gradle workers/env also bound"
+    ],
+    "ImportResourceRecovery": {
+      "FirstAttempt": "Stopped owned Editor after sustained free RAM below 1 GiB; no result produced",
+      "Retry": "Resumed cached imports with one worker; Unity tests passed",
+      "UnrelatedApplicationsStopped": false
+    },
+    "AndroidBuildRecovery": {
+      "FirstAttempt": "Stopped by sustained low-RAM guard before any APK",
+      "ChromeStoppedUnderExplicitLowMemoryPermission": true,
+      "ChromeWorkingSetBytes": 4428689408,
+      "OtherApplicationsStopped": false,
+      "Retry": "Retained export packaged successfully with one job and Editor closed; Gradle exit0, APK69101824bytes, signature/manifest/ARM64 verification passed.",
+      "OverlapRecovery": "Editor/native overlap hit RAM guard; only owned build stopped. Existing guards rejected the observed launches but do not provide full lifecycle exclusion; shared lease verification is pending. Owned Editor stopped after saved MR scene restored;7.81GiB free before retry."
+    },
+    "NativeBuildLimits": {
+      "Workers": 1,
+      "ActualIl2cppArgumentsVerified": true,
+      "ActualNinjaSharedPoolDepth": 1,
+      "PackagingFinished": true,
+      "Scope": "Workers selects configured Unity job and IL2CPP/Bee/Gradle/CMake native limits; it does not bound every Unity import/background worker or promise one Editor process."
+    },
+    "DeviceHelper": {
+      "CheckExecuted": true,
+      "Result": "No connected headset",
+      "PrivateAdbPort": 54483,
+      "InstallationExecuted": false,
+      "LaunchExecuted": false
+    },
+    "BlenderCurrent": {
+      "InstalledVersion": "5.2.2.0",
+      "LiveBridgeConnected": true,
+      "Reason": "Actual protocol13/addon1.8 matches; scene query and saved Focus .blend library read succeeded through MCP",
+      "DirectStoreExeLaunch": "Access denied; no ACL or security changes attempted",
+      "LaunchPath": "Installed Store blender-launcher.exe alias with a session-only script; no persistent preferences or ACL changes",
+      "Evidence": "blender-compatibility.json",
+      "SessionCleanup": "Reopened with durable session-only launcher after packaging; owned empty session left available for authoring.",
+      "LauncherExecuted": true,
+      "LauncherEvidence": "blender-launcher.json"
+    },
+    "DesktopDiagnostics": {
+      "InjectedMouseKeyboardPassed": true,
+      "RulesPassed": true,
+      "ConsoleErrorsAfterEach": 0,
+      "HumanInputVerified": false,
+      "InputEvidence": "desktop-input.json",
+      "RulesEvidence": "desktop-rules.json",
+      "ActualRender": "desktop-input.png",
+      "StartupTimerFixed": "Initial GUI asset warmup was separated from bounded interaction time"
+    },
+    "BridgeDependencyFix": "Check-Bridge.ps1 uses pinned isolated uvx dependencies; disconnected Editor now produces failure, demonstrated with Editor closed. Diagnostic result wait observes one request within150sec startup/runtime bound.",
+    "OverlapGuards": {
+      "EditorDuringPackagerRejected": true,
+      "SecondBuildDuringPackagerRejected": true,
+      "UnrelatedProcessesStopped": false,
+      "BlenderDuringPackagerRejected": true,
+      "FullLifecycleExclusionVerified": false,
+      "Remaining": "Shared lease must cover export, test, packaging and launcher paths, including Blender-before-build and concurrent-start gaps."
+    },
+    "BridgeDisconnectedCheck": {
+      "ExpectedFailureVerified": true,
+      "Evidence": "unity-mcp-disconnected.json",
+      "AutomaticRetry": false
+    },
+    "ApkEvidence": "apk.json",
+    "ApkPath": ".artifacts/apks/Workshop-20261010-105438-9c97bf4a/MRWorkshop.apk",
+    "ApkSHA256": "D2FC31220C507224CCAC40130F4D7D214608E17580F364AC3C152E72AA1DE2A1",
+    "BridgeHelperUpdatedDiagnosticExecuted": {
+      "Evidence": "unity-mcp-reopened.json",
+      "Passed": true,
+      "ConsoleErrors": 0,
+      "PartialResultReadHandled": true
+    },
+    "RuntimeSourceCheckpoint": "40f43db pushed; subsequent helper/evidence follow-up is in the same codex/focus-core branch",
+    "ReviewedCorrections": {
+      "Status": "Open; implementation reports and focused regression evidence pending",
+      "Runtime": [
+        "Lost individual hand/controller source must cancel rather than turn SDK Unselect into docking while HMD remains available",
+        "Recenter must cancel stale interaction and reposition safely"
+      ],
+      "Toolchain": [
+        "Shared lifecycle lease across export, tests, packaging and launchers",
+        "Owned-process cleanup and bounded timeouts on failure",
+        "Atomic result publication and fresh failure reports instead of retained prior passes"
+      ],
+      "ExistingCoverageLimit": "SDK test explicitly suspends global availability; it does not exercise individual source loss with valid HMD tracking or recenter.",
+      "PriorApkContainsUpcomingFixes": false,
+      "VerificationPlan": "One targeted patch review, relevant regressions and finite desktop check; then one new APK build and package inspection. Hardware and human-input acceptance remain separate."
+    }
+  }
 }

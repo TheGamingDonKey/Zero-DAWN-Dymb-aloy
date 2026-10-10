@@ -15,6 +15,8 @@ namespace MRWorkshop
         Quaternion homeRotation;
         bool homeCaptured,pendingRelease;
         int releaseFrame;
+        int releasePointer,sourceRevision;
+        bool sdkRelease;
         float sizeFactor=1;
         public bool IsHeld => pointers.Count>0 || (grabbable != null && grabbable.SelectingPointsCount>0);
         public bool IsDocked => workshop != null && workshop.State.DockedId == partId;
@@ -29,23 +31,39 @@ namespace MRWorkshop
         void OnDisable() { CancelPending(); if(workshop!=null)workshop.State.Undock(partId); }
         void HandlePointer(PointerEvent evt)
         {
-            if(evt.Type==PointerEventType.Select)BeginGrab(evt.Identifier);
-            else if(evt.Type==PointerEventType.Unselect)EndGrab(evt.Identifier);
+            if(evt.Type==PointerEventType.Select)
+            {
+                if(workshop!=null && workshop.IsSourceAvailable(evt.Identifier))BeginGrab(evt.Identifier);
+                else if(grabbable!=null)grabbable.ProcessPointerEvent(new PointerEvent(evt.Identifier,PointerEventType.Cancel,evt.Pose));
+            }
+            else if(evt.Type==PointerEventType.Unselect)
+            {
+                if(workshop==null || !workshop.IsSourceAvailable(evt.Identifier))CancelGrab(evt.Identifier);
+                else { EndGrab(evt.Identifier); sdkRelease=pendingRelease; if(sdkRelease)sourceRevision=GetSourceRevision(evt.Identifier); }
+            }
             else if(evt.Type==PointerEventType.Cancel)CancelGrab(evt.Identifier);
         }
         public void BeginGrab(int pointer)
         {
             if(workshop==null || !workshop.Available)return;
-            pointers.Add(pointer); pendingRelease=false;
+            pointers.Add(pointer); pendingRelease=false; sdkRelease=false;
             workshop.State.Undock(partId); workshop.Select(this);
         }
         public void EndGrab(int pointer)
         {
             if(!pointers.Remove(pointer))return;
-            if(pointers.Count==0) { pendingRelease=true; releaseFrame=Time.frameCount; }
+            if(pointers.Count==0) { pendingRelease=true; releaseFrame=Time.frameCount; releasePointer=pointer; sdkRelease=false; }
         }
-        public void CancelGrab(int pointer) { pointers.Remove(pointer); pendingRelease=false; }
-        public void CancelPending() { pointers.Clear(); pendingRelease=false; }
+        public void CancelGrab(int pointer)
+        { if(pointers.Remove(pointer) || (pendingRelease && releasePointer==pointer)) { pendingRelease=false; sdkRelease=false; } }
+        public void CancelSdkSource(int pointer)
+        {
+            bool selecting=pointers.Contains(pointer); CancelGrab(pointer);
+            if(selecting && grabbable!=null)grabbable.ProcessPointerEvent(new PointerEvent(pointer,PointerEventType.Cancel,new Pose(transform.position,transform.rotation)));
+        }
+        int GetSourceRevision(int pointer)
+        { return workshop!=null && workshop.TryGetSource(pointer,out var source)?source.Revision:-1; }
+        public void CancelPending() { pointers.Clear(); pendingRelease=false; sdkRelease=false; }
         public void SetInteractionAvailability(bool available)
         {
             if(available && grabbable!=null)grabbable.enabled=true;
@@ -63,6 +81,8 @@ namespace MRWorkshop
         {
             if(!pendingRelease || IsHeld)return false;
             pendingRelease=false;
+            if(sdkRelease && (workshop==null || !workshop.IsSourceAvailable(releasePointer) || GetSourceRevision(releasePointer)!=sourceRevision)) { sdkRelease=false; return false; }
+            sdkRelease=false;
             return workshop!=null && workshop.TryDock(this);
         }
         public void CaptureHome()

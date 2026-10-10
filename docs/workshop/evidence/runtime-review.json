@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-10",
+  "sourceCheckpoint": "7949bc7",
+  "reviewScope": "MRWorkshop source lifecycle, docking, queued UI actions, recenter recovery and explicit production-rig bindings. Focus runtime reviewed read-only; pre-existing Focus configuration was not edited.",
+  "confirmedDefects": [
+    {
+      "issue": "SDK input-source Disable emits Unselect, which was treated as a physical docking release and could dispatch a UI click while HMD availability stayed true.",
+      "sdkTrace": "Meta207 Interactor.Disable -> UnselectInteractable -> PointerInteractor.InteractableUnselected -> PointerEventType.Unselect; PointableCanvasModule turns Unselect into queued release/click.",
+      "fix": "Explicit identifier/device source registry, Disabled-event cancellation, live tracked-source validation, deferred release source revision, and UI press source/availability revisions. Genuine SDK Unselect remains admitted."
+    },
+    {
+      "issue": "Workshop placement and pending actions survived a tracking-space recenter when headset availability stayed true.",
+      "fix": "Subscribe to OVRDisplay.RecenteredPose during XR operation, unsubscribe on disable, suspend/reset on the event, then use the existing head-relative placement path on readiness recovery."
+    }
+  ],
+  "actualUnityRuns": {
+    "correctedRed": {
+      "results": ".artifacts/tests/unity-PlayMode-20261010-173409-124e52a3/results.xml",
+      "total": 14,
+      "passed": 10,
+      "failed": 4,
+      "skipped": 0,
+      "expectedFailures": [
+        "SourceDisconnectUnselectDoesNotDock",
+        "EnabledSourceExplicitDisableDoesNotDock",
+        "QueuedUiClickFromDisabledSourceIsRejected",
+        "RecenterCancelsReleaseAndReplacesWorkbench"
+      ],
+      "genuineReleaseAndClickControlsPassed": true,
+      "fixtureCorrection": "The initial red fixture asserted after one yielded frame, before deferred LateUpdate docking. Three SDK release/disable cases now yield two frames."
+    },
+    "firstGreen": {
+      "results": ".artifacts/tests/unity-PlayMode-20261010-173856-7c40a146/results.xml",
+      "total": 19,
+      "passed": 18,
+      "failed": 1,
+      "skipped": 0,
+      "originalFourRegressionsPassed": true,
+      "remainingFailure": "ProductionPlatformHasUnambiguousHandAndControllerBindings",
+      "cause": "The real SDK ControllerHandGrabInteractor intentionally contains both a HandRef and ControllerRef; nearest-device-only selection rejected that composition.",
+      "followUp": "HandGrab binding now uses the SDK Hand property, or the exact serialized SDK _hand reference before Awake. The production-prefab test asserts reference identity."
+    },
+    "finalGreen": {
+      "results": ".artifacts/tests/unity-PlayMode-20261010-174437-b1308e41/results.xml",
+      "publishedEvidence": "docs/workshop/evidence/source-lifecycle-green.xml",
+      "total": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "scope": "Actual Unity PlayMode execution; source device data and head poses remain simulated."
+    }
+  },
+  "finalHostCompilation": {
+    "command": "scripts/workshop/Check-Source.ps1",
+    "output": ".artifacts/workshop/compile-20261010-174415-4c95f74d",
+    "exitCode": 0,
+    "passed": true,
+    "scope": "C# source compilation against installed Unity/Meta assemblies. Does not execute Unity, and excludes UNITY_EDITOR test branches."
+  },
+  "bindingLifecycleCorrection": {
+    "cause": "Active edit-time generation could read SDK Identifier before its runtime Awake initialized it.",
+    "fix": "Edit-time Bind serializes references only. Initial runtime registration waits until source Start; subsequent OnEnable reattaches after that. Identifier is acquired before the subscribed field is assigned.",
+    "actualActiveEditTimeGeneration": "Pending root-coordinated scene generation and saved-scene inspection."
+  },
+  "regressionCoverage": [
+    "Actual imported GrabInteractor Enable/ProcessCandidate/Hover/Select then device disconnect plus Preprocess.",
+    "Actual imported GrabInteractor explicit Disable while its simulated device remains connected.",
+    "Actual SDK genuine Unselect docks exactly once.",
+    "Actual SDK selection is cancelled by global tracking suspension.",
+    "Invalid simulated controller pose cancels delayed docking and does not revive it on recovery.",
+    "Queued Unity UI handler click is rejected after source loss, source recovery or headset availability recovery; fresh valid clicks still work.",
+    "Recenter handler invocation cancels pending release/power and exercises replacement using a changed simulated head pose.",
+    "Actual imported WorkshopPlatform prefab instantiated inactive: exact source/device references, one binding per supported interactor, idempotent binding, explicit missing/ambiguous rejection."
+  ],
+  "evidenceLimits": [
+    "Device data and selector signals in the lifecycle fixture are simulated; SDK interactor lifecycle code is real.",
+    "UI tests exercise ExecuteEvents handler boundaries; they do not execute the full SDK canvas raycast/module flow or physical hand/controller controls.",
+    "Recenter tests directly invoke the handler and placement method. They do not demonstrate live OVRDisplay event subscription/delivery on Quest.",
+    "Inactive prefab binding inspection does not initialize XR or by itself establish successful active edit-time generation.",
+    "Connected/tracked/confident source checks cannot prove physical user intent. They distinguish source invalidation/disable from normal SDK unselection within this app's current configuration.",
+    "No Quest hardware behavior, passthrough appearance, reach, comfort, stereo performance or frame time was tested by this specialist.",
+    "No new APK, release, commit or push was produced by this specialist."
+  ],
+  "activeEditTimeGeneration": {
+    "consoleErrors": 0,
+    "saved": true,
+    "scene": "Assets/Workshop/Scenes/Workshop.unity",
+    "nonnullOwnerInteractorDevice": true,
+    "serializedSources": 14,
+    "evidence": "source-generation.json",
+    "passed": true
+  }
+}

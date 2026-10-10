@@ -1,6 +1,6 @@
 {
   "name": "MRWorkshop.PlayModeTests",
   "rootNamespace": "MRWorkshop.Tests",
-  "references": ["MRWorkshop.Domain", "MRWorkshop.Runtime", "Oculus.Interaction"],
+  "references": ["MRWorkshop.Domain", "MRWorkshop.Runtime", "Oculus.Interaction", "UnityEngine.UI"],
   "optionalUnityReferences": ["TestAssemblies"]
 }
