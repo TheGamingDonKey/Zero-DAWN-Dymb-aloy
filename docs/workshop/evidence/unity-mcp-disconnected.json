@@ -75,29 +75,9 @@
     "mcpforunity://scene/volumes",
     "mcpforunity://editor/windows"
   ],
-  "editor_round_trip_verified": true,
-  "blocker": null,
+  "editor_round_trip_verified": false,
+  "blocker": "No matching project Editor discovered",
   "instance_registry": [
-    "{\"success\": true, \"transport\": \"stdio\", \"instance_count\": 1, \"instances\": [{\"id\": \"MRWorkshop@8fff9431\", \"name\": \"MRWorkshop\", \"path\": \"C:/Users/mrbos/Downloads/Git Hub Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/MRWorkshop/Assets\", \"hash\": \"8fff9431\", \"port\": 54486, \"status\": \"running\", \"last_heartbeat\": \"2026-10-10T16:03:54.081477+00:00\", \"unity_version\": \"6000.3.25f1\", \"project_scoped_tools\": false}]}"
-  ],
-  "selection": {
-    "success": true,
-    "message": "Active instance set to MRWorkshop@8fff9431",
-    "data": {
-      "instance": "MRWorkshop@8fff9431",
-      "session_key": "global"
-    }
-  },
-  "active_scene": {
-    "success": true,
-    "message": "Retrieved active scene information.",
-    "data": {
-      "name": "Workshop",
-      "path": "Assets/Workshop/Scenes/Workshop.unity",
-      "buildIndex": 0,
-      "isDirty": false,
-      "isLoaded": true,
-      "rootCount": 3
-    }
-  }
+    "{\"success\": true, \"transport\": \"stdio\", \"instance_count\": 0, \"instances\": []}"
+  ]
 }

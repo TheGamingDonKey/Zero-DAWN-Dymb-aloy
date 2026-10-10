@@ -6,10 +6,10 @@ from mcp.client.stdio import stdio_client
 root=Path(__file__).resolve().parents[2]
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--diagnostic',choices=['input','rules'])
-parser.add_argument('--wait-seconds',type=int,default=35)
+parser.add_argument('--wait-seconds',type=int,default=150)
 options=parser.parse_args()
-if not 0 <= options.wait_seconds <= 90:
-    parser.error('--wait-seconds must be between0 and90')
+if not 0 <= options.wait_seconds <= 180:
+    parser.error('--wait-seconds must be between0 and180')
 python=Path(os.environ['FOCUS_PYTHON'])
 params=StdioServerParameters(command=str(Path.home()/'.local/bin/uvx.exe'),
     args=['--python',str(python),'--from','mcpforunityserver==10.0.0','mcp-for-unity','--transport','stdio'],
@@ -48,19 +48,35 @@ async def main():
                                 report['diagnostic_request']=request.model_dump(by_alias=True).get('structuredContent')
                                 if not (report['diagnostic_request'] or {}).get('success'):
                                     raise RuntimeError('Diagnostic menu request failed; no retry performed')
-                                # One bounded wait, no polling/reconnect loop. First GUI
-                                # rendering may need asset warmup before its interaction budget.
-                                await asyncio.sleep(options.wait_seconds)
-                                created=set(evidence_root.glob(prefix+'*'))-before
-                                if len(created)!=1:
-                                    raise RuntimeError('Diagnostic produced no unique fresh evidence folder')
-                                evidence=next(iter(created))/'result.json'
+                                # Observe completion of this ONE requested job. Startup,
+                                # warmup and interaction have separate budgets; return early
+                                # when its result arrives, never invoke/reconnect again.
+                                deadline=asyncio.get_running_loop().time()+options.wait_seconds
+                                while True:
+                                    created=set(evidence_root.glob(prefix+'*'))-before
+                                    if len(created)>1:
+                                        raise RuntimeError('Diagnostic produced ambiguous fresh evidence folders')
+                                    evidence=next(iter(created))/'result.json' if created else None
+                                    if evidence and evidence.is_file():
+                                        try:
+                                            diagnostic_result=json.loads(evidence.read_text())
+                                        except (OSError,json.JSONDecodeError):
+                                            # File.WriteAllText creates the file before its
+                                            # last byte is written; observe this same job.
+                                            pass
+                                        else:
+                                            break
+                                    if asyncio.get_running_loop().time()>=deadline:
+                                        raise RuntimeError('Requested diagnostic produced no result within its bounded startup/runtime wait')
+                                    await asyncio.sleep(1)
                                 report['diagnostic_evidence']=str(evidence.relative_to(root))
-                                report['diagnostic_result']=json.loads(evidence.read_text())
+                                report['diagnostic_result']=diagnostic_result
                                 report['console']= (await session.call_tool('read_console',{'action':'get','types':['error'],'count':20,'include_stacktrace':True})).model_dump(by_alias=True).get('structuredContent')
                 name='unity-mcp-protocol.json' if not options.diagnostic else 'unity-mcp-diagnostic-'+options.diagnostic+'.json'
                 out=root/'.artifacts/workshop'/name;out.write_text(json.dumps(report,indent=2))
                 print(json.dumps(report,indent=2))
+                if not report['editor_round_trip_verified']:
+                    raise RuntimeError(report['blocker'] or 'Editor round trip was not verified; no automatic retry')
                 if options.diagnostic and not report.get('diagnostic_result',{}).get('passed'):
                     raise RuntimeError('Diagnostic did not pass; inspect its actual evidence')
 asyncio.run(main())

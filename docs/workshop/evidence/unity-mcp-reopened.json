@@ -78,7 +78,7 @@
   "editor_round_trip_verified": true,
   "blocker": null,
   "instance_registry": [
-    "{\"success\": true, \"transport\": \"stdio\", \"instance_count\": 1, \"instances\": [{\"id\": \"MRWorkshop@8fff9431\", \"name\": \"MRWorkshop\", \"path\": \"C:/Users/mrbos/Downloads/Git Hub Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/MRWorkshop/Assets\", \"hash\": \"8fff9431\", \"port\": 54486, \"status\": \"running\", \"last_heartbeat\": \"2026-10-10T16:03:54.081477+00:00\", \"unity_version\": \"6000.3.25f1\", \"project_scoped_tools\": false}]}"
+    "{\"success\": true, \"transport\": \"stdio\", \"instance_count\": 1, \"instances\": [{\"id\": \"MRWorkshop@8fff9431\", \"name\": \"MRWorkshop\", \"path\": \"C:/Users/mrbos/Downloads/Git Hub Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/MRWorkshop/Assets\", \"hash\": \"8fff9431\", \"port\": 54486, \"status\": \"running\", \"last_heartbeat\": \"2026-10-10T16:02:26.566511+00:00\", \"unity_version\": \"6000.3.25f1\", \"project_scoped_tools\": false}]}"
   ],
   "selection": {
     "success": true,
@@ -99,5 +99,25 @@
       "isLoaded": true,
       "rootCount": 3
     }
+  },
+  "diagnostic_request": {
+    "success": true,
+    "message": "Attempted to execute menu item: 'Workshop/Run Finite Workshop Diagnostic (Simulated Input)'. Check Unity logs for confirmation or errors.",
+    "error": null,
+    "data": null,
+    "hint": null
+  },
+  "diagnostic_evidence": ".artifacts\\workshop\\proof-20261010-160300\\result.json",
+  "diagnostic_result": {
+    "passed": true,
+    "stages": 3,
+    "simulatedInput": true,
+    "physicalHeadsetVerified": false,
+    "checks": "free rotate/resize; held resize/reset rejection; incompatible socket; multi-pointer release; duplicate suppression; powered motion; undock; cancellation; reset; tracking interruption/recovery"
+  },
+  "console": {
+    "success": true,
+    "message": "Retrieved 0 log entries.",
+    "data": []
   }
 }

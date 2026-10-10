@@ -1,0 +1,19 @@
+{
+  "blender": "5.2.2 LTS",
+  "start_result": [
+    "FINISHED"
+  ],
+  "port": 9876,
+  "file": "",
+  "persistent_preferences_changed": false,
+  "AddonHandshake": {
+    "Warning": null,
+    "Protocol": 13,
+    "UpToDate": true,
+    "Addon": "1.8",
+    "ExpectedProtocol": 13
+  },
+  "SceneQuery": "Scene: Cube mesh, Light, Camera; OBJECT mode; empty unsaved session",
+  "BridgeRoundTripVerified": true,
+  "InitialProbeBeforeStartupFinished": "Failed; startup report then confirmed FINISHED; subsequent actual handshake and scene query passed"
+}

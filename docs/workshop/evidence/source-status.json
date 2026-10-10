@@ -39,21 +39,23 @@
     "LicenseReady": true,
     "Recovery": "Hub licensing log added Personal entitlement; actual Editor runs resolved entitlement and completed tests",
     "LoadedScene": "Assets/Workshop/Scenes/Workshop.unity",
-    "EditorConnectedPid": 44344
+    "EditorConnectedPid": 14864,
+    "ReopenedAfterApk": true
   },
   "UnitySceneGenerated": true,
   "UnityTestsRun": true,
   "DesktopDemoRun": true,
-  "ApkBuilt": false,
+  "ApkBuilt": true,
   "HeadsetVerified": false,
   "GeneratorMessageSent": false,
-  "Next": "Complete and inspect the fresh Android APK; run desktop interaction/bridge proof; physical Quest acceptance remains pending",
+  "Next": "Physical Quest acceptance: install inspected APK, confirm passthrough/hand and controller input, readability, tracking recovery and frame time. Human desktop input remains unverified.",
   "UnityTestsAuthored": 24,
   "McpEndpoint": {
     "Port": 54486,
     "StatusDirectory": ".artifacts/workshop/mcp/status",
     "RoundtripVerified": true,
-    "Evidence": "unity-mcp-connected.json"
+    "Evidence": "unity-mcp-connected.json",
+    "ReopenedEvidence": "unity-mcp-reopened.json"
   },
   "Critic": {
     "SourceReviewCompleted": true,
@@ -103,14 +105,14 @@
     "ChromeStoppedUnderExplicitLowMemoryPermission": true,
     "ChromeWorkingSetBytes": 4428689408,
     "OtherApplicationsStopped": false,
-    "Retry": "Native export retained; one-job packaging resumed with Editor closed after actual desktop diagnostics",
+    "Retry": "Retained export packaged successfully with one job and Editor closed; Gradle exit0, APK69101824bytes, signature/manifest/ARM64 verification passed.",
     "OverlapRecovery": "Editor/native overlap hit RAM guard; only owned build stopped. Both launchers now prevent overlap. Owned Editor stopped after saved MR scene restored;7.81GiB free before retry."
   },
   "NativeBuildLimits": {
     "Workers": 1,
     "ActualIl2cppArgumentsVerified": true,
     "ActualNinjaSharedPoolDepth": 1,
-    "PackagingFinished": false
+    "PackagingFinished": true
   },
   "DeviceHelper": {
     "CheckExecuted": true,
@@ -126,7 +128,9 @@
     "DirectStoreExeLaunch": "Access denied; no ACL or security changes attempted",
     "LaunchPath": "Installed Store blender-launcher.exe alias with a session-only script; no persistent preferences or ACL changes",
     "Evidence": "blender-compatibility.json",
-    "SessionCleanup": "Requested quit of owned empty session after bounded read-only proof"
+    "SessionCleanup": "Reopened with durable session-only launcher after packaging; owned empty session left available for authoring.",
+    "LauncherExecuted": true,
+    "LauncherEvidence": "blender-launcher.json"
   },
   "DesktopDiagnostics": {
     "InjectedMouseKeyboardPassed": true,
@@ -138,5 +142,26 @@
     "ActualRender": "desktop-input.png",
     "StartupTimerFixed": "Initial GUI asset warmup was separated from bounded interaction time"
   },
-  "BridgeDependencyFix": "Check-Bridge.ps1 uses pinned server isolated uvx dependency environment; bundled base Python lacked mcp and is left unmodified"
+  "BridgeDependencyFix": "Check-Bridge.ps1 uses pinned isolated uvx dependencies; disconnected Editor now produces failure, demonstrated with Editor closed. Diagnostic result wait observes one request within150sec startup/runtime bound.",
+  "OverlapGuards": {
+    "EditorDuringPackagerRejected": true,
+    "SecondBuildDuringPackagerRejected": true,
+    "UnrelatedProcessesStopped": false,
+    "BlenderDuringPackagerRejected": true
+  },
+  "BridgeDisconnectedCheck": {
+    "ExpectedFailureVerified": true,
+    "Evidence": "unity-mcp-disconnected.json",
+    "AutomaticRetry": false
+  },
+  "ApkEvidence": "apk.json",
+  "ApkPath": ".artifacts/apks/Workshop-20261010-105438-9c97bf4a/MRWorkshop.apk",
+  "ApkSHA256": "D2FC31220C507224CCAC40130F4D7D214608E17580F364AC3C152E72AA1DE2A1",
+  "BridgeHelperUpdatedDiagnosticExecuted": {
+    "Evidence": "unity-mcp-reopened.json",
+    "Passed": true,
+    "ConsoleErrors": 0,
+    "PartialResultReadHandled": true
+  },
+  "RuntimeSourceCheckpoint": "40f43db pushed; subsequent helper/evidence follow-up is in the same codex/focus-core branch"
 }

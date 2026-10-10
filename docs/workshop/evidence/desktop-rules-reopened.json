@@ -1,0 +1,7 @@
+{
+    "passed": true,
+    "stages": 3,
+    "simulatedInput": true,
+    "physicalHeadsetVerified": false,
+    "checks": "free rotate/resize; held resize/reset rejection; incompatible socket; multi-pointer release; duplicate suppression; powered motion; undock; cancellation; reset; tracking interruption/recovery"
+}

@@ -1,7 +1,7 @@
 # Zero-DAWN-Dymb-aloy
 XR development project and program, where we foolishly try to replicate the program running Aloys focus.
 
-Separate October10 project: [MR Workshop](docs/workshop/README.md) in the **MRWorkshop** Unity folder. Its MR scene is generated, actual Unity tests pass16/16 EditMode and8/8 PlayMode, and Android export succeeded after Personal licensing recovered. Packaging and editor/desktop demonstration are tracked in the Workshop handoff. Focus below remains a separate project with its preserved October7 artifacts.
+Separate October10 project: [MR Workshop](docs/workshop/README.md) in the **MRWorkshop** Unity folder. Actual Unity tests pass16/16 EditMode and8/8 PlayMode; desktop input/socket/recovery diagnostics passed. Its signed69.1MB Quest3S APK is built and inspected at `.artifacts/apks/MRWorkshop.apk`. Unity/Blender bridges and installation instructions are in the Workshop handoff. Physical headset acceptance remains pending. Focus below remains a separate project with its preserved October7 artifacts.
 
 The first increment targets a standalone Quest 3S mixed-reality app with hand-operated Scan input, controller fallback, a procedural purple pulse, and generated audio.
 
