@@ -1,0 +1,18 @@
+{
+  "Date": "2026-10-10",
+  "SourceCheckpoint": "e9e6651",
+  "ExportSucceeded": true,
+  "CorrectedApkBuilt": false,
+  "BuildSessionNoLongerAvailable": true,
+  "BuildProcessesNotRunning": true,
+  "StopReason": "Unknown from retained evidence",
+  "PriorApkPreserved": true,
+  "Export": "C:\\Users\\mrbos\\.fbc\\a0f3f63c0a54\\projects\\Workshop-20261010-174907-695f3571",
+  "ExportLog": ".artifacts/logs/build-Workshop-20261010-174909-950a79d7.log",
+  "GradleLog": ".artifacts/logs/gradle-Workshop-20261010-174907-695f3571.stdout.log",
+  "ObservedNativeJobs": 2,
+  "ObservedBeeJobs": 2,
+  "ManualEditorAdmissionRejectedDuringBuild": true,
+  "ResumeAfterEditorClosed": "./scripts/workshop/Build.ps1 -Workers 1 -ResumeExport \"C:\\Users\\mrbos\\.fbc\\a0f3f63c0a54\\projects\\Workshop-20261010-174907-695f3571\"",
+  "HeadsetVerified": false
+}

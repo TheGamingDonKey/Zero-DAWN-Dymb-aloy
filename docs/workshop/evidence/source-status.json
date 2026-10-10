@@ -2,7 +2,7 @@
   "Date": "2026-10-10",
   "Project": "MRWorkshop",
   "UnityVersion": "6000.3.25f1",
-  "Phase": "Corrected source, actual saved scene and injected desktop input verified; corrected APK pending",
+  "Phase": "Corrected source passed; Android packaging stopped without new APK; Unity reopening for visible desktop Workshop",
   "SourceImplemented": true,
   "RemainingConcreteReviewedSourceBlocker": false,
   "SourceCheckpoint": "Corrected snapshot in the commit containing this evidence; exact package checkpoint to be recorded after build",
@@ -58,12 +58,15 @@
   "CurrentOwnedApps": {
     "PriorLiveBridgeEvidenceIsCaptureOnly": true,
     "BlenderRunning": false,
-    "UnityEditorRunning": false,
-    "ClosedForPackaging": true
+    "UnityEditorRunning": true,
+    "ClosedForPackaging": false,
+    "EditorPid": 35824
   },
   "CorrectedApk": {
     "Verified": false,
-    "Built": false
+    "Built": false,
+    "Status": "No new APK produced; original build process/session no longer available; retained logs do not establish stop reason",
+    "RetainedExport": "C:\\Users\\mrbos\\.fbc\\a0f3f63c0a54\\projects\\Workshop-20261010-174907-695f3571"
   },
   "PriorApk": {
     "Inspected": true,
@@ -73,7 +76,7 @@
   },
   "HeadsetVerified": false,
   "HumanInputVerified": false,
-  "Next": "Build and inspect one corrected APK, push checkpoint and reopen authoring; then physical Quest acceptance",
+  "Next": "Finish opening visible desktop Workshop for Shane. After closing Editor, resume retained corrected export with one worker and inspect its APK before Quest acceptance.",
   "HistoricalBaseline": {
     "Date": "2026-10-10",
     "Project": "MRWorkshop",

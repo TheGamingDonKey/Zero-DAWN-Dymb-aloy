@@ -1,0 +1,10 @@
+{
+  "Date": "2026-10-10",
+  "SourceCheckpoint": "e9e6651",
+  "Action": "./scripts/workshop/Open.ps1 -Workers 1",
+  "During": "Fresh corrected APK export/build held shared gate",
+  "ExitCode": 1,
+  "ExpectedRejection": true,
+  "Message": "Cannot launch: another Workshop operation holds the build/launch gate. No process was stopped.",
+  "Scope": "One actual Editor admission rejection during the active build; other failure paths covered by synthetic fixtures"
+}

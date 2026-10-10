@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-10T22:54:30.679481+00:00",
+  "passed": true,
+  "selection": {
+    "success": true,
+    "message": "Active instance set to MRWorkshop@8fff9431",
+    "data": {
+      "instance": "MRWorkshop@8fff9431",
+      "session_key": "global"
+    }
+  },
+  "controller_demo_request": {
+    "success": true,
+    "message": "Code executed successfully.",
+    "data": {
+      "result": "Demonstration initiated through controller methods; not native drag or headset proof",
+      "compiler": "codedom"
+    }
+  },
+  "controller_demo_result": {
+    "success": true,
+    "message": "Code executed successfully.",
+    "data": {
+      "result": "{ play = True, desktop = True, running = True, status = MECHANISM RUNNING\nSelected: PowerCell / 1.00x\nCell locked / grab to disconnect, rotorRotation = (0.00, 273.69, 0.00) }",
+      "compiler": "codedom"
+    }
+  },
+  "native_mouse_selection_observed": true,
+  "native_mouse_drag_proven": false,
+  "active_scene": {
+    "success": true,
+    "message": "Retrieved active scene information.",
+    "data": {
+      "name": "DesktopWorkshop",
+      "path": "Assets/Workshop/Scenes/DesktopWorkshop.unity",
+      "buildIndex": 1,
+      "isDirty": false,
+      "isLoaded": true,
+      "rootCount": 4
+    }
+  },
+  "console": {
+    "success": true,
+    "message": "Retrieved 0 log entries.",
+    "data": []
+  }
+}
