@@ -12,7 +12,13 @@ $workshopManaged=Join-Path (Split-Path -Parent $UnityPath) 'Data/Managed'
 $workshopReferences=@(Get-ChildItem (Join-Path $PSHOME 'ref') -Filter '*.dll' | ForEach-Object FullName)
 $workshopReferences+=@(Get-ChildItem $workshopManaged -Filter 'Unity*.dll' | ForEach-Object FullName)
 $workshopReferences+=@(Get-ChildItem (Join-Path $workshopManaged 'UnityEngine') -Filter '*.dll' | ForEach-Object FullName)
-$workshopReferences+=@(Get-ChildItem (Join-Path $workshopRepo 'FocusCore/Library/ScriptAssemblies') -Filter '*.dll' | Where-Object Name -notlike 'FocusCore*' | ForEach-Object FullName)
+$workshopSdk=Join-Path $workshopRepo 'MRWorkshop/Library/ScriptAssemblies'
+if(-not(Test-Path (Join-Path $workshopSdk 'Oculus.Interaction.dll'))) {
+    $workshopSdk=Join-Path $workshopRepo 'FocusCore/Library/ScriptAssemblies'
+    Write-Warning 'Workshop SDK assemblies have not imported yet; using the matching Focus baseline SDK fallback.'
+}
+if(-not(Test-Path (Join-Path $workshopSdk 'Oculus.Interaction.dll'))) { throw 'Import MRWorkshop in the pinned Unity Editor before checking SDK-dependent source.' }
+$workshopReferences+=@(Get-ChildItem $workshopSdk -Filter '*.dll' | Where-Object { $_.Name -notlike 'FocusCore*' -and $_.Name -notlike 'MRWorkshop*' } | ForEach-Object FullName)
 $workshopDomain=Join-Path $workshopOutput 'MRWorkshop.Domain.dll'
 $workshopRuntime=Join-Path $workshopOutput 'MRWorkshop.Runtime.dll'
 $workshopEditor=Join-Path $workshopOutput 'MRWorkshop.Editor.dll'
@@ -22,7 +28,8 @@ try {
     Add-Type -Path @(Get-ChildItem (Join-Path $workshopSource 'Runtime') -Filter '*.cs' | ForEach-Object FullName) -ReferencedAssemblies $workshopReferences -OutputAssembly $workshopRuntime -CompilerOptions '-nowarn:1701,1702'
     $workshopReferences+=$workshopRuntime
     Add-Type -Path @(Get-ChildItem (Join-Path $workshopSource 'Editor') -Filter '*.cs' | ForEach-Object FullName) -ReferencedAssemblies $workshopReferences -OutputAssembly $workshopEditor -CompilerOptions '-nowarn:1701,1702'
-    $workshopNUnit=Join-Path $workshopRepo '.artifacts/sdk/com.unity.ext.nunit/package/net40/unity-custom/nunit.framework.dll'
+    $workshopNUnit=Get-ChildItem (Join-Path $workshopRepo 'MRWorkshop/Library/PackageCache') -Directory -Filter 'com.unity.ext.nunit@*' -ErrorAction SilentlyContinue | ForEach-Object { Join-Path $_.FullName 'net40/unity-custom/nunit.framework.dll' } | Where-Object { Test-Path $_ } | Select-Object -First 1
+    if(-not $workshopNUnit) { $workshopNUnit=Join-Path $workshopRepo '.artifacts/sdk/com.unity.ext.nunit/package/net40/unity-custom/nunit.framework.dll' }
     if(-not(Test-Path $workshopNUnit)) { $workshopNUnit=Get-ChildItem (Join-Path $workshopRepo 'FocusCore/Library/PackageCache') -Directory -Filter 'com.unity.ext.nunit@*' | ForEach-Object { Join-Path $_.FullName 'net40/unity-custom/nunit.framework.dll' } | Where-Object { Test-Path $_ } | Select-Object -First 1 }
     if(-not $workshopNUnit) { throw 'Installed NUnit reference missing' }
     $workshopTests=Join-Path $workshopOutput 'MRWorkshop.TestSource.dll'

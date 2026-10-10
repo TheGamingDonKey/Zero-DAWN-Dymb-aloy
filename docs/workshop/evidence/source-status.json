@@ -18,38 +18,42 @@
     }
   },
   "HostCompilation": {
-    "ReferenceSource": "Installed Unity and FocusCore cached SDK assemblies",
+    "ReferenceSource": "Installed Unity and MRWorkshop imported SDK assemblies",
     "Assemblies": [
       "MRWorkshop.Domain",
       "MRWorkshop.Runtime",
       "MRWorkshop.Editor",
       "MRWorkshop.TestSource"
     ],
-    "Output": ".artifacts/workshop/compile-20261010-093051-603ef94f",
+    "Output": ".artifacts/workshop/compile-20261010-103638-9b4f0a68",
     "UnityExecution": false,
     "Passed": true
   },
   "UnityLaunch": {
-    "Error": "No valid Unity Editor license found. Please activate your license.",
+    "Error": null,
     "DesktopLocked": true,
     "RepeatedLaunch": false,
     "OwnedFailedEditorStopped": true,
     "HubOpened": true,
     "OwnedPid": 50856,
-    "LicenseReady": false
+    "LicenseReady": true,
+    "Recovery": "Hub licensing log added Personal entitlement; actual Editor runs resolved entitlement and completed tests",
+    "LoadedScene": "Assets/Workshop/Scenes/Workshop.unity",
+    "EditorConnectedPid": 44344
   },
-  "UnitySceneGenerated": false,
-  "UnityTestsRun": false,
-  "DesktopDemoRun": false,
+  "UnitySceneGenerated": true,
+  "UnityTestsRun": true,
+  "DesktopDemoRun": true,
   "ApkBuilt": false,
   "HeadsetVerified": false,
   "GeneratorMessageSent": false,
-  "Next": "Unlock Windows and refresh Personal licence in existing Hub; run actual Unity scene/test/demo/build.",
-  "UnityTestsAuthored": 8,
+  "Next": "Complete and inspect the fresh Android APK; run desktop interaction/bridge proof; physical Quest acceptance remains pending",
+  "UnityTestsAuthored": 24,
   "McpEndpoint": {
     "Port": 54486,
     "StatusDirectory": ".artifacts/workshop/mcp/status",
-    "RoundtripVerified": false
+    "RoundtripVerified": true,
+    "Evidence": "unity-mcp-connected.json"
   },
   "Critic": {
     "SourceReviewCompleted": true,
@@ -64,6 +68,75 @@
       "Separate endpoint/status and unique Workshop APK output"
     ],
     "RemainingConcreteSourceBlocker": false,
-    "UnityExecutionVerified": false
-  }
+    "UnityExecutionVerified": true
+  },
+  "UnityTests": {
+    "EditMode": {
+      "Evidence": "unity-editmode.xml",
+      "Failed": 0,
+      "Skipped": 0,
+      "Passed": 16
+    },
+    "PlayMode": {
+      "Evidence": "unity-playmode.xml",
+      "Failed": 0,
+      "Skipped": 0,
+      "Passed": 8
+    }
+  },
+  "CompatibilityFixes": [
+    "Missing bounded custom Gradle template restored",
+    "Nine unsupported or null-script volume components removed",
+    "Seven missing obsolete renderer debug resources cleared",
+    "Host helpers use Workshop dependencies",
+    "CLI worker count configurable; bridge-confusing importWorkerCount flag removed",
+    "GameActivity manifest generated through Meta API, required one-activity postcondition, tracked custom-manifest flag, packaged launch activity check",
+    "Native IL2CPP/Bee jobs and shared CMake compile/link pool follow Workers, Gradle workers/env also bound"
+  ],
+  "ImportResourceRecovery": {
+    "FirstAttempt": "Stopped owned Editor after sustained free RAM below 1 GiB; no result produced",
+    "Retry": "Resumed cached imports with one worker; Unity tests passed",
+    "UnrelatedApplicationsStopped": false
+  },
+  "AndroidBuildRecovery": {
+    "FirstAttempt": "Stopped by sustained low-RAM guard before any APK",
+    "ChromeStoppedUnderExplicitLowMemoryPermission": true,
+    "ChromeWorkingSetBytes": 4428689408,
+    "OtherApplicationsStopped": false,
+    "Retry": "Native export retained; one-job packaging resumed with Editor closed after actual desktop diagnostics",
+    "OverlapRecovery": "Editor/native overlap hit RAM guard; only owned build stopped. Both launchers now prevent overlap. Owned Editor stopped after saved MR scene restored;7.81GiB free before retry."
+  },
+  "NativeBuildLimits": {
+    "Workers": 1,
+    "ActualIl2cppArgumentsVerified": true,
+    "ActualNinjaSharedPoolDepth": 1,
+    "PackagingFinished": false
+  },
+  "DeviceHelper": {
+    "CheckExecuted": true,
+    "Result": "No connected headset",
+    "PrivateAdbPort": 54483,
+    "InstallationExecuted": false,
+    "LaunchExecuted": false
+  },
+  "BlenderCurrent": {
+    "InstalledVersion": "5.2.2.0",
+    "LiveBridgeConnected": true,
+    "Reason": "Actual protocol13/addon1.8 matches; scene query and saved Focus .blend library read succeeded through MCP",
+    "DirectStoreExeLaunch": "Access denied; no ACL or security changes attempted",
+    "LaunchPath": "Installed Store blender-launcher.exe alias with a session-only script; no persistent preferences or ACL changes",
+    "Evidence": "blender-compatibility.json",
+    "SessionCleanup": "Requested quit of owned empty session after bounded read-only proof"
+  },
+  "DesktopDiagnostics": {
+    "InjectedMouseKeyboardPassed": true,
+    "RulesPassed": true,
+    "ConsoleErrorsAfterEach": 0,
+    "HumanInputVerified": false,
+    "InputEvidence": "desktop-input.json",
+    "RulesEvidence": "desktop-rules.json",
+    "ActualRender": "desktop-input.png",
+    "StartupTimerFixed": "Initial GUI asset warmup was separated from bounded interaction time"
+  },
+  "BridgeDependencyFix": "Check-Bridge.ps1 uses pinned server isolated uvx dependency environment; bundled base Python lacked mcp and is left unmodified"
 }

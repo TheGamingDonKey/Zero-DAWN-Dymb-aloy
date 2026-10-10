@@ -4,7 +4,8 @@ param([string]$NUnitPath)
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 if (-not $NUnitPath) {
-    $NUnitPath = Join-Path $focusRoot '.artifacts\sdk\com.unity.ext.nunit\package\net40\unity-custom\nunit.framework.dll'
+    $NUnitPath = Get-ChildItem (Join-Path $focusRoot 'MRWorkshop/Library/PackageCache') -Directory -Filter 'com.unity.ext.nunit@*' -ErrorAction SilentlyContinue | ForEach-Object { Join-Path $_.FullName 'net40/unity-custom/nunit.framework.dll' } | Where-Object { Test-Path $_ } | Select-Object -First 1
+    if (-not $NUnitPath) { $NUnitPath = Join-Path $focusRoot '.artifacts\sdk\com.unity.ext.nunit\package\net40\unity-custom\nunit.framework.dll' }
     if (-not (Test-Path -LiteralPath $NUnitPath)) {
         $focusPackageCache = Join-Path $focusRoot 'FocusCore\Library\PackageCache'
         if (Test-Path -LiteralPath $focusPackageCache) {

@@ -1,0 +1,18 @@
+{
+  "blender": "5.2.2 LTS",
+  "bridge_round_trip": true,
+  "saved_source_read": "C:\\Users\\mrbos\\Downloads\\Git Hub Local_remote\\Zero-DAWN-Dymb-aloy\\.worktrees\\focus-core\\art\\source\\FocusVisualStudy.blend",
+  "source_meshes": [
+    "Device shell",
+    "Device pearl cap",
+    "Device luminous inset",
+    "Device etched channel 3",
+    "Device etched channel 2",
+    "Device etched channel 1",
+    "Device etched channel 0",
+    "Cube",
+    "Component border 0"
+  ],
+  "scene_mutated": false,
+  "headset_verified": false
+}

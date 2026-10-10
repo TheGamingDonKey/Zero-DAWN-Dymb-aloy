@@ -3,7 +3,8 @@
 [CmdletBinding()]
 param(
     [string]$UnityPath = 'C:\Users\mrbos\Documents\UnityEditors\6000.3.25f1\Editor\Unity.exe',
-    [ValidateSet('EditMode','PlayMode')][string]$Mode = 'EditMode'
+    [ValidateSet('EditMode','PlayMode')][string]$Mode = 'EditMode',
+    [ValidateRange(1,2)][int]$Workers = 2
 )
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
@@ -14,7 +15,7 @@ $focusXmlPath = Join-Path $focusResultDir 'results.xml'
 $focusArgs = @('-buildTarget','Android','-runTests','-testPlatform',$Mode,'-testResults',$focusXmlPath)
 if ($Mode -eq 'EditMode') { $focusArgs += '-nographics' }
 # Test Runner owns shutdown; -quit would terminate tests before results are written.
-& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -UnityPath $UnityPath -EditorArguments $focusArgs -LogName ('tests-' + $Mode)
+& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -UnityPath $UnityPath -EditorArguments $focusArgs -LogName ('tests-' + $Mode) -Workers $Workers
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 if (-not (Test-Path -LiteralPath $focusXmlPath)) { throw "Unity wrote no test result: $focusXmlPath" }
 [xml]$focusXml = Get-Content -LiteralPath $focusXmlPath -Raw

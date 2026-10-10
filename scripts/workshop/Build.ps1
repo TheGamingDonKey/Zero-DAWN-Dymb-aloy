@@ -3,10 +3,20 @@
 param(
     [string]$UnityPath = 'C:\Users\mrbos\Documents\UnityEditors\6000.3.25f1\Editor\Unity.exe',
     [ValidateSet('Workshop')][string]$Scene = 'Workshop',
-    [string]$ResumeExport
+    [string]$ResumeExport,
+    [ValidateRange(1,2)][int]$Workers = 2
 )
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
+$focusActiveBuildPath = Join-Path $focusRoot '.artifacts\workshop\active-build.json'
+if (Test-Path -LiteralPath $focusActiveBuildPath) {
+    $focusRecordedBuild = Get-Content -LiteralPath $focusActiveBuildPath -Raw | ConvertFrom-Json
+    $focusRunningBuild = Get-Process -Id $focusRecordedBuild.Pid -ErrorAction SilentlyContinue
+    if ($focusRunningBuild -and $focusRunningBuild.StartTime.ToUniversalTime().Ticks -eq $focusRecordedBuild.StartTicks -and [string]::Equals($focusRunningBuild.Path,$focusRecordedBuild.Executable,[StringComparison]::OrdinalIgnoreCase)) {
+        throw 'A Workshop Android packager is already running. No second build was started.'
+    }
+}
+if (@(Get-CimInstance Win32_Process -Filter "Name = 'Unity.exe'" | Where-Object { -not $_.ExecutablePath -or $_.ExecutablePath -match '\\Editor\\Unity\.exe$' }).Count) { throw 'Close the Editor before Android packaging, including resumed exports. No Editor was stopped.' }
 $focusFreeKiB = (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory
 if ($focusFreeKiB -lt 3MB) { throw 'Less than 3 GiB RAM is available. Defer this Android build; no other app was closed.' }
 $focusRunId = (Get-Date -Format 'yyyyMMdd-HHmmss') + '-' + [Guid]::NewGuid().ToString('N').Substring(0,8)
@@ -27,10 +37,25 @@ if ($ResumeExport) {
     if ((Test-Path -LiteralPath $focusPreviousApks) -and @(Get-ChildItem -LiteralPath $focusPreviousApks -Filter '*.apk').Count -gt 0) { throw 'Resume export already contains an APK; refusing stale output.' }
 } else {
 $focusArgs = @('-quit','-nographics','-buildTarget','Android','-executeMethod',('MRWorkshop.Editor.WorkshopBuild.Build' + $Scene),'-workshopOutput',$focusOutput,'-workshopExportPath',$focusExport)
-& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -UnityPath $UnityPath -EditorArguments $focusArgs -LogName ('build-' + $Scene)
+& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -UnityPath $UnityPath -EditorArguments $focusArgs -LogName ('build-' + $Scene) -Workers $Workers
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 }
 if (-not (Test-Path -LiteralPath (Join-Path $focusExport 'launcher\build.gradle'))) { throw 'Unity exported no launcher Gradle project.' }
+# Gradle workers do not bound Unity's native compiler or Ninja jobs.
+# Patch only this owned generated export, identically on a resumed invocation.
+$focusLibraryGradle = Join-Path $focusExport 'unityLibrary\build.gradle'
+$focusNativeText = [IO.File]::ReadAllText($focusLibraryGradle)
+$focusCompileMarker = '    commandLineArgs.add("--compile-cpp")'
+$focusCmakeMarker = 'arguments "-DANDROID_STL=c++_shared", "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"'
+if ([regex]::Matches($focusNativeText,[regex]::Escape($focusCompileMarker)).Count -ne 1 -or [regex]::Matches($focusNativeText,[regex]::Escape($focusCmakeMarker)).Count -ne 1) {
+    throw 'Unity native Gradle template changed; expected one IL2CPP and one CMake insertion point.'
+}
+$focusNativeText = [regex]::Replace($focusNativeText,'(?m)^    commandLineArgs\.add\("--(?:jobs|bee-jobs)=\d+"\)\r?\n','')
+$focusNativeText = [regex]::Replace($focusNativeText,', "-DCMAKE_JOB_POOLS=workshop=\d+", "-DCMAKE_JOB_POOL_COMPILE=workshop", "-DCMAKE_JOB_POOL_LINK=workshop"','')
+$focusNativeText = $focusNativeText.Replace($focusCompileMarker,($focusCompileMarker + "`n    commandLineArgs.add(`"--jobs=$Workers`")`n    commandLineArgs.add(`"--bee-jobs=$Workers`")"))
+$focusNativeText = $focusNativeText.Replace($focusCmakeMarker,($focusCmakeMarker + ", `"-DCMAKE_JOB_POOLS=workshop=$Workers`", `"-DCMAKE_JOB_POOL_COMPILE=workshop`", `"-DCMAKE_JOB_POOL_LINK=workshop`""))
+[IO.File]::WriteAllText($focusLibraryGradle,$focusNativeText,[Text.UTF8Encoding]::new($false))
+Write-Output "Native concurrency: IL2CPP jobs=$Workers; Bee jobs=$Workers; CMake compile/link shared pool=$Workers; Gradle workers=$Workers"
 if ((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory -lt 3MB) { throw 'Less than 3 GiB RAM available for packaging. Native export retained; no other app was closed.' }
 $focusAndroid = Join-Path (Split-Path -Parent $UnityPath) 'Data\PlaybackEngines\AndroidPlayer'
 $focusJava = Join-Path $focusAndroid 'OpenJDK\bin\java.exe'
@@ -44,12 +69,13 @@ $focusStart.CreateNoWindow = $true
 $focusStart.RedirectStandardOutput = $true
 $focusStart.RedirectStandardError = $true
 $focusStart.Environment['JAVA_HOME'] = Join-Path $focusAndroid 'OpenJDK'
-$focusStart.Environment['BEE_BUILD_THREADS'] = '2'
-$focusStart.Environment['DOTNET_PROCESSOR_COUNT'] = '2'
+$focusStart.Environment['BEE_BUILD_THREADS'] = [string]$Workers
+$focusStart.Environment['DOTNET_PROCESSOR_COUNT'] = [string]$Workers
+$focusStart.Environment['CMAKE_BUILD_PARALLEL_LEVEL'] = [string]$Workers
 $focusStart.Environment['GRADLE_USER_HOME'] = Join-Path $focusCache 'gradle'
 $focusStart.Environment['ADB_SERVER_SOCKET'] = 'tcp:127.0.0.1:54483'
 $focusStart.Environment['ANDROID_ADB_SERVER_PORT'] = '54483'
-foreach ($focusArg in @('-Xmx256m','-classpath',$focusGradleJars[0].FullName,'org.gradle.launcher.GradleMain','-Dorg.gradle.jvmargs=-Xmx2048m -XX:MaxMetaspaceSize=512m','-Dorg.gradle.parallel=false','--max-workers=2','--no-daemon',':launcher:assembleRelease')) {
+foreach ($focusArg in @('-Xmx256m','-classpath',$focusGradleJars[0].FullName,'org.gradle.launcher.GradleMain','-Dorg.gradle.jvmargs=-Xmx2048m -XX:MaxMetaspaceSize=512m','-Dorg.gradle.parallel=false',"--max-workers=$Workers",'--no-daemon',':launcher:assembleRelease')) {
     $focusStart.ArgumentList.Add($focusArg)
 }
 $focusStdoutPath = Join-Path $focusRoot ('.artifacts\logs\gradle-' + $Scene + '-' + $focusRunId + '.stdout.log')
@@ -58,8 +84,13 @@ $focusStdoutFile = [IO.FileStream]::new($focusStdoutPath,[IO.FileMode]::Create,[
 $focusStderrFile = [IO.FileStream]::new($focusStderrPath,[IO.FileMode]::Create,[IO.FileAccess]::Write,[IO.FileShare]::ReadWrite)
 $focusGradle = [Diagnostics.Process]::new()
 $focusGradle.StartInfo = $focusStart
+$focusGradleStarted = $false
 try {
     if (-not $focusGradle.Start()) { throw 'Could not start Gradle.' }
+    $focusGradleStarted = $true
+    $focusActiveBuildPath = Join-Path $focusRoot '.artifacts\workshop\active-build.json'
+    New-Item -ItemType Directory -Path (Split-Path -Parent $focusActiveBuildPath) -Force | Out-Null
+    [pscustomobject]@{Pid=$focusGradle.Id; StartTicks=$focusGradle.StartTime.ToUniversalTime().Ticks; Executable=$focusJava; Export=$focusExport} | ConvertTo-Json | Set-Content -LiteralPath $focusActiveBuildPath -Encoding utf8
     try { $focusGradle.PriorityClass = [Diagnostics.ProcessPriorityClass]::BelowNormal } catch { Write-Warning 'Could not lower this Gradle process priority.' }
     $focusOutCopy = $focusGradle.StandardOutput.BaseStream.CopyToAsync($focusStdoutFile)
     $focusErrCopy = $focusGradle.StandardError.BaseStream.CopyToAsync($focusStderrFile)
@@ -78,6 +109,11 @@ try {
     $focusErrCopy.GetAwaiter().GetResult() | Out-Null
     $focusGradleExit = $focusGradle.ExitCode
 } finally {
+    if ($focusGradleStarted -and -not $focusGradle.HasExited) { $focusGradle.Kill($true); $focusGradle.WaitForExit() }
+    if ($focusActiveBuildPath -and (Test-Path -LiteralPath $focusActiveBuildPath)) {
+        $focusRecordedBuild = Get-Content -LiteralPath $focusActiveBuildPath -Raw | ConvertFrom-Json
+        if ($focusRecordedBuild.Pid -eq $focusGradle.Id) { Remove-Item -LiteralPath $focusActiveBuildPath }
+    }
     $focusStdoutFile.Dispose()
     $focusStderrFile.Dispose()
     $focusGradle.Dispose()

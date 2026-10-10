@@ -29,5 +29,6 @@ MRWorkshop/*.csproj
 MRWorkshop/*.sln*
 MRWorkshop/Assets/Resources/DevAgentSettings.asset*
 MRWorkshop/Assets/Resources/PerformanceTestRun*.json*
+MRWorkshop/Assets/Resources/OVRPlatformToolSettings.asset*
 FocusCore/Assets/Resources/DevAgentSettings.asset*
 FocusCore/Assets/Resources/PerformanceTestRun*.json*

@@ -4,7 +4,8 @@
 param(
     [string]$UnityPath = 'C:\Users\mrbos\Documents\UnityEditors\6000.3.25f1\Editor\Unity.exe',
     [string[]]$EditorArguments = @('-quit', '-nographics'),
-    [ValidatePattern('^[A-Za-z0-9][A-Za-z0-9._-]*$')][string]$LogName = 'editor'
+    [ValidatePattern('^[A-Za-z0-9][A-Za-z0-9._-]*$')][string]$LogName = 'editor',
+    [ValidateRange(1,2)][int]$Workers = 2
 )
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
@@ -27,13 +28,13 @@ $focusStart.FileName = [IO.Path]::GetFullPath($UnityPath)
 $focusStart.WorkingDirectory = $focusRoot
 $focusStart.UseShellExecute = $false
 $focusStart.CreateNoWindow = $true
-$focusStart.Environment['DOTNET_PROCESSOR_COUNT'] = '2'
-$focusStart.Environment['BEE_BUILD_THREADS'] = '2'
+$focusStart.Environment['DOTNET_PROCESSOR_COUNT'] = [string]$Workers
+$focusStart.Environment['BEE_BUILD_THREADS'] = [string]$Workers
 $focusCache = & (Join-Path $PSScriptRoot '../Get-BuildCache.ps1')
 $focusStart.Environment['GRADLE_USER_HOME'] = Join-Path $focusCache 'gradle'
 $focusStart.Environment['ADB_SERVER_SOCKET'] = 'tcp:127.0.0.1:54483'
 $focusStart.Environment['ANDROID_ADB_SERVER_PORT'] = '54483'
-foreach ($focusArg in @('-batchmode', '-projectPath', $focusProject, '-logFile', $focusLogPath, '-job-worker-count', '2', '-ImportWorkerCount', '1') + $EditorArguments) {
+foreach ($focusArg in @('-batchmode', '-projectPath', $focusProject, '-logFile', $focusLogPath, '-job-worker-count', [string]$Workers) + $EditorArguments) {
     $focusStart.ArgumentList.Add($focusArg)
 }
 $focusProcess = [Diagnostics.Process]::new()

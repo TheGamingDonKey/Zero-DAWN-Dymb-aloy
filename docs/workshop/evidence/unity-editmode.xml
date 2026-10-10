@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="16" result="Passed" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.056107">
+  <test-suite type="TestSuite" id="1000" name="MR Workshop" fullname="MR Workshop" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.056107" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1022" name="MRWorkshop.EditModeTests.dll" fullname="C:/Users/mrbos/Downloads/Git Hub Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/MRWorkshop/Library/ScriptAssemblies/MRWorkshop.EditModeTests.dll" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.046440" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="27028" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1023" name="MRWorkshop" fullname="MRWorkshop" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.045848" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1024" name="Tests" fullname="MRWorkshop.Tests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.045450" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1002" name="WorkbenchStateTests" fullname="MRWorkshop.Tests.WorkbenchStateTests" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.044159" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="CompatibleReleasedCellWithinRadiusDocks" fullname="MRWorkshop.Tests.WorkbenchStateTests.CompatibleReleasedCellWithinRadiusDocks" methodname="CompatibleReleasedCellWithinRadiusDocks" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1721417729" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.016050" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1013" name="EmptyIdsReject" fullname="MRWorkshop.Tests.WorkbenchStateTests.EmptyIdsReject" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.003266" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1011" name="EmptyIdsReject(null)" fullname="MRWorkshop.Tests.WorkbenchStateTests.EmptyIdsReject(null)" methodname="EmptyIdsReject" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="85137181" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000584" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="EmptyIdsReject(&quot;&quot;)" fullname="MRWorkshop.Tests.WorkbenchStateTests.EmptyIdsReject(&quot;&quot;)" methodname="EmptyIdsReject" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1908769954" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000061" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1004" name="HeldAndIncompatiblePartsReject" fullname="MRWorkshop.Tests.WorkbenchStateTests.HeldAndIncompatiblePartsReject" methodname="HeldAndIncompatiblePartsReject" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1493454087" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000415" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1010" name="InvalidOrFarDistanceRejects" fullname="MRWorkshop.Tests.WorkbenchStateTests.InvalidOrFarDistanceRejects" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.001261" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1006" name="InvalidOrFarDistanceRejects(0.141f)" fullname="MRWorkshop.Tests.WorkbenchStateTests.InvalidOrFarDistanceRejects(0.141f)" methodname="InvalidOrFarDistanceRejects" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1319862805" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000371" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="InvalidOrFarDistanceRejects(-1.0f)" fullname="MRWorkshop.Tests.WorkbenchStateTests.InvalidOrFarDistanceRejects(-1.0f)" methodname="InvalidOrFarDistanceRejects" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="644046752" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000069" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="InvalidOrFarDistanceRejects(float.NaN)" fullname="MRWorkshop.Tests.WorkbenchStateTests.InvalidOrFarDistanceRejects(float.NaN)" methodname="InvalidOrFarDistanceRejects" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="555023613" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000048" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="InvalidOrFarDistanceRejects(float.PositiveInfinity)" fullname="MRWorkshop.Tests.WorkbenchStateTests.InvalidOrFarDistanceRejects(float.PositiveInfinity)" methodname="InvalidOrFarDistanceRejects" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1080571173" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000043" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1005" name="OccupiedSocketDoesNotReplaceOrDuplicate" fullname="MRWorkshop.Tests.WorkbenchStateTests.OccupiedSocketDoesNotReplaceOrDuplicate" methodname="OccupiedSocketDoesNotReplaceOrDuplicate" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="639962675" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000236" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="PowerNeedsCellAndStopsOnRemoval" fullname="MRWorkshop.Tests.WorkbenchStateTests.PowerNeedsCellAndStopsOnRemoval" methodname="PowerNeedsCellAndStopsOnRemoval" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1175405375" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000644" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="ResetClearsPowerAndOwnership" fullname="MRWorkshop.Tests.WorkbenchStateTests.ResetClearsPowerAndOwnership" methodname="ResetClearsPowerAndOwnership" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1424687924" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000391" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1021" name="SizeIsBoundedAndFinite" fullname="MRWorkshop.Tests.WorkbenchStateTests.SizeIsBoundedAndFinite" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.003354" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1017" name="SizeIsBoundedAndFinite(0.1f,0.75f)" fullname="MRWorkshop.Tests.WorkbenchStateTests.SizeIsBoundedAndFinite(0.1f,0.75f)" methodname="SizeIsBoundedAndFinite" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="2128461862" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.002290" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="SizeIsBoundedAndFinite(1.1f,1.1f)" fullname="MRWorkshop.Tests.WorkbenchStateTests.SizeIsBoundedAndFinite(1.1f,1.1f)" methodname="SizeIsBoundedAndFinite" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1515684441" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000083" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1019" name="SizeIsBoundedAndFinite(3.0f,1.5f)" fullname="MRWorkshop.Tests.WorkbenchStateTests.SizeIsBoundedAndFinite(3.0f,1.5f)" methodname="SizeIsBoundedAndFinite" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="899037014" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000054" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="SizeIsBoundedAndFinite(float.NaN,1.0f)" fullname="MRWorkshop.Tests.WorkbenchStateTests.SizeIsBoundedAndFinite(float.NaN,1.0f)" methodname="SizeIsBoundedAndFinite" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="1882821650" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000116" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1014" name="UndockingWrongIdDoesNotLoseOwnership" fullname="MRWorkshop.Tests.WorkbenchStateTests.UndockingWrongIdDoesNotLoseOwnership" methodname="UndockingWrongIdDoesNotLoseOwnership" classname="MRWorkshop.Tests.WorkbenchStateTests" runstate="Runnable" seed="819502771" result="Passed" start-time="2026-10-10 13:53:58Z" end-time="2026-10-10 13:53:58Z" duration="0.000349" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/mrbos/AppData/LocalLow/TheGamingDonKey/MR Workshop\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

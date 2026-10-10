@@ -1,0 +1,11 @@
+{
+    "passed": true,
+    "injectedDeviceEvents": true,
+    "humanInputVerified": false,
+    "physicalHeadsetVerified": false,
+    "stages": 8,
+    "dragStarts": 1,
+    "dragReleases": 1,
+    "keyboardActions": 1,
+    "checks": "Real Update driver consumed injected Mouse/Keyboard state; cell dragged, released, docked; Space powered moving rotor."
+}

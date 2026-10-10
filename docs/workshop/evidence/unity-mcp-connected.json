@@ -1,0 +1,103 @@
+{
+  "server": {
+    "name": "mcp-for-unity-server",
+    "title": null,
+    "version": "3.4.8",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "tool_count": 46,
+  "tools": [
+    "batch_execute",
+    "debug_request_context",
+    "execute_code",
+    "execute_menu_item",
+    "find_gameobjects",
+    "find_in_file",
+    "generate_image",
+    "generate_model",
+    "import_model",
+    "import_model_file",
+    "manage_animation",
+    "manage_asset",
+    "manage_build",
+    "manage_camera",
+    "manage_components",
+    "manage_editor",
+    "manage_gameobject",
+    "manage_graphics",
+    "manage_material",
+    "manage_packages",
+    "manage_physics",
+    "manage_prefabs",
+    "manage_probuilder",
+    "manage_profiler",
+    "manage_scene",
+    "refresh_unity",
+    "apply_text_edits",
+    "create_script",
+    "delete_script",
+    "validate_script",
+    "manage_script",
+    "manage_script_capabilities",
+    "get_sha",
+    "manage_scriptable_object",
+    "manage_shader",
+    "manage_texture",
+    "manage_tools",
+    "manage_ui",
+    "manage_vfx",
+    "read_console",
+    "run_tests",
+    "get_test_job",
+    "script_apply_edits",
+    "set_active_instance",
+    "unity_docs",
+    "unity_reflect"
+  ],
+  "resources": [
+    "mcpforunity://editor/state",
+    "mcpforunity://editor/active-tool",
+    "mcpforunity://scene/cameras",
+    "mcpforunity://scene/gameobject-api",
+    "mcpforunity://project/layers",
+    "mcpforunity://menu-items",
+    "mcpforunity://prefab-api",
+    "mcpforunity://editor/prefab-stage",
+    "mcpforunity://project/info",
+    "mcpforunity://pipeline/renderer-features",
+    "mcpforunity://rendering/stats",
+    "mcpforunity://editor/selection",
+    "mcpforunity://project/tags",
+    "mcpforunity://tests",
+    "mcpforunity://tool-groups",
+    "mcpforunity://instances",
+    "mcpforunity://scene/volumes",
+    "mcpforunity://editor/windows"
+  ],
+  "editor_round_trip_verified": true,
+  "blocker": null,
+  "instance_registry": [
+    "{\"success\": true, \"transport\": \"stdio\", \"instance_count\": 1, \"instances\": [{\"id\": \"MRWorkshop@8fff9431\", \"name\": \"MRWorkshop\", \"path\": \"C:/Users/mrbos/Downloads/Git Hub Local_remote/Zero-DAWN-Dymb-aloy/.worktrees/focus-core/MRWorkshop/Assets\", \"hash\": \"8fff9431\", \"port\": 54486, \"status\": \"running\", \"last_heartbeat\": \"2026-10-10T14:47:06.135089+00:00\", \"unity_version\": \"6000.3.25f1\", \"project_scoped_tools\": false}]}"
+  ],
+  "selection": {
+    "success": true,
+    "message": "Active instance set to MRWorkshop@8fff9431",
+    "data": {
+      "instance": "MRWorkshop@8fff9431",
+      "session_key": "global"
+    }
+  },
+  "active_scene": {
+    "success": true,
+    "message": "Retrieved active scene information.",
+    "data": {
+      "name": "Workshop",
+      "path": "Assets/Workshop/Scenes/Workshop.unity",
+      "buildIndex": 0,
+      "isDirty": false,
+      "isLoaded": true,
+      "rootCount": 3
+    }
+  }
+}

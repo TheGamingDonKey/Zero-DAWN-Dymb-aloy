@@ -99,6 +99,15 @@ namespace MRWorkshop.Editor
             var runtime = OVRRuntimeSettings.Instance;
             runtime.HandSkeletonVersion = OVRHandSkeletonVersion.OpenXR;
             OVRRuntimeSettings.CommitRuntimeSettings(runtime);
+            // Meta's required GameActivity rule validates the local manifest too.
+            // Preserve custom entries while creating/updating the Workshop manifest.
+            OVRManifestPreprocessor.GenerateOrUpdateAndroidManifest(silentMode: true);
+            var manifest = OVRManifestPreprocessor.GetAndroidManifestXmlDocument();
+            var activities = manifest?.SelectNodes("/manifest/application/activity");
+            const string androidNamespace = "http://schemas.android.com/apk/res/android";
+            if (activities == null || activities.Count != 1 ||
+                activities[0].Attributes?["name", androidNamespace]?.Value != "com.unity3d.player.UnityPlayerGameActivity")
+                throw new InvalidOperationException("Workshop manifest must contain exactly one UnityPlayerGameActivity; Meta manifest generation failed.");
             AssetDatabase.SaveAssets();
 
             var issues = new List<OpenXRFeature.ValidationRule>();
