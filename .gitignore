@@ -18,5 +18,16 @@ FocusCore/*.user
 *.keystore
 *.blend1
 *.blend2
+MRWorkshop/[Ll]ibrary/
+MRWorkshop/[Tt]emp/
+MRWorkshop/[Oo]bj/
+MRWorkshop/[Ll]ogs/
+MRWorkshop/[Uu]ser[Ss]ettings/
+MRWorkshop/[Bb]uilds/
+MRWorkshop/.vs/
+MRWorkshop/*.csproj
+MRWorkshop/*.sln*
+MRWorkshop/Assets/Resources/DevAgentSettings.asset*
+MRWorkshop/Assets/Resources/PerformanceTestRun*.json*
 FocusCore/Assets/Resources/DevAgentSettings.asset*
 FocusCore/Assets/Resources/PerformanceTestRun*.json*

@@ -1,0 +1,5 @@
+{
+  "name": "MRWorkshop.Runtime",
+  "rootNamespace": "MRWorkshop",
+  "references": ["MRWorkshop.Domain", "Oculus.Interaction", "Oculus.VR", "UnityEngine.UI", "Unity.XR.Management", "Unity.InputSystem"]
+}

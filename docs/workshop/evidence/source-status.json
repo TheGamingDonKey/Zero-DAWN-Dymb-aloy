@@ -1,0 +1,69 @@
+{
+  "Date": "2026-10-10",
+  "Project": "MRWorkshop",
+  "UnityVersion": "6000.3.25f1",
+  "SourceImplemented": true,
+  "DomainTests": {
+    "Environment": "Host C# / NUnit, not Unity",
+    "Green": {
+      "Failed": 0,
+      "Total": 16,
+      "Skipped": 0,
+      "Passed": 16
+    },
+    "Red": {
+      "Reason": "NotImplementedException",
+      "Total": 16,
+      "Failed": 16
+    }
+  },
+  "HostCompilation": {
+    "ReferenceSource": "Installed Unity and FocusCore cached SDK assemblies",
+    "Assemblies": [
+      "MRWorkshop.Domain",
+      "MRWorkshop.Runtime",
+      "MRWorkshop.Editor",
+      "MRWorkshop.TestSource"
+    ],
+    "Output": ".artifacts/workshop/compile-20261010-093051-603ef94f",
+    "UnityExecution": false,
+    "Passed": true
+  },
+  "UnityLaunch": {
+    "Error": "No valid Unity Editor license found. Please activate your license.",
+    "DesktopLocked": true,
+    "RepeatedLaunch": false,
+    "OwnedFailedEditorStopped": true,
+    "HubOpened": true,
+    "OwnedPid": 50856,
+    "LicenseReady": false
+  },
+  "UnitySceneGenerated": false,
+  "UnityTestsRun": false,
+  "DesktopDemoRun": false,
+  "ApkBuilt": false,
+  "HeadsetVerified": false,
+  "GeneratorMessageSent": false,
+  "Next": "Unlock Windows and refresh Personal licence in existing Hub; run actual Unity scene/test/demo/build.",
+  "UnityTestsAuthored": 8,
+  "McpEndpoint": {
+    "Port": 54486,
+    "StatusDirectory": ".artifacts/workshop/mcp/status",
+    "RoundtripVerified": false
+  },
+  "Critic": {
+    "SourceReviewCompleted": true,
+    "ProductScore": null,
+    "IssuesFound": [
+      "Disabled test fixture left availability suspended",
+      "Copied CLI wrapper targeted FocusCore"
+    ],
+    "SourceFixes": [
+      "Restore/assert simulated fixture availability",
+      "Target MRWorkshop explicitly",
+      "Separate endpoint/status and unique Workshop APK output"
+    ],
+    "RemainingConcreteSourceBlocker": false,
+    "UnityExecutionVerified": false
+  }
+}

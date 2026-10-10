@@ -1,0 +1,7 @@
+{
+  "name": "MRWorkshop.EditModeTests",
+  "rootNamespace": "MRWorkshop.Tests",
+  "references": ["MRWorkshop.Domain"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}
