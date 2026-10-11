@@ -2,7 +2,7 @@
   "Date": "2026-10-10",
   "Project": "MRWorkshop",
   "UnityVersion": "6000.3.25f1",
-  "Phase": "Corrected source passed; Android packaging stopped without new APK; Unity reopening for visible desktop Workshop",
+  "Phase": "Corrected runtime tested; corrected APK unfinished; specialist supervision, acceptance capture, asset/audio recipes and handoff delivered",
   "SourceImplemented": true,
   "RemainingConcreteReviewedSourceBlocker": false,
   "SourceCheckpoint": "Corrected snapshot in the commit containing this evidence; exact package checkpoint to be recorded after build",
@@ -44,7 +44,8 @@
     "Render": "desktop-input-corrected.png",
     "HumanInputVerified": false,
     "ConsoleErrors": 0,
-    "InjectedMouseKeyboardPassed": true
+    "InjectedMouseKeyboardPassed": true,
+    "ReopenedEvidence": "desktop-reopened.json"
   },
   "Toolchain": {
     "MockedMcpTests": 10,
@@ -76,7 +77,7 @@
   },
   "HeadsetVerified": false,
   "HumanInputVerified": false,
-  "Next": "Finish opening visible desktop Workshop for Shane. After closing Editor, resume retained corrected export with one worker and inspect its APK before Quest acceptance.",
+  "Next": "After closing Editor and satisfying resource admission, resume retained corrected export with one supervised worker. Inspect resulting unique APK before physical Quest acceptance. Optional new asset recipes remain outside runtime.",
   "HistoricalBaseline": {
     "Date": "2026-10-10",
     "Project": "MRWorkshop",
