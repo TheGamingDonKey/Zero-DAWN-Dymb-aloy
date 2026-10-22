@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aa7989ffa80457a8413e7aadc03117c, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopButton
   workshop: {fileID: 347581734}
   action: Smaller
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.09, g: 0.27, b: 0.34, a: 1}
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.Grabbable
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43de85c2c99f4e09b22975a9fadf146b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopPart
   workshop: {fileID: 347581734}
   kind: 1
@@ -564,8 +564,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bd1f1e23a51a7d428dd152466736b7a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _boundsClipper: {fileID: 212879579}
 --- !u!114 &212879579
 MonoBehaviour:
@@ -577,8 +577,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e08ab46e8fb05dc46b34e54466dc11e3, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _position: {x: 0, y: 0, z: 0}
   _size: {x: 680, y: 265, z: 0.01}
 --- !u!114 &212879580
@@ -591,8 +591,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efd927768041afd4d90e5d822283f0f4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _planeSurface: {fileID: 212879581}
   _clippers:
   - {fileID: 212879579}
@@ -606,8 +606,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cf2a74d69b1c1e41916d2a7afdff5be, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _facing: 0
   _doubleSided: 0
 --- !u!1 &247509551
@@ -659,8 +659,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bd1f1e23a51a7d428dd152466736b7a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _boundsClipper: {fileID: 247509554}
 --- !u!114 &247509554
 MonoBehaviour:
@@ -672,8 +672,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e08ab46e8fb05dc46b34e54466dc11e3, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _position: {x: 0, y: 0, z: 0}
   _size: {x: 680, y: 265, z: 0.01}
 --- !u!114 &247509555
@@ -686,8 +686,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efd927768041afd4d90e5d822283f0f4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _planeSurface: {fileID: 247509556}
   _clippers:
   - {fileID: 247509554}
@@ -701,8 +701,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cf2a74d69b1c1e41916d2a7afdff5be, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _facing: 0
   _doubleSided: 0
 --- !u!1 &265223784
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a398af46b604eeab4255e4e05704c91, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopController
   parts:
   - {fileID: 1072659129}
@@ -1112,10 +1112,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c8d81482658473d890dc140287cb0cf, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopDesktopInput
   workshop: {fileID: 347581734}
-  view: {fileID: 1376301876}
+  view: {fileID: 2054252969}
 --- !u!1 &461854375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -1525,7 +1525,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -1729,8 +1729,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IgnoreLayout: 1
   m_MinWidth: -1
   m_MinHeight: -1
@@ -1749,8 +1749,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ffe41fe81087fa41a2062cc69b99615, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
@@ -1765,8 +1765,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 317e663e2bb60ea408fe22b908b59295, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
@@ -1911,7 +1911,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609411}
@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609390}
@@ -1981,7 +1981,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aa7989ffa80457a8413e7aadc03117c, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopButton
   workshop: {fileID: 347581734}
   action: Reset
@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -2039,7 +2039,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.09, g: 0.27, b: 0.34, a: 1}
@@ -2120,7 +2120,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609389}
@@ -2135,7 +2135,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609384}
@@ -2250,7 +2250,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aa7989ffa80457a8413e7aadc03117c, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopButton
   workshop: {fileID: 347581734}
   action: Power
@@ -2264,7 +2264,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -2308,7 +2308,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.09, g: 0.27, b: 0.34, a: 1}
@@ -2498,7 +2498,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aa7989ffa80457a8413e7aadc03117c, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopButton
   workshop: {fileID: 347581734}
   action: Rotate
@@ -2512,7 +2512,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -2556,7 +2556,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.09, g: 0.27, b: 0.34, a: 1}
@@ -2631,7 +2631,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -2710,7 +2710,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -2818,7 +2818,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.Grabbable
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
@@ -2921,7 +2921,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43de85c2c99f4e09b22975a9fadf146b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopPart
   workshop: {fileID: 347581734}
   kind: 0
@@ -2973,7 +2973,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -3015,7 +3015,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609381}
@@ -3102,7 +3102,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
@@ -3119,7 +3119,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.025, g: 0.045, b: 0.08, a: 0.94}
@@ -3460,8 +3460,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a1bc992571301d4a9602ac95ef4c71a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
@@ -3482,8 +3482,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
@@ -3562,7 +3562,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aa7989ffa80457a8413e7aadc03117c, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopButton
   workshop: {fileID: 347581734}
   action: Larger
@@ -3576,7 +3576,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -3620,7 +3620,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.09, g: 0.27, b: 0.34, a: 1}
@@ -3658,103 +3658,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609399}
   trackedDevice: {fileID: 1406609400}
---- !u!1 &1376301874
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1376301877}
-  - component: {fileID: 1376301876}
-  - component: {fileID: 1376301875}
-  m_Layer: 0
-  m_Name: Desktop simulation camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &1376301875
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376301874}
-  m_Enabled: 1
---- !u!20 &1376301876
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376301874}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.018, g: 0.03, b: 0.055, a: 1}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 44
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &1376301877
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376301874}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.20063736, y: 0, z: 0, w: 0.9796656}
-  m_LocalPosition: {x: 0, y: 1.65, z: -0.23}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380532084
 GameObject:
   m_ObjectHideFlags: 0
@@ -3802,7 +3710,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -3844,7 +3752,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609407}
@@ -3896,7 +3804,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -4045,8 +3953,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1406609380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8524254299352144336, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4061,8 +3969,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9067480af55f5874d8f613b16812f968, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609382 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5118655712491163585, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4072,8 +3980,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2123511724197331346, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4088,8 +3996,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acb743c666c1ab34e928a0b62c2fa862, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609385 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8562733696853701588, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4099,8 +4007,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3673df66324d8f34d9433049c54de631, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5816869789119185270, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4115,8 +4023,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3673df66324d8f34d9433049c54de631, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2014371703943414502, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4131,8 +4039,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d952c175ec3c6554199fd744548ce50a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609390 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7879504747028130743, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4142,8 +4050,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9067480af55f5874d8f613b16812f968, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609391 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7788694536797131464, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4153,8 +4061,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3919860673323343003, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4169,8 +4077,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4733c5f009d26ad49b3685117b8d3eb4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609394 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3839104057065337266, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4180,8 +4088,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8440473299239590112, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4196,8 +4104,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d952c175ec3c6554199fd744548ce50a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609397 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2619975129667259603, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4207,8 +4115,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609398 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2691477891233128787, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4223,8 +4131,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4733c5f009d26ad49b3685117b8d3eb4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609400 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9156045910545919199, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4234,8 +4142,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3673df66324d8f34d9433049c54de631, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609401 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3684611858673667357, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4250,8 +4158,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acb743c666c1ab34e928a0b62c2fa862, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5714194725343635896, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4261,8 +4169,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3673df66324d8f34d9433049c54de631, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7575539993722575642, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4277,8 +4185,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3673df66324d8f34d9433049c54de631, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2480473328659896458, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4293,8 +4201,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d952c175ec3c6554199fd744548ce50a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609408 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6107315316480700891, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4304,8 +4212,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9067480af55f5874d8f613b16812f968, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609409 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6165169882451036324, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4315,8 +4223,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609410 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1152413248189482743, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4331,8 +4239,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4733c5f009d26ad49b3685117b8d3eb4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609412 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 927506165063756766, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4342,8 +4250,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609413 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5528872791872864908, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4358,8 +4266,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d952c175ec3c6554199fd744548ce50a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609415 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2144857198232278719, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4369,8 +4277,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609416 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2072247211319327551, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4385,8 +4293,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4733c5f009d26ad49b3685117b8d3eb4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406609418 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5082551887584966323, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4396,8 +4304,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3673df66324d8f34d9433049c54de631, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 773013623006058353, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4412,8 +4320,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9067480af55f5874d8f613b16812f968, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406609421 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2657176093984234494, guid: f95354d3cb04f7b4fb954b8f641c2400, type: 3}
@@ -4434,7 +4342,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609420}
@@ -4449,7 +4357,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609417}
@@ -4529,7 +4437,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.Grabbable
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
@@ -4630,7 +4538,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43de85c2c99f4e09b22975a9fadf146b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopPart
   workshop: {fileID: 347581734}
   kind: 2
@@ -4684,8 +4592,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IgnoreLayout: 1
   m_MinWidth: -1
   m_MinHeight: -1
@@ -4704,8 +4612,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ffe41fe81087fa41a2062cc69b99615, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
@@ -4720,8 +4628,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb86ba9d4c5126e48bfef9b0c9550e9d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
@@ -4819,7 +4727,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2518c50cb3fc6a6458d4b743c2f69c7d, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.PointableCanvasModule
   m_SendPointerHoverToParent: 1
   _useInitialPressPositionForDrag: 1
@@ -4834,7 +4742,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
@@ -4987,8 +4895,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a1bc992571301d4a9602ac95ef4c71a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
@@ -5009,8 +4917,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
@@ -5243,8 +5151,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a1bc992571301d4a9602ac95ef4c71a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
@@ -5265,8 +5173,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
@@ -5338,7 +5246,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609402}
@@ -5443,7 +5351,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609396}
@@ -5548,7 +5456,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609414}
@@ -5563,7 +5471,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609408}
@@ -5615,7 +5523,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -5647,6 +5555,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040381205}
   m_CullTransparentMesh: 1
+--- !u!1 &2054252967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054252970}
+  - component: {fileID: 2054252969}
+  - component: {fileID: 2054252968}
+  m_Layer: 0
+  m_Name: Desktop simulation camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &2054252968
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054252967}
+  m_Enabled: 1
+--- !u!20 &2054252969
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054252967}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.018, g: 0.03, b: 0.055, a: 1}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 44
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &2054252970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054252967}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.20063736, y: 0, z: 0, w: 0.9796656}
+  m_LocalPosition: {x: 0, y: 1.65, z: -0.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2071019306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5657,7 +5657,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aedc5408dbe46a2b9301e0e71f896a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MRWorkshop.Runtime::MRWorkshop.WorkshopInputSource
   workshop: {fileID: 347581734}
   interactorComponent: {fileID: 1406609393}
@@ -5690,7 +5690,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.87, g: 0.95, b: 1, a: 1}
@@ -5748,4 +5748,4 @@ SceneRoots:
   - {fileID: 347581735}
   - {fileID: 1621717186}
   - {fileID: 1795387590}
-  - {fileID: 1376301877}
+  - {fileID: 2054252970}
