@@ -18,6 +18,16 @@ For the target increment choose **Focus/Run Target Interaction Demo (Simulated I
 
 ## Build and test
 
+For the portable drive, run PowerShell 7 from its `FocusCore-MRWorkshop\Source` checkout. Set the cache parent in that session and pass the drive's editor to the build script. Adjust the drive letter to match Windows.
+
+```powershell
+$env:FOCUS_BUILD_CACHE_ROOT = 'D:\.fbc'
+$editor = 'D:\FocusCore-MRWorkshop\Tools\Unity\6000.3.25f1\Editor\Unity.exe'
+./scripts/Build.ps1 -Scene Core -UnityPath $editor
+```
+
+For MR Workshop, use `./scripts/workshop/build-supervisor.ps1 -UnityPath $editor -Workers 1` in the same session. Each checkout gets its own directory under the cache parent for Gradle and Android exports. With the variable unset, the default parent is `%USERPROFILE%\.fbc`.
+
 From the checkout, PowerShell 7:
 
 ```powershell

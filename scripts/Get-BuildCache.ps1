@@ -3,7 +3,16 @@
 $ErrorActionPreference = 'Stop'
 $focusRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $focusKey = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($focusRoot.ToLowerInvariant()))).Substring(0,12).ToLowerInvariant()
-$focusCache = Join-Path $env:USERPROFILE ('.fbc\' + $focusKey)
+$focusCacheRoot = $env:FOCUS_BUILD_CACHE_ROOT
+if ($focusCacheRoot) {
+    if (-not [IO.Path]::IsPathFullyQualified($focusCacheRoot)) {
+        throw 'FOCUS_BUILD_CACHE_ROOT must be an absolute path.'
+    }
+    $focusCacheRoot = [IO.Path]::GetFullPath($focusCacheRoot)
+} else {
+    $focusCacheRoot = Join-Path $env:USERPROFILE '.fbc'
+}
+$focusCache = Join-Path $focusCacheRoot $focusKey
 $focusOwner = Join-Path $focusCache 'project.txt'
 if (Test-Path -LiteralPath $focusCache) {
     if (-not (Test-Path -LiteralPath $focusOwner) -or (Get-Content -LiteralPath $focusOwner -Raw).Trim() -ne $focusRoot) {
